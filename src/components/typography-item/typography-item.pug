@@ -1,4 +1,4 @@
-mixin typography-item(tagSize, tagText, descriptionClass, descriptionText)
+mixin typography-item(tagSize, tagText, descriptionTag, descriptionText)
   section.typography-item
-    div(class=`typography-item__tag typography-item__${tagSize}`)= tagText
-    div(class=`${descriptionClass}`)= descriptionText
+    div(class=`typography-item__tag typography-item__tag_size_${tagSize}`)= tagText
+    div(class=`typography-item__description_tag_${descriptionTag}`)= descriptionText

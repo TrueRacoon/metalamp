@@ -1,5 +1,4 @@
 @import 'src/variables.scss';
-@import 'src/mixes.scss';
 
 .typography-item {
   display: flex;
@@ -9,25 +8,52 @@
     min-width: 37px;
     text-align: right;
     color: transparentize($color-primary, 0.75);
+
+    &_size_largest {
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    &_size_larger {
+      font-size: 19px;
+      line-height: 23px;
+    }
+
+    &_size_small {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &_size_medium {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 
-  &__largest {
-    font-size: 24px;
-    line-height: 29px;
-  }
+  &__description {
+    &_tag_h1 {
+      font-size: 24px;
+      line-height: 29px;
+      font-weight: bold;
+    }
 
-  &__larger {
-    font-size: 19px;
-    line-height: 23px;
-  }
+    &_tag_h2 {
+      font-size: 19px;
+      line-height: 23px;
+      font-weight: bold;
+    }
 
-  &__small {
-    font-size: 12px;
-    line-height: 15px;
-  }
+    &_tag_h3 {
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
-  &__medium {
-    font-size: 14px;
-    line-height: 24px;
+    &_tag_body {
+      font-size: 14px;
+      line-height: 24px;
+      color: transparentize($color-primary, 0.25);
+    }
   }
 }

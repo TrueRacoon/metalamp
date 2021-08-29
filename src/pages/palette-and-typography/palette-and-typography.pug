@@ -44,6 +44,33 @@ block variables
         'hex': '#6FCF97',
       },
     ];
+    var typographyData = [
+      {
+        tagSize: 'largest',
+        tagText: 'H1',
+        descriptionTag: 'h1',
+        descriptionText: 'This one is the sub-section or widget title',
+      },
+      {
+        tagSize: 'larger',
+        tagText: 'H2',
+        descriptionTag: 'h2',
+        descriptionText: 'Next one is the item title inside widgets',
+      },
+      {
+        tagSize: 'small',
+        tagText: 'H3',
+        descriptionTag: 'h3',
+        descriptionText: 'This is a label or CTA text',
+      },
+      {
+        tagSize: 'medium',
+        tagText: 'Body',
+        descriptionTag: 'body',
+        descriptionText: 'This is the body text which is used for most of ' +
+                'the design, like paragraphs, lists, etc.'
+      },
+    ];
 
 block content
   .palette-and-typography
@@ -57,36 +84,12 @@ block content
               val.hex
             )
     ul.typography
-      li
-        .typography-item__positioning
-          +typography-item(
-            'largest',
-            'H1',
-            'h1',
-            'This one is the sub-section or widget title'
-          )
-      li
-        .typography-item__positioning
-          +typography-item(
-            'larger',
-            'H2',
-            'h2',
-            'Next one is the item title inside widgets'
-          )
-      li
-        .typography-item__positioning
-          +typography-item(
-            'small',
-            'H3',
-            'h3',
-            'This is a label or CTA text'
-          )
-      li
-        .typography-item__positioning
-          +typography-item(
-            'medium',
-            'Body',
-            'p',
-            'This is the body text which is used for most ' +
-            'of the design, like paragraphs, lists, etc.'
-          )
+      each val in typographyData
+        li
+          .typography-item__positioning
+            +typography-item(
+              val.tagSize,
+              val.tagText,
+              val.descriptionTag,
+              val.descriptionText,
+            )
