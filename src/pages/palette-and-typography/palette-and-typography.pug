@@ -4,44 +4,44 @@ include ../../components/typography-item/typography-item.pug
 
 block variables
   -
-    var title = 'Colors & Type'
-    var description = 'Color & Type Description'
-    var keywords = 'Color & Type Keywords'
-    var palette = [
+    var title = 'Colors & Type';
+    var description = 'Color & Type Description';
+    var keywords = 'Color & Type Keywords';
+    var paletteData = [
       {
-        'color_modifier': 'dark-shade',
-        'name': 'Dark Shade 100%',
-        'hex': '#1F2041',
+        colorModifier: 'dark-shade',
+        name: 'Dark Shade 100%',
+        hex: '#1F2041',
       },
       {
-        'color_modifier': 'dark-shade-75',
-        'name': 'Dark Shade 75%',
-        'hex': '#1F2041',
+        colorModifier: 'dark-shade-75',
+        name: 'Dark Shade 75%',
+        hex: '#1F2041',
       },
       {
-        'color_modifier': 'dark-shade-50',
-        'name': 'Dark Shade 50%',
-        'hex': '#1F2041',
+        colorModifier: 'dark-shade-50',
+        name: 'Dark Shade 50%',
+        hex: '#1F2041',
       },
       {
-        'color_modifier': 'dark-shade-25',
-        'name': 'Dark Shade 25%',
-        'hex': '#1F2041',
+        colorModifier: 'dark-shade-25',
+        name: 'Dark Shade 25%',
+        hex: '#1F2041',
       },
       {
-        'color_modifier': 'dark-shade-5',
-        'name': 'Dark Shade 5%',
-        'hex': '#1F2041',
+        colorModifier: 'dark-shade-5',
+        name: 'Dark Shade 5%',
+        hex: '#1F2041',
       },
       {
-        'color_modifier': 'purple',
-        'name': 'Purple',
-        'hex': '#BC9CFF',
+        colorModifier: 'purple',
+        name: 'Purple',
+        hex: '#BC9CFF',
       },
       {
-        'color_modifier': 'green',
-        'name': 'Green',
-        'hex': '#6FCF97',
+        colorModifier: 'green',
+        name: 'Green',
+        hex: '#6FCF97',
       },
     ];
     var typographyData = [
@@ -75,13 +75,13 @@ block variables
 block content
   .palette-and-typography
     ul.palette
-      each val in palette
+      each val in paletteData
         li
           .palette-item__positioning
             +palette-item(
-              val.color_modifier,
+              val.colorModifier,
               val.name,
-              val.hex
+              val.hex,
             )
     ul.typography
       each val in typographyData
