@@ -1,0 +1,59 @@
+@import 'src/variables.scss';
+
+.palette-item {
+  display: flex;
+  align-items: center;
+
+  &__view {
+    margin-right: 40px;
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+
+    &_dark-shade-100 {
+      background-color: $color-primary;
+    }
+
+    &_dark-shade-75 {
+      opacity: 0.75;
+      background-color: $color-primary;
+    }
+
+    &_dark-shade-50 {
+      opacity: 0.5;
+      background-color: $color-primary;
+    }
+
+    &_dark-shade-25 {
+      opacity: 0.25;
+      background-color: $color-primary;
+    }
+
+    &_dark-shade-5 {
+      opacity: 0.05;
+      background-color: $color-primary;
+    }
+
+    &_purple {
+      background-color: $color-purple;
+    }
+
+    &_green {
+      background-color: $color-green;
+    }
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: bold;
+  }
+
+  &__hex {
+    margin: 0;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: normal;
+  }
+}

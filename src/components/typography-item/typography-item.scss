@@ -1,0 +1,33 @@
+@import 'src/variables.scss';
+@import 'src/mixes.scss';
+
+.typography-item {
+  display: flex;
+
+  &__tag {
+    margin-right: 30px;
+    min-width: 37px;
+    text-align: right;
+    color: transparentize($color-primary, 0.75);
+  }
+
+  &__largest {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__larger {
+    font-size: 19px;
+    line-height: 23px;
+  }
+
+  &__small {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__medium {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}

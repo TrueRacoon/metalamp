@@ -1,0 +1,6 @@
+mixin palette-item(color, name, hex)
+  section.palette-item
+    div(class=`palette-item__view palette-item__view_${color}`)
+    .palette-item__description
+      h2.palette-item__name= name
+      p.palette-item__hex= hex

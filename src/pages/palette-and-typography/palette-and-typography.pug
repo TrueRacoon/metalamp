@@ -1,0 +1,69 @@
+extends ../ui-kit/ui-kit.pug
+include ../../components/palette-item/palette-item.pug
+include ../../components/typography-item/typography-item.pug
+
+block variables
+  -
+    const title = 'Colors & Type'
+    const description = 'Color & Type Description'
+    const keywords = 'Color & Type Keywords'
+
+block content
+  .palette-and-typography
+    ul.palette
+      each val in ['100', '75', '50', '25', '5']
+        li
+          .palette-item__positioning
+            +palette-item(
+              `dark-shade-${val}`,
+              `Dark Shade ${val}%`,
+              '#1F2041'
+            )
+      li
+        .palette-item__positioning
+          +palette-item(
+            'purple',
+            'Purple',
+            '#BC9CFF'
+          )
+      li
+        .palette-item__positioning
+          +palette-item(
+            'green',
+            'Green',
+            '#6FCF97'
+          )
+    ul.typography
+      li
+        .typography-item__positioning
+          +typography-item(
+            'largest',
+            'H1',
+            'h1',
+            'This one is the sub-section or widget title'
+          )
+      li
+        .typography-item__positioning
+          +typography-item(
+            'larger',
+            'H2',
+            'h2',
+            'Next one is the item title inside widgets'
+          )
+      li
+        .typography-item__positioning
+          +typography-item(
+            'small',
+            'H3',
+            'h3',
+            'This is a label or CTA text'
+          )
+      li
+        .typography-item__positioning
+          +typography-item(
+            'medium',
+            'Body',
+            'p',
+            'This is the body text which is used for most ' +
+            'of the design, like paragraphs, lists, etc.'
+          )

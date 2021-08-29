@@ -1,0 +1,4 @@
+mixin typography-item(tagSize, tagText, descriptionClass, descriptionText)
+  section.typography-item
+    div(class=`typography-item__tag typography-item__${tagSize}`)= tagText
+    div(class=`${descriptionClass}`)= descriptionText
