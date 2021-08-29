@@ -7,7 +7,7 @@
     margin-right: 30px;
     min-width: 37px;
     text-align: right;
-    color: transparentize($color-primary, 0.75);
+    color: transparentize($color-dark-shade, 0.75);
 
     &_size_largest {
       font-size: 24px;
@@ -53,7 +53,7 @@
     &_tag_body {
       font-size: 14px;
       line-height: 24px;
-      color: transparentize($color-primary, 0.25);
+      color: transparentize($color-dark-shade, 0.25);
     }
   }
 }
