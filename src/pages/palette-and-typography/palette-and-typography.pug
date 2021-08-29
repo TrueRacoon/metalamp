@@ -4,35 +4,58 @@ include ../../components/typography-item/typography-item.pug
 
 block variables
   -
-    const title = 'Colors & Type'
-    const description = 'Color & Type Description'
-    const keywords = 'Color & Type Keywords'
+    var title = 'Colors & Type'
+    var description = 'Color & Type Description'
+    var keywords = 'Color & Type Keywords'
+    var palette = [
+      {
+        'color_modifier': 'dark-shade',
+        'name': 'Dark Shade 100%',
+        'hex': '#1F2041',
+      },
+      {
+        'color_modifier': 'dark-shade-75',
+        'name': 'Dark Shade 75%',
+        'hex': '#1F2041',
+      },
+      {
+        'color_modifier': 'dark-shade-50',
+        'name': 'Dark Shade 50%',
+        'hex': '#1F2041',
+      },
+      {
+        'color_modifier': 'dark-shade-25',
+        'name': 'Dark Shade 25%',
+        'hex': '#1F2041',
+      },
+      {
+        'color_modifier': 'dark-shade-5',
+        'name': 'Dark Shade 5%',
+        'hex': '#1F2041',
+      },
+      {
+        'color_modifier': 'purple',
+        'name': 'Purple',
+        'hex': '#BC9CFF',
+      },
+      {
+        'color_modifier': 'green',
+        'name': 'Green',
+        'hex': '#6FCF97',
+      },
+    ];
 
 block content
   .palette-and-typography
     ul.palette
-      each val in ['100', '75', '50', '25', '5']
+      each val in palette
         li
           .palette-item__positioning
             +palette-item(
-              `dark-shade-${val}`,
-              `Dark Shade ${val}%`,
-              '#1F2041'
+              val.color_modifier,
+              val.name,
+              val.hex
             )
-      li
-        .palette-item__positioning
-          +palette-item(
-            'purple',
-            'Purple',
-            '#BC9CFF'
-          )
-      li
-        .palette-item__positioning
-          +palette-item(
-            'green',
-            'Green',
-            '#6FCF97'
-          )
     ul.typography
       li
         .typography-item__positioning
