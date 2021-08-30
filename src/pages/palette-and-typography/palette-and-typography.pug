@@ -76,7 +76,7 @@ block content
   .palette-and-typography
     ul.palette
       each val in paletteData
-        li
+        li.pallete__list-item
           .palette-item__positioning
             +palette-item(
               val.colorModifier,
@@ -85,7 +85,7 @@ block content
             )
     ul.typography
       each val in typographyData
-        li
+        li.typography__list-item
           .typography-item__positioning
             +typography-item(
               val.tagSize,
