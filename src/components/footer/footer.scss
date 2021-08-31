@@ -1,0 +1,24 @@
+@import 'src/components/footer-menu/footer-menu.scss';
+
+.footer {
+  &__nav-and-subscription {
+    display: flex;
+  }
+
+  &__site-description,
+  &__subscription {
+    width: 260px;
+  }
+
+  &__logo-wrap {
+    margin-bottom: 20px;
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__subscription-description {
+    margin: 21px 0 20px;
+  }
+}

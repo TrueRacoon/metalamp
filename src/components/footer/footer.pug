@@ -1,0 +1,92 @@
+include ../footer-menu/footer-menu.pug
+include ../logo/logo-link
+
+mixin footer()
+  -
+    var siteDescription = 'Бронирование номеров в лучшем отеле 2019 года ' +
+            'по версии ассоциации «Отельные взгляды»';
+    var subscriptionDescription = 'Получайте специальные предложения и новости сервиса';
+    var menuData = [
+      {
+        columnName: 'Навигация',
+        links: [
+          {
+            linkName: 'О нас',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Новости',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Служба поддержки',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Услуги',
+            link: 'page-not-found.html'
+          },
+        ],
+      },
+      {
+        columnName: 'О нас',
+        links: [
+          {
+            linkName: 'О сервисе',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Наша команда',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Вакансии',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Инвесторы',
+            link: 'page-not-found.html'
+          },
+        ],
+      },
+      {
+        columnName: 'Служба поддержки',
+        links: [
+          {
+            linkName: 'Соглашения',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Сообщества',
+            link: 'page-not-found.html'
+          },
+          {
+            linkName: 'Связь с нами',
+            link: 'page-not-found.html'
+          },
+        ],
+      },
+    ];
+
+  .footer
+    .footer__nav-and-subscription
+      .footer__site-description
+        .footer__logo-wrap
+          +logo-link()
+        +text(
+          'p',
+          siteDescription
+        )
+      .footer__menu
+        +footer-menu(menuData)
+      .footer__subscription
+        .footer__subscription-caption
+          +text(
+            'h3',
+            'Подписка'
+          )
+        .footer__subscription-description
+          +text(
+            'p',
+            subscriptionDescription
+          )
