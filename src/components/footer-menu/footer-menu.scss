@@ -1,0 +1,30 @@
+@import 'src/variables.scss';
+@import 'src/components/text/text.scss';
+
+.footer-menu {
+  display: flex;
+
+  &__column-title-wrap {
+    margin-bottom: 21px;
+  }
+
+  &__links-list {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__link-item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: transparentize($color-dark-shade, 0.5);
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

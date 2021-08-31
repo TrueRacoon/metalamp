@@ -1,0 +1,15 @@
+include ../text/text.pug
+
+mixin footer-menu(menu)
+  nav.footer-menu
+    each menuColumn in menu
+      .footer-menu__column
+        .footer-menu__column-title-wrap
+          +text(
+            'h3',
+            `${menuColumn.columnName}`
+          )
+        ul.footer-menu__links-list
+          each link in menuColumn.links
+            li.footer-menu__link-item
+              a.footer-menu__link(href= link.link)= link.linkName
