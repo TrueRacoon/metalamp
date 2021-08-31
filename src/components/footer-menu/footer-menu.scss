@@ -4,6 +4,10 @@
 .footer-menu {
   display: flex;
 
+  &__column {
+    width: 200px;
+  }
+
   &__column-title-wrap {
     margin-bottom: 21px;
   }
