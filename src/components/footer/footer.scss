@@ -1,13 +1,55 @@
+@import 'src/variables.scss';
 @import 'src/components/footer-menu/footer-menu.scss';
+@import 'src/components/social-buttons/social-buttons.scss';
 
 .footer {
+  padding: 0 5%;
+
+  @media (min-width: 1440px) {
+    padding: 0 145px 0 140px;
+  }
+
+  background-color: #fff;
+
+  &__top {
+    margin: 0 auto;
+    padding: 5% 0;
+
+    @media (min-width: 1440px) {
+      padding: 104px 0 100px;
+      max-width: 1920px;
+    }
+  }
+
   &__nav-and-subscription {
     display: flex;
+    max-width: 1920px;
+    justify-content: center;
+
+    @media (max-width: 1365px) {
+      flex-wrap: wrap;
+      justify-content: left;
+    }
   }
 
   &__site-description,
   &__subscription {
-    width: 260px;
+    @media (min-width: 1440px) {
+      min-width: 260px;
+      max-width: 20%;
+    }
+  }
+
+  &__site-description {
+    width: 20%;
+
+    @media (max-width: 1365px) {
+      width: 25%;
+    }
+
+    @media (min-width: 1440px) {
+      width: 380px;
+    }
   }
 
   &__logo-wrap {
@@ -15,11 +57,42 @@
   }
 
   &__menu {
-    margin-left: 40px;
+    margin-left: 2%;
     display: flex;
+    width: 60%;
+
+    @media (max-width: 1365px) {
+      margin-left: 0;
+      width: 75%;
+    }
+
+    @media (min-width: 1366px) {
+      margin-left: 40px;
+    }
+  }
+
+  &__subscription {
+    @media (max-width: 1023px) {
+      margin-top: 2em;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1365px) {
+      margin-top: 1em;
+    }
   }
 
   &__subscription-description {
     margin: 21px 0 20px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__copyright {
+    font-size: 14px;
+    line-height: 17px;
+    color: transparentize($color-dark-shade, 0.25);
   }
 }

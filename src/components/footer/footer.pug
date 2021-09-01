@@ -1,11 +1,13 @@
 include ../footer-menu/footer-menu.pug
-include ../logo/logo-link
+include ../logo/logo-link.pug
+include ../social-buttons/social-buttons.pug
 
 mixin footer()
   -
     var siteDescription = 'Бронирование номеров в лучшем отеле 2019 года ' +
             'по версии ассоциации «Отельные взгляды»';
     var subscriptionDescription = 'Получайте специальные предложения и новости сервиса';
+    var copyrightText = 'Copyright © 2018 Toxin отель. Все права защищены.';
     var menuData = [
       {
         columnName: 'Навигация',
@@ -69,24 +71,29 @@ mixin footer()
     ];
 
   .footer
-    .footer__nav-and-subscription
-      .footer__site-description
-        .footer__logo-wrap
-          +logo-link()
-        +text(
-          'p',
-          siteDescription
-        )
-      .footer__menu
-        +footer-menu(menuData)
-      .footer__subscription
-        .footer__subscription-caption
-          +text(
-            'h3',
-            'Подписка'
-          )
-        .footer__subscription-description
+    .footer__top
+      .footer__nav-and-subscription
+        .footer__site-description
+          .footer__logo-wrap
+            +logo-link()
           +text(
             'p',
-            subscriptionDescription
+            siteDescription
           )
+        .footer__menu
+          +footer-menu(menuData)
+        .footer__subscription
+          .footer__subscription-caption
+            +text(
+              'h3',
+              'Подписка'
+            )
+          .footer__subscription-description
+            +text(
+              'p',
+              subscriptionDescription
+            )
+    .footer__bottom
+      p.footer__copyright= copyrightText
+      .footer__social-buttons
+        +social-buttons()
