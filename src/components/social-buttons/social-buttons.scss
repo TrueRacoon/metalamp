@@ -1,0 +1,22 @@
+@import 'src/variables.scss';
+
+.social-buttons {
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__list-item {
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__img {
+    :hover {
+      fill: darken($color-purple, 10%);
+    }
+  }
+}
