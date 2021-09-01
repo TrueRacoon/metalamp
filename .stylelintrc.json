@@ -2,7 +2,7 @@
   "extends": "stylelint-config-sass-guidelines",
   "rules": {
     "scss/at-import-partial-extension-blacklist": [],
-    "max-nesting-depth": 2,
+    "max-nesting-depth": 3,
     "order/properties-alphabetical-order": false,
     "order/properties-order": [
       "position",
