@@ -2,7 +2,7 @@ include ../footer-menu/footer-menu.pug
 include ../logo/logo-link.pug
 include ../social-buttons/social-buttons.pug
 
-mixin footer()
+mixin footer(isMobile)
   -
     var siteDescription = 'Бронирование номеров в лучшем отеле 2019 года ' +
             'по версии ассоциации «Отельные взгляды»';
@@ -71,18 +71,37 @@ mixin footer()
     ];
 
   .footer
-    .footer__top
-      .footer__nav-and-subscription
-        .footer__site-description
+    div(
+      class='footer__top'
+      class= isMobile && 'footer__top_mobile'
+    )
+      div(
+        class='footer__nav-and-subscription'
+        class= isMobile && 'footer__nav-and-subscription_mobile'
+      )
+        div(
+          class='footer__site-description'
+          class= isMobile && 'footer__site-description_mobile'
+        )
           .footer__logo-wrap
             +logo-link()
-          +text(
-            'p',
-            siteDescription
+          div(
+            class='footer__site-description-text'
+            class= isMobile && 'footer__site-description-text_mobile'
           )
-        .footer__menu
+            +text(
+              'p',
+              siteDescription
+            )
+        div(
+          class='footer__menu'
+          class= isMobile && 'footer__menu_mobile'
+        )
           +footer-menu(menuData)
-        .footer__subscription
+        div(
+          class='footer__subscription'
+          class= isMobile && 'footer__subscription_mobile'
+        )
           .footer__subscription-caption
             +text(
               'h3',
@@ -93,7 +112,13 @@ mixin footer()
               'p',
               subscriptionDescription
             )
-    .footer__bottom
-      p.footer__copyright= copyrightText
+    div(
+      class='footer__bottom'
+      class= isMobile && 'footer__bottom_mobile'
+    )
+      p(
+        class='footer__copyright'
+        class= isMobile && 'footer__copyright_mobile'
+      )= copyrightText
       .footer__social-buttons
         +social-buttons()
