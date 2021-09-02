@@ -97,6 +97,7 @@
 
   &__logo-wrap {
     margin-bottom: 20px;
+    line-height: 0;
   }
 
   &__site-description-text {
@@ -166,13 +167,13 @@
     align-items: center;
 
     @media (max-width: 768px) {
-      padding: 20px 0 120px;
+      padding: 0 0 120px;
       flex-direction: column;
     }
   }
 
   &__bottom_mobile {
-    padding: 20px 0 120px;
+    padding: 0 0 120px;
     flex-direction: column;
   }
 
