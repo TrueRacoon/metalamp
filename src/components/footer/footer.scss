@@ -19,6 +19,8 @@
       padding: 104px 0 100px;
       max-width: 1920px;
     }
+
+    box-shadow: 0 1px 0 transparentize($color-dark-shade, 0.9);
   }
 
   &__nav-and-subscription {
