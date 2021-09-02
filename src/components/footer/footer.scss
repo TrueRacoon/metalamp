@@ -24,7 +24,6 @@
   &__nav-and-subscription {
     display: flex;
     max-width: 1920px;
-    justify-content: center;
 
     @media (max-width: 1365px) {
       flex-wrap: wrap;
@@ -47,7 +46,7 @@
       width: 25%;
     }
 
-    @media (min-width: 1440px) {
+    @media (min-width: 2560px) {
       width: 380px;
     }
   }
@@ -59,7 +58,6 @@
   &__menu {
     margin-left: 2%;
     display: flex;
-    width: 60%;
 
     @media (max-width: 1365px) {
       margin-left: 0;
@@ -68,6 +66,10 @@
 
     @media (min-width: 1366px) {
       margin-left: 40px;
+    }
+
+    @media (min-width: 2560px) {
+      width: 60%;
     }
   }
 
@@ -86,11 +88,16 @@
   }
 
   &__bottom {
+    margin: 0 auto;
+    padding: 24px 0;
     display: flex;
+    max-width: 1920px;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__copyright {
+    margin: 0;
     font-size: 14px;
     line-height: 17px;
     color: transparentize($color-dark-shade, 0.25);
