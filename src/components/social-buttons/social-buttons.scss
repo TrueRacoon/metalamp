@@ -2,8 +2,10 @@
 
 .social-buttons {
   &__list {
+    margin: 0;
     display: flex;
     list-style: none;
+    line-height: 0;
   }
 
   &__list-item {
