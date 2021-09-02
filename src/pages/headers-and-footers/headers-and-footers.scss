@@ -1,1 +1,17 @@
 @import 'src/components/footer/footer.scss';
+
+.headers-and-footers {
+  &__item {
+    margin-bottom: 40px;
+    box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
+
+    &:first-child {
+      padding-top: 62px;
+    }
+  }
+
+  &__item_mobile {
+    margin: 0 auto;
+    max-width: 768px;
+  }
+}

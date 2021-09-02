@@ -9,4 +9,8 @@ block variables
     var backgroundColor = 'gray';
 
 block content
-  +footer()
+  .headers-and-footers
+    .headers-and-footers__item
+      +footer()
+    div(class='headers-and-footers__item headers-and-footers__item_mobile')
+      +footer(true)
