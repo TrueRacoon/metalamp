@@ -1,5 +1,6 @@
 include ../footer-menu/footer-menu.pug
 include ../logo/logo-link.pug
+include ../input/input.pug
 include ../social-buttons/social-buttons.pug
 
 mixin footer(isMobile)
@@ -112,6 +113,14 @@ mixin footer(isMobile)
               'p',
               subscriptionDescription
             )
+          form.footer__subscription-form(action= 'page-not-found.html')
+            .footer__subscription-button
+              +input({
+                name: 'email',
+                placeholder: 'Email',
+                type: 'email',
+                withArrowButton: true,
+              })
     div(
       class='footer__bottom'
       class= isMobile && 'footer__bottom_mobile'
