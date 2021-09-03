@@ -1,0 +1,15 @@
+mixin input(params)
+  .input-container
+    input(
+      class='input-container__input',
+      class=params.withArrowButton && 'input-container__input_hasButton'
+      name= params.name,
+      placeholder= params.placeholder,
+      type= params.type,
+    )
+    if params.withArrowButton
+      button.input-container__button(type= 'submit')
+        img(
+          src= require('../../img/forward-arrow.svg')
+          alt= 'Subscribe button'
+        )
