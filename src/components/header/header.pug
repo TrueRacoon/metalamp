@@ -78,7 +78,7 @@ mixin header(username)
     .header__menu
       each val in menuData
         if val.submenu
-          .header__menu-dropdown
+          nav.header__menu-dropdown
             button.header__menu-dropdown-button= val.submenuName
               img(
                 class= 'header__expand-icon'
