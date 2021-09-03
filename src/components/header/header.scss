@@ -12,39 +12,36 @@
   }
 
   &__menu-burger-checkbox,
-  &__profile-burger-checkbox,
-  &__menu,
-  &__profile-menu {
-    display: none;
-  }
-
-  &__menu-burger-checkbox:checked ~ .header__menu {
-    display: block;
-  }
-
   &__menu-burger-checkbox:checked ~ .header__profile-burger-checkbox,
   &__menu-burger-checkbox:checked ~ .header__profile-burger-label,
-  &__menu-burger-checkbox:checked ~ .header__profile {
+  &__menu-burger-checkbox:checked ~ .header__profile,
+  &__profile-burger-checkbox,
+  &__menu,
+  &__menu-dropdown-content,
+  &__profile-menu, {
     display: none;
+  }
+
+  &__menu-burger-checkbox:checked ~ .header__menu,
+  &__profile-burger-checkbox:checked ~ .header__profile .header__profile-menu,
+  &__menu-dropdown:hover .header__menu-dropdown-content {
+    display: block;
   }
 
   &__menu-burger-label,
   &__profile-burger-label {
     height: 34px;
-    padding: 15px;
+    margin-right: 15px;
     position: absolute;
+    cursor: pointer;
   }
 
   &__menu-burger-label {
     right: 0;
   }
 
-  &__profile-burger-checkbox:checked ~ .header__profile .header__profile-menu {
-    display: block;
-  }
-
   &__profile-burger-label {
-    right: 64px;
+    right: 49px;
   }
 
   &__icon {
@@ -52,16 +49,21 @@
     height: 34px;
   }
 
-  &__menu {
+  &__menu,
+  &__profile-menu,
+  &__menu-dropdown-content {
     position: absolute;
-    top: 70px;
-    background-color: inherit;
-    width: 100%;
-    text-align: right;
+    box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
+    z-index: 1;
+    right: 0;
+    background-color: #fff;
   }
 
-  &__menu-dropdown:hover .header__menu-dropdown-content {
-    display: block;
+  &__menu,
+  &__profile-menu {
+    top: 70px;
+    width: 100%;
+    text-align: right;
   }
 
   &__menu-dropdown-button,
@@ -77,14 +79,11 @@
     border: none;
     font-family: $font-family;
     margin-left: 10px;
+    position: relative;
   }
 
   &__expand-icon {
     margin-left: 10px;
-  }
-
-  &__menu-dropdown-content {
-    display: none;
   }
 
   &__link {
@@ -94,5 +93,9 @@
     &:hover {
       opacity: 0.5;
     }
+  }
+
+  &__profile {
+    margin: 0 49px 0 auto;
   }
 }
