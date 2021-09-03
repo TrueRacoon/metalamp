@@ -65,7 +65,7 @@
     /* stylelint-disable */
     &:not(.footer__site-description_mobile):not(.footer__subscription_mobile) {
       /* stylelint-enable */
-      @media (min-width: 1440px) {
+      @media (min-width: 1366px) {
         min-width: 260px;
         max-width: 20%;
       }
@@ -128,7 +128,7 @@
       margin-left: 40px;
     }
 
-    @media (min-width: 2560px) {
+    @media (min-width: 1440px) {
       width: 60%;
     }
   }
