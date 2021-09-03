@@ -64,9 +64,7 @@ mixin header(username)
         src= require('../../img/menu-icon.svg'),
         alt= 'Menu Icon'
       )
-    if username
-      div= 'Юлий цезарь'
-    else
+    if !username
       input.header__profile-burger-checkbox(
         id= 'profile-burger'
         type= 'checkbox'
@@ -94,8 +92,8 @@ mixin header(username)
           a.header__link(href=val.link)= val.linkName
     .header__profile
       if username
-        div= 'Юлий цезарь'
+        a.header__link= username
       else
         .header__profile-menu
-          a.header__link= 'Войти'
-          a.header__link= 'Зарегистрироваться'
+          a.header__link(href='login.html')= 'Войти'
+          a.header__link(href='signup.html')= 'Зарегистрироваться'
