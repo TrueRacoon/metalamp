@@ -1,0 +1,98 @@
+@import 'src/variables.scss';
+/* stylelint-disable */
+.header {
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  &__logo {
+    padding: 15px;
+    line-height: 0;
+  }
+
+  &__menu-burger-checkbox,
+  &__profile-burger-checkbox,
+  &__menu,
+  &__profile-menu {
+    display: none;
+  }
+
+  &__menu-burger-checkbox:checked ~ .header__menu {
+    display: block;
+  }
+
+  &__menu-burger-checkbox:checked ~ .header__profile-burger-checkbox,
+  &__menu-burger-checkbox:checked ~ .header__profile-burger-label,
+  &__menu-burger-checkbox:checked ~ .header__profile {
+    display: none;
+  }
+
+  &__menu-burger-label,
+  &__profile-burger-label {
+    height: 34px;
+    padding: 15px;
+    position: absolute;
+  }
+
+  &__menu-burger-label {
+    right: 0;
+  }
+
+  &__profile-burger-checkbox:checked ~ .header__profile .header__profile-menu {
+    display: block;
+  }
+
+  &__profile-burger-label {
+    right: 64px;
+  }
+
+  &__icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 70px;
+    background-color: inherit;
+    width: 100%;
+    text-align: right;
+  }
+
+  &__menu-dropdown:hover .header__menu-dropdown-content {
+    display: block;
+  }
+
+  &__menu-dropdown-button,
+  &__link {
+    padding: 1em;
+    font-size: 14px;
+    line-height: 17px;
+    color: transparentize($color-dark-shade, 0.5);
+  }
+
+  &__menu-dropdown-button {
+    background-color: inherit;
+    border: none;
+    font-family: $font-family;
+    margin-left: 10px;
+  }
+
+  &__expand-icon {
+    margin-left: 10px;
+  }
+
+  &__menu-dropdown-content {
+    display: none;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+include ../logo/logo-link
+
+mixin header(username)
+  -
+    var menuData = [
+      {
+        linkName: 'О нас',
+        link: 'page-not-found.html'
+      },
+      {
+        submenuName: 'Услуги',
+        submenu: [
+          {
+            linkName: 'Услуга 1',
+            link: 'page-not-found.html',
+          },
+          {
+            linkName: 'Услуга 2',
+            link: 'page-not-found.html',
+          },
+          {
+            linkName: 'Услуга 3',
+            link: 'page-not-found.html',
+          },
+        ],
+      },
+      {
+        linkName: 'Вакансии',
+        link: 'page-not-found.html'
+      },
+      {
+        linkName: 'Новости',
+        link: 'page-not-found.html'
+      },
+      {
+        submenuName: 'Соглашения',
+        submenu: [
+          {
+            linkName: 'Соглашение 1',
+            link: 'page-not-found.html',
+          },
+          {
+            linkName: 'Соглашение 2',
+            link: 'page-not-found.html',
+          },
+          {
+            linkName: 'Соглашение 3',
+            link: 'page-not-found.html',
+          },
+        ],
+      },
+    ];
+
+  .header
+    .header__logo
+      +logo-link()
+    input.header__menu-burger-checkbox(
+      id= 'menu-burger'
+      type= 'checkbox'
+    )
+    label.header__menu-burger-label(for='menu-burger')
+      img(
+        class= 'header__icon'
+        src= require('../../img/menu-icon.svg'),
+        alt= 'Menu Icon'
+      )
+    if username
+      div= 'Юлий цезарь'
+    else
+      input.header__profile-burger-checkbox(
+        id= 'profile-burger'
+        type= 'checkbox'
+      )
+      label.header__profile-burger-label(for='profile-burger')
+        img(
+          class= 'header__icon'
+          src= require('../../img/account-icon.svg'),
+          alt= 'Account Icon'
+        )
+    .header__menu
+      each val in menuData
+        if val.submenu
+          .header__menu-dropdown
+            button.header__menu-dropdown-button= val.submenuName
+              img(
+                class= 'header__expand-icon'
+                src= require('../../img/expand-icon.svg'),
+                alt= 'Expand icon'
+              )
+            .header__menu-dropdown-content
+              each link in val.submenu
+                a.header__link(href=link.link)= link.linkName
+        else
+          a.header__link(href=val.link)= val.linkName
+    .header__profile
+      if username
+        div= 'Юлий цезарь'
+      else
+        .header__profile-menu
+          a.header__link= 'Войти'
+          a.header__link= 'Зарегистрироваться'
