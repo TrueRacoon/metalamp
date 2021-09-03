@@ -69,7 +69,6 @@
   &__menu-dropdown-button,
   &__link {
     padding: 1em;
-    font-size: 14px;
     line-height: 17px;
     color: transparentize($color-dark-shade, 0.5);
   }
@@ -77,6 +76,7 @@
   &__menu-dropdown-button {
     background-color: inherit;
     border: none;
+    font-size: 14px;
     font-family: $font-family;
     margin-left: 10px;
     position: relative;
