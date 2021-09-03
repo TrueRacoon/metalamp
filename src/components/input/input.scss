@@ -43,7 +43,7 @@
     padding: 13px;
     line-height: 0;
     background-color: transparent;
-    border: 1px solid rgba(31, 32, 65, 0.25);
+    border: 1px solid transparentize($color-dark-shade, 0.75);
     border-left-style: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
