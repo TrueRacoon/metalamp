@@ -75,10 +75,10 @@ mixin header(username)
           src= require('../../img/account-icon.svg'),
           alt= 'Account Icon'
         )
-    .header__menu
+    nav.header__menu
       each val in menuData
         if val.submenu
-          nav.header__menu-dropdown
+          .header__menu-dropdown
             button.header__menu-dropdown-button= val.submenuName
               img(
                 class= 'header__expand-icon'
