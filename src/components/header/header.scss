@@ -76,8 +76,9 @@
     color: transparentize($color-dark-shade, 0.5);
   }
 
-  &__menu-dropdown {
-    padding-right: 1em;
+  &__menu-dropdown > &__link {
+    padding-right: 0;
+    display: inline-block;
   }
 
   &__menu-dropdown-content {
