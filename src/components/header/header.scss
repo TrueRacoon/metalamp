@@ -133,6 +133,11 @@
     padding: 1em;
     line-height: 17px;
     color: transparentize($color-dark-shade, 0.5);
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   &__menu-dropdown:hover .header__menu-dropdown-content {
@@ -157,14 +162,6 @@
     margin-left: 10px;
     @media (max-width: 1023px) {
       margin-right: 1em;
-    }
-  }
-
-  &__link {
-    text-decoration: none;
-
-    &:hover {
-      opacity: 0.5;
     }
   }
 
