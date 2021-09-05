@@ -42,14 +42,14 @@
   &__menu,
   &__menu-dropdown-content,
   &__profile-menu, {
-    @media (max-width: 999px) {
+    @media (max-width: 1023px) {
       display: none;
     }
   }
 
   &__menu-burger-checkbox:checked ~ .header__menu,
   &__profile-burger-checkbox:checked ~ .header__profile .header__profile-menu {
-    @media (max-width: 999px) {
+    @media (max-width: 1023px) {
       display: block;
     }
   }
@@ -61,7 +61,7 @@
     position: absolute;
     cursor: pointer;
 
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       display: none;
     }
   }
@@ -81,7 +81,7 @@
 
   &__menu,
   &__profile-menu {
-    @media (max-width: 999px) {
+    @media (max-width: 1023px) {
       position: absolute;
       box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
       z-index: 1;
@@ -89,7 +89,7 @@
       background-color: #fff;
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       display: flex;
       align-items: center;
       margin-left: auto;
@@ -98,7 +98,7 @@
 
   &__menu,
   &__profile-menu {
-    @media (max-width: 999px) {
+    @media (max-width: 1023px) {
       top: 70px;
       width: 100%;
       text-align: right;
@@ -113,14 +113,14 @@
 
   &__menu > &__link,
   &__menu-dropdown > &__link {
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       padding: 0;
     }
   }
 
   &__menu > &__link,
   &__menu-dropdown > &__link {
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       margin-left: 20px;
     }
   }
@@ -136,7 +136,7 @@
   }
 
   &__menu-dropdown:hover .header__menu-dropdown-content {
-      display: block;
+    display: block;
   }
 
   &__menu-dropdown > &__link {
@@ -155,7 +155,7 @@
 
   &__expand-icon {
     margin-left: 10px;
-    @media (max-width: 999px) {
+    @media (max-width: 1023px) {
       margin-right: 1em;
     }
   }
@@ -169,26 +169,26 @@
   }
 
   &__profile {
-    @media (max-width: 999px) {
+    @media (max-width: 1023px) {
       margin: 0 49px 0 auto;
     }
   }
 
   &__profile-menu &__link {
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       display: inline;
       margin-left: 20px;
     }
   }
 
   &__button {
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       @include button;
     }
   }
 
   &__button_outlined {
-    @media (min-width: 1000px) {
+    @media (min-width: 1024px) {
       @include button;
       @include button_outlined;
     }
