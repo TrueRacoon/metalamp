@@ -65,6 +65,11 @@
     text-align: right;
   }
 
+  &__menu > &__link {
+    padding-right: 1em;
+    display: block;
+  }
+
   &__link {
     padding: 1em;
     line-height: 17px;
@@ -83,8 +88,14 @@
     background-color: #fff;
   }
 
+  &__menu-dropdown-content > &__link {
+    padding-right: 1em;
+    display: block;
+  }
+
   &__expand-icon {
     margin-left: 10px;
+    margin-right: 1em;
   }
 
   &__link {
@@ -93,16 +104,6 @@
     &:hover {
       opacity: 0.5;
     }
-  }
-
-  &__link_inline-block {
-    padding-right: 0;
-    display: inline-block;
-  }
-
-  &__link_block {
-    padding-right: 36px;
-    display: block;
   }
 
   &__profile {
