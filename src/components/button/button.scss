@@ -1,0 +1,29 @@
+/* stylelint-disable */
+@mixin button {
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  background: $gradient-purple;
+  border-radius: 22px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@mixin button_outlined {
+  padding: 8px 18px;
+  color: $color-purple;
+  background: #fff;
+  border: 2px solid $color-purple;
+
+  &:hover {
+    opacity: 1;
+    background: #fff;
+    border: 2px solid lighten($color-purple, 10%);
+  }
+}

@@ -1,31 +1,57 @@
 @import 'src/variables.scss';
+@import 'src/components/button/button.scss';
+
 /* stylelint-disable */
 .header {
-  background-color: #fff;
+  &__container {
+    background-color: #fff;
+  }
+
+  margin: 0 auto;
+  max-width: 1920px;
   display: flex;
   position: relative;
   align-items: center;
 
+  @media (min-width: 769px) {
+    padding: 0 5%;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 140px;
+  }
+
   &__logo {
     padding: 15px;
     line-height: 0;
+
+    @media (min-width: 769px) {
+      padding-left: 0;
+    }
+  }
+
+  &__menu-burger-checkbox,
+  &__profile-burger-checkbox {
+    display: none;
   }
 
   &__menu-burger-checkbox,
   &__menu-burger-checkbox:checked ~ .header__profile-burger-checkbox,
   &__menu-burger-checkbox:checked ~ .header__profile-burger-label,
   &__menu-burger-checkbox:checked ~ .header__profile,
-  &__profile-burger-checkbox,
   &__menu,
   &__menu-dropdown-content,
   &__profile-menu, {
-    display: none;
+    @media (max-width: 999px) {
+      display: none;
+    }
   }
 
   &__menu-burger-checkbox:checked ~ .header__menu,
-  &__profile-burger-checkbox:checked ~ .header__profile .header__profile-menu,
-  &__menu-dropdown:hover .header__menu-dropdown-content {
-    display: block;
+  &__profile-burger-checkbox:checked ~ .header__profile .header__profile-menu {
+    @media (max-width: 999px) {
+      display: block;
+    }
   }
 
   &__menu-burger-label,
@@ -34,6 +60,10 @@
     margin-right: 15px;
     position: absolute;
     cursor: pointer;
+
+    @media (min-width: 1000px) {
+      display: none;
+    }
   }
 
   &__menu-burger-label {
@@ -51,25 +81,52 @@
 
   &__menu,
   &__profile-menu {
-    position: absolute;
-    box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
-    z-index: 1;
-    right: 0;
-    background-color: #fff;
+    @media (max-width: 999px) {
+      position: absolute;
+      box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
+      z-index: 1;
+      right: 0;
+      background-color: #fff;
+    }
+
+    @media (min-width: 1000px) {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
   }
 
   &__menu,
   &__profile-menu {
-    top: 70px;
-    width: 100%;
-    text-align: right;
+    @media (max-width: 999px) {
+      top: 70px;
+      width: 100%;
+      text-align: right;
+    }
   }
 
   &__menu > &__link,
   &__menu-dropdown-content > &__link,
   &__profile-menu &__link {
-    padding-right: 1em;
     display: block;
+  }
+
+  &__menu > &__link,
+  &__menu-dropdown > &__link {
+    @media (min-width: 1000px) {
+      padding: 0;
+    }
+  }
+
+  &__menu > &__link,
+  &__menu-dropdown > &__link {
+    @media (min-width: 1000px) {
+      margin-left: 20px;
+    }
+  }
+
+  &__menu-dropdown {
+    position: relative;
   }
 
   &__link {
@@ -78,12 +135,17 @@
     color: transparentize($color-dark-shade, 0.5);
   }
 
+  &__menu-dropdown:hover .header__menu-dropdown-content {
+      display: block;
+  }
+
   &__menu-dropdown > &__link {
     padding-right: 0;
     display: inline-block;
   }
 
   &__menu-dropdown-content {
+    display: none;
     position: absolute;
     box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
     z-index: 1;
@@ -93,7 +155,9 @@
 
   &__expand-icon {
     margin-left: 10px;
-    margin-right: 1em;
+    @media (max-width: 999px) {
+      margin-right: 1em;
+    }
   }
 
   &__link {
@@ -105,6 +169,28 @@
   }
 
   &__profile {
-    margin: 0 49px 0 auto;
+    @media (max-width: 999px) {
+      margin: 0 49px 0 auto;
+    }
+  }
+
+  &__profile-menu &__link {
+    @media (min-width: 1000px) {
+      display: inline;
+      margin-left: 20px;
+    }
+  }
+
+  &__button {
+    @media (min-width: 1000px) {
+      @include button;
+    }
+  }
+
+  &__button_outlined {
+    @media (min-width: 1000px) {
+      @include button;
+      @include button_outlined;
+    }
   }
 }
