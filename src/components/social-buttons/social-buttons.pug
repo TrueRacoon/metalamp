@@ -23,13 +23,13 @@ mixin social-buttons()
       for button in socialButtons
         li.social-buttons__list-item
           a.social-buttons__link(
-            href= button.link,
-            title= button.title,
-            target= '_blank',
-            rel= 'noopener noreferrer',
+            href= button.link
+            title= button.title
+            target= '_blank'
+            rel= 'noopener noreferrer'
           )
             img(
-              class= 'social-buttons__img',
-              src= button.imgPath,
-              alt= `${button.title.slice(4)} logo`,
+              class= 'social-buttons__img'
+              src= button.imgPath
+              alt= `${button.title.slice(4)} logo`
             )
