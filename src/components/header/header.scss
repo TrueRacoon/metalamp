@@ -50,8 +50,7 @@
   }
 
   &__menu,
-  &__profile-menu,
-  &__menu-dropdown-content {
+  &__profile-menu {
     position: absolute;
     box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
     z-index: 1;
@@ -66,20 +65,22 @@
     text-align: right;
   }
 
-  &__menu-dropdown-button,
   &__link {
     padding: 1em;
     line-height: 17px;
     color: transparentize($color-dark-shade, 0.5);
   }
 
-  &__menu-dropdown-button {
-    background-color: inherit;
-    border: none;
-    font-size: 14px;
-    font-family: $font-family;
-    margin-left: 10px;
-    position: relative;
+  &__menu-dropdown {
+    padding-right: 1em;
+  }
+
+  &__menu-dropdown-content {
+    position: absolute;
+    box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
+    z-index: 1;
+    right: 0;
+    background-color: #fff;
   }
 
   &__expand-icon {
@@ -87,12 +88,21 @@
   }
 
   &__link {
-    display: block;
     text-decoration: none;
 
     &:hover {
       opacity: 0.5;
     }
+  }
+
+  &__link_inline-block {
+    padding-right: 0;
+    display: inline-block;
+  }
+
+  &__link_block {
+    padding-right: 36px;
+    display: block;
   }
 
   &__profile {
