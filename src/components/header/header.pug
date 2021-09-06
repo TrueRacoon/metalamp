@@ -57,52 +57,32 @@ mixin header(username)
     .header
       .header__logo
         +logo-link()
-      input.header__menu-burger-checkbox(
-        id= 'menu-burger'
-        type= 'checkbox'
-      )
-      label.header__menu-burger-label(for='menu-burger')
-        img(
-          class= 'header__icon'
-          src= require('../../img/menu-icon.svg')
-          alt= 'Menu Icon'
-        )
-      if !username
-        input.header__profile-burger-checkbox(
-          id= 'profile-burger'
-          type= 'checkbox'
-        )
-        label.header__profile-burger-label(for='profile-burger')
-          img(
-            class= 'header__icon'
-            src= require('../../img/account-icon.svg')
-            alt= 'Account Icon'
-          )
+      .header__menu-buttons
+        if !username
+          button.header__profile-menu-button
+        button.header__nav-menu-button
       nav.header__menu
         each menuItem in menuData
-          if menuItem.submenu
-            .header__menu-dropdown
-              a.header__link(href=menuItem.link)= menuItem.linkName
-              img(
-                class= 'header__expand-icon'
-                src= require('../../img/expand-icon.svg')
-                alt= 'Expand icon'
-              )
-              .header__menu-dropdown-content
-                each link in menuItem.submenu
-                  a.header__link(href=link.link)= link.linkName
-          else
+          .header__link-container
             a.header__link(href=menuItem.link)= menuItem.linkName
+            if menuItem.submenu
+              .header__expand-button
+              .header__dropdown-content
+                each link in menuItem.submenu
+                  .header__link-container
+                    a.header__link(href=link.link)= link.linkName
       .header__profile
         if username
-          a.header__link= username
+          p.header__username= username
         else
           .header__profile-menu
-            a(
-              class='header__link header__button header__button_outlined'
-              href='login.html'
-            )= 'Войти'
-            a(
-              class='header__link header__button'
-              href='signup.html'
-            )= 'Зарегистрироваться'
+            .header__link-container
+              a(
+                class='header__link header__button header__button_outlined'
+                href='login.html'
+              )= 'Войти'
+            .header__link-container
+              a(
+                class='header__link header__button'
+                href='signup.html'
+              )= 'Зарегистрироваться'
