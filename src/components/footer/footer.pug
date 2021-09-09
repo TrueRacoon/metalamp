@@ -90,10 +90,10 @@ mixin footer(isMobile)
             class='footer__site-description-text'
             class= isMobile && 'footer__site-description-text_mobile'
           )
-            +text(
-              'p',
-              siteDescription
-            )
+            +text({
+              tag: 'p',
+              text: siteDescription
+            })
         div(
           class='footer__menu'
           class= isMobile && 'footer__menu_mobile'
@@ -104,15 +104,15 @@ mixin footer(isMobile)
           class= isMobile && 'footer__subscription_mobile'
         )
           .footer__subscription-caption
-            +text(
-              'h3',
-              'Подписка'
-            )
+            +text({
+              tag: 'h3',
+              text: 'Подписка'
+            })
           .footer__subscription-description
-            +text(
-              'p',
-              subscriptionDescription
-            )
+            +text({
+              tag: 'p',
+              text: subscriptionDescription
+            })
           form.footer__subscription-form(action= 'page-not-found.html')
             .footer__subscription-button
               +input({

@@ -5,10 +5,10 @@ mixin footer-menu(menu)
     each menuColumn in menu
       .footer-menu__column
         .footer-menu__column-title-wrap
-          +text(
-            'h3',
-            `${menuColumn.columnName}`
-          )
+          +text({
+            tag: 'h3',
+            text: `${menuColumn.columnName}`
+          })
         ul.footer-menu__links-list
           each link in menuColumn.links
             li.footer-menu__link-item

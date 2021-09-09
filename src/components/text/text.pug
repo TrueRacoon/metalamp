@@ -1,2 +1,10 @@
-mixin text(tag, text)
-  #{tag}(class=`text text_tag_${tag}`)= text
+mixin text(opts)
+  -
+    var text = opts.text || '';
+    var additionalClasses = opts.classes || [];
+    var classes = `text text_tag_${opts.tag}`;
+    additionalClasses.forEach((className) => {
+      classes += ' ' + className;
+    });
+
+  #{opts.tag}(class=classes)= opts.text
