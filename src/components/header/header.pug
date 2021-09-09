@@ -54,19 +54,38 @@ mixin header(username)
     ];
 
   .header__container
-    .header
+    div(
+      class='header'
+      class='js-header'
+    )
       .header__logo
         +logo-link()
       .header__menu-buttons
         if !username
-          button.header__profile-menu-button
-        button.header__nav-menu-button
-      nav.header__menu
+          button(
+            class='header__profile-menu-button'
+            class='js-header__profile-menu-button'
+          )
+        button(
+          class='header__nav-menu-button'
+          class='js-header__nav-menu-button'
+        )
+      nav(
+        class='header__menu'
+        class='js-header__menu'
+      )
         each menuItem in menuData
           .header__link-container
-            a.header__link(href=menuItem.link)= menuItem.linkName
+            a(
+              class='header__link'
+              class='js_header__link'
+              href=menuItem.link
+            )= menuItem.linkName
             if menuItem.submenu
-              .header__expand-button
+              div(
+                class='header__expand-button'
+                class='js-header__expand-button'
+              )
               .header__dropdown-content
                 each link in menuItem.submenu
                   .header__link-container
@@ -75,7 +94,10 @@ mixin header(username)
         if username
           p.header__username= username
         else
-          .header__profile-menu
+          div(
+            class='header__profile-menu'
+            class='js-header__profile-menu'
+          )
             .header__link-container
               a(
                 class='header__link header__button header__button_outlined'
