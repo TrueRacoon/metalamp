@@ -1,0 +1,47 @@
+@import 'src/variables.scss';
+
+/* stylelint-disable */
+.calendar {
+  background-color: #fff;
+  width: fit-content;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__month-nav-button {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border-style: none;
+    background-origin: border-box;
+    background-size: 24px;
+    cursor: pointer;
+    background-image: url('./../../img/back-arrow.svg');
+  }
+
+  &__month-nav-button_next {
+    transform: rotate(180deg);
+  }
+
+  &__table-head-data {
+    color: $color-purple;
+  }
+
+  &__table-head-data,
+  &__table-data {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__table-data {
+    color: transparentize($color-dark-shade, 0.75);
+    text-align: center;
+  }
+
+  &__table-data_thisMonth {
+    color: transparentize($color-dark-shade, 0.25);
+  }
+}
