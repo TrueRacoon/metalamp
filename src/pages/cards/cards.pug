@@ -1,0 +1,14 @@
+extends ../ui-kit/ui-kit.pug
+include ../../components/calendar/calendar.pug
+
+block variables
+  -
+    var title = 'Cards';
+    var description = 'Cards Description';
+    var keywords = 'Cards Keywords';
+    var backgroundColor = 'gray';
+
+block content
+  .cards
+    .cards__card
+      +calendar()
