@@ -1,5 +1,6 @@
 extends ../ui-kit/ui-kit.pug
 include ../../components/calendar/calendar.pug
+include ../../components/room-search/room-search.pug
 
 block variables
   -
@@ -10,5 +11,7 @@ block variables
 
 block content
   .cards
+    .cards__card
+      +room-search()
     .cards__card
       +calendar()

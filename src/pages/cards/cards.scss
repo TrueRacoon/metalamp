@@ -1,6 +1,9 @@
 @import 'src/components/calendar/calendar.scss';
+@import 'src/components/room-search/room-seach.scss';
 
 .cards {
+  display: flex;
+
   &__card {
     margin: 40px;
   }
