@@ -1,0 +1,13 @@
+include ../arrival-filters/arrival-filters.pug
+
+mixin room-search()
+  -
+    var arrivalLabel = 'Прибытие';
+    var departureLabel = 'Выезд';
+
+  .room-search
+    +arrival-filters({
+      arrivalLabel,
+      departureLabel,
+      separateDates: true,
+    })
