@@ -8,6 +8,7 @@
   width: fit-content;
   padding: 20px;
   border-radius: 4px;
+  font-size: 12px;
   border: 1px solid transparentize($color-purple, 0.75);
 
   &__top {
@@ -34,6 +35,7 @@
 
   &__table {
     margin: 30px 0 20px;
+    border-collapse: collapse;
   }
 
   &__table-head-data {
@@ -44,6 +46,7 @@
   &__table-data {
     width: 40px;
     height: 40px;
+    padding: 0;
   }
 
   &__table-data {
