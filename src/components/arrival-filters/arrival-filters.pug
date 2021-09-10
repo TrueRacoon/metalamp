@@ -1,0 +1,11 @@
+include ../date-filter/date-filter.pug
+
+mixin arrival-filters(opts)
+  .arrival-filters
+    +date-filter({
+      arrivalLabel: opts.arrivalLabel,
+      departureLabel: opts.departureLabel,
+      dateFilterLabel: opts.dateFilterLabel,
+      separateDates: opts.separateDates,
+    })
+
