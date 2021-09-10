@@ -1,0 +1,23 @@
+@import 'src/components/input/input.scss';
+
+/* stylelint-disable */
+.date-filter {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+
+  &__arrival,
+  &__departure {
+    max-width: 150px;
+  }
+
+  &__calendar-container {
+    position: absolute;
+    display: none;
+    top: 70px;
+
+    &_opened {
+      display: block;
+    }
+  }
+}

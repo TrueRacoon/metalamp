@@ -1,0 +1,49 @@
+include ../input/input.pug
+include ../dropdown-input/dropdown-input.pug
+
+mixin date-filter(opts)
+  div(
+    class='date-filter'
+    class='js_date-filter'
+  )
+    if opts.separateDates
+      div(
+        class='date-filter__arrival'
+        class='js_date-filter__arrival'
+      )
+        +text({
+          tag: 'h3',
+          text: opts.arrivalLabel
+        })
+        +input({
+          name: 'arrival-date',
+          placeholder: 'ДД.ММ.ГГГГ',
+          type: 'text',
+          withDropdownButton: true,
+        })
+      div(
+        class='date-filter__departure'
+        class='js_date-filter__departure'
+      )
+        +text({
+          tag: 'h3',
+          text: opts.departureLabel
+        })
+        +input({
+          name: 'departure-date',
+          placeholder: 'ДД.ММ.ГГГГ',
+          type: 'text',
+          withDropdownButton: true,
+        })
+    else
+      +dropdown-input({
+        label: opts.dateFilterLabel
+      })
+    div(
+      class='date-filter__calendar-container'
+      class='js-date-filter__calendar-container'
+    )
+      +calendar()
+
+
+
