@@ -1,15 +1,26 @@
-mixin input(params)
-  .input-container
+mixin input(opts)
+  -
+    var hasButton = opts.withSubmitButton || opts.withDropdownButton;
+    var classes = 'input js_input' + (hasButton ? ' input_hasButton' : '');
+
+  .input__container
     input(
-      class='input-container__input'
-      class=params.withArrowButton && 'input-container__input_hasButton'
-      name= params.name
-      placeholder= params.placeholder
-      type= params.type
+      class=classes
+      name=opts.name
+      placeholder=opts.placeholder
+      type=opts.type
     )
-    if params.withArrowButton
-      button.input-container__button(type= 'submit')
-        img(
-          src= require('../../img/forward-arrow.svg')
-          alt= 'Subscribe button'
-        )
+    if opts.withSubmitButton
+      button(
+        class='input__button'
+        class='input__button_type_submit'
+        type='submit'
+      )
+    if opts.withDropdownButton
+      button(
+        class='input__button'
+        class='input__button_type_dropdown'
+        class='js_input__button_type_dropdown'
+        type='button'
+      )
+
