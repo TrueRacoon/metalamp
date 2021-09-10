@@ -27,3 +27,16 @@
     border: 2px solid lighten($color-purple, 10%);
   }
 }
+
+@mixin text-button {
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  padding: 0;
+  font-weight: bold;
+  color: $color-purple;
+  background: transparent;
+  border-style: none;
+  cursor: pointer;
+  font-family: $font-family;
+}
