@@ -4,43 +4,76 @@ class Calendar {
   }
 
   init() {
-    this._setCalendarReferenceData();
+    this.setCalendarReferenceData();
     this.prevMonthButton = this.calendarDom.querySelector('.js_calendar__month-nav-button_prev');
     this.nextMonthButton = this.calendarDom.querySelector('.js_calendar__month-nav-button_next');
     this.topText = this.calendarDom.querySelector('.js_calendar__top-text');
     this.tableBody = this.calendarDom.querySelector('.js_calendar__table-body');
+    this.today = new Date();
     this._setCalendarLabelText();
-    this._formCalendarTableBody();
+    this.formCalendarTableBody();
     this._bindEventListeners();
   }
+
+  setCalendarReferenceData = (date = new Date()) => {
+    this.calendarReferenceDate = date;
+    this.calendarMonth = this.calendarReferenceDate.getMonth();
+    this.calendarYear = this.calendarReferenceDate.getFullYear();
+  }
+
+  formCalendarTableBody = () => {
+    const tableBodyFragment = document.createDocumentFragment();
+    let currentTableRowElement;
+    let currentTableDataElement;
+    this.calendarDays = this._getCalendarDays(this.calendarYear, this.calendarMonth);
+    this.calendarDays.forEach((calendarDay, index) => {
+      if (index % 7 === 0) {
+        currentTableRowElement = document.createElement('tr');
+        currentTableRowElement.classList.add('calendar__table-row');
+        tableBodyFragment.append(currentTableRowElement);
+      }
+      currentTableDataElement = document.createElement('td');
+      currentTableDataElement.classList.add('calendar__table-data');
+      if (calendarDay.isThisMonth) {
+        currentTableDataElement.classList.add('calendar__table-data_thisMonth');
+      }
+      const needAddTodayModifier = (
+        calendarDay.day <= index
+        && calendarDay.day === this.today.getDate()
+        && this.calendarMonth === this.today.getMonth()
+        && this.calendarYear === this.today.getFullYear()
+      );
+      if (needAddTodayModifier) {
+        currentTableDataElement.classList.add('calendar__table-data_today');
+      }
+      currentTableDataElement.append(calendarDay.day);
+      currentTableRowElement.append(currentTableDataElement);
+    });
+    this.tableBody.innerHTML = '';
+    this.tableBody.append(tableBodyFragment);
+  };
 
   _bindEventListeners() {
     this.prevMonthButton.addEventListener('click', this._handlePrevMonthButtonClick);
     this.nextMonthButton.addEventListener('click', this._handleNextMonthButtonClick);
   }
 
-  _setCalendarReferenceData = (date = new Date()) => {
-    this.calendarReferenceDate = date;
-    this.calendarMonth = this.calendarReferenceDate.getMonth();
-    this.calendarYear = this.calendarReferenceDate.getFullYear();
-  }
-
   _handlePrevMonthButtonClick = () => {
-    this._setCalendarReferenceData(new Date(
+    this.setCalendarReferenceData(new Date(
       this.calendarReferenceDate.getFullYear(),
       this.calendarReferenceDate.getMonth() - 1,
     ));
     this._setCalendarLabelText();
-    this._formCalendarTableBody();
+    this.formCalendarTableBody();
   }
 
   _handleNextMonthButtonClick = () => {
-    this._setCalendarReferenceData(new Date(
+    this.setCalendarReferenceData(new Date(
       this.calendarReferenceDate.getFullYear(),
       this.calendarReferenceDate.getMonth() + 1,
     ));
     this._setCalendarLabelText();
-    this._formCalendarTableBody();
+    this.formCalendarTableBody();
   }
 
   _getCalendarMonthName = () => {
@@ -88,29 +121,6 @@ class Calendar {
       });
     }
     return days;
-  };
-
-  _formCalendarTableBody = () => {
-    this.calendarDays = this._getCalendarDays(this.calendarYear, this.calendarMonth);
-    const tableBodyFragment = document.createDocumentFragment();
-    let currentTableRowElement;
-    let currentTableDataElement;
-    this.calendarDays.forEach((calendarDay, index) => {
-      if (index % 7 === 0) {
-        currentTableRowElement = document.createElement('tr');
-        currentTableRowElement.classList.add('calendar__table-row');
-        tableBodyFragment.append(currentTableRowElement);
-      }
-      currentTableDataElement = document.createElement('td');
-      currentTableDataElement.classList.add('calendar__table-data');
-      if (calendarDay.isThisMonth) {
-        currentTableDataElement.classList.add('calendar__table-data_thisMonth');
-      }
-      currentTableDataElement.append(calendarDay.day);
-      currentTableRowElement.append(currentTableDataElement);
-    });
-    this.tableBody.innerHTML = '';
-    this.tableBody.append(tableBodyFragment);
   };
 }
 

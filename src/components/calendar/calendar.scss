@@ -1,13 +1,19 @@
 @import 'src/variables.scss';
+@import 'src/components/text/text.scss';
+@import 'src/components/button/button.scss';
 
 /* stylelint-disable */
 .calendar {
   background-color: #fff;
   width: fit-content;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid transparentize($color-purple, 0.75);
 
   &__top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__month-nav-button {
@@ -17,13 +23,17 @@
     background-color: transparent;
     border-style: none;
     background-origin: border-box;
-    background-size: 24px;
+    background-position: center;
     cursor: pointer;
     background-image: url('./../../img/back-arrow.svg');
   }
 
   &__month-nav-button_next {
     transform: rotate(180deg);
+  }
+
+  &__table {
+    margin: 30px 0 20px;
   }
 
   &__table-head-data {
@@ -43,5 +53,21 @@
 
   &__table-data_thisMonth {
     color: transparentize($color-dark-shade, 0.25);
+  }
+
+  &__table-data_today {
+    font-weight: bold;
+    color: #fff;
+    background: $gradient-green;
+    border-radius: 50%;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__control-button {
+    @include text-button;
   }
 }
