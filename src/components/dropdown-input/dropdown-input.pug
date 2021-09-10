@@ -1,0 +1,15 @@
+mixin dropdown-input(opts)
+  .dropdown-input__container
+    +text({
+      tag: 'h3',
+      text: opts.label
+    })
+    .dropdown-input
+      div(
+        class='dropdown-input__text'
+        class='js_dropdown-input__text'
+      )
+      button(
+        class='dropdown-input__button'
+        class='js_dropdown-input__button'
+      )
