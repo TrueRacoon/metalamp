@@ -25,8 +25,8 @@ class Calendar {
     const tableBodyFragment = document.createDocumentFragment();
     let currentTableRowElement;
     let currentTableDataElement;
-    this.calendarDays = this._getCalendarDays(this.calendarYear, this.calendarMonth);
-    this.calendarDays.forEach((calendarDay, index) => {
+    this.calendarDates = this._getCalendarDates(this.calendarYear, this.calendarMonth);
+    this.calendarDates.forEach((calendarDate, index) => {
       if (index % 7 === 0) {
         currentTableRowElement = document.createElement('tr');
         currentTableRowElement.classList.add('calendar__table-row');
@@ -34,19 +34,13 @@ class Calendar {
       }
       currentTableDataElement = document.createElement('td');
       currentTableDataElement.classList.add('calendar__table-data');
-      if (calendarDay.isThisMonth) {
+      if (calendarDate.getMonth() === this.calendarMonth) {
         currentTableDataElement.classList.add('calendar__table-data_thisMonth');
       }
-      const needAddTodayModifier = (
-        calendarDay.day <= index
-        && calendarDay.day === this.today.getDate()
-        && this.calendarMonth === this.today.getMonth()
-        && this.calendarYear === this.today.getFullYear()
-      );
-      if (needAddTodayModifier) {
+      if (calendarDate.toISOString().slice(0, 10) === this.today.toISOString().slice(0, 10)) {
         currentTableDataElement.classList.add('calendar__table-data_today');
       }
-      currentTableDataElement.append(calendarDay.day);
+      currentTableDataElement.append(calendarDate.getDate());
       currentTableRowElement.append(currentTableDataElement);
     });
     this.tableBody.innerHTML = '';
@@ -96,29 +90,20 @@ class Calendar {
     return date.getDate();
   };
 
-  _getCalendarDays = (year, month) => {
+  _getCalendarDates = (year, month) => {
     const days = [];
     const firstDayOfWeek = this._getLocalDayOfWeek(new Date(year, month, 1));
     const prevMonthDay = this._getLastDayOfMonth(year, month - 1);
     for (let i = firstDayOfWeek - 1; i > 0; i -= 1) {
-      days.push({
-        day: prevMonthDay - i + 1,
-        isThisMonth: false,
-      });
+      days.push(new Date(year, month - 1, prevMonthDay - i + 1));
     }
     const lastDayOfMonth = this._getLastDayOfMonth(year, month);
     for (let i = 1; i <= lastDayOfMonth; i += 1) {
-      days.push({
-        day: i,
-        isThisMonth: true,
-      });
+      days.push(new Date(year, month, i));
     }
-    const nDaysToAdd = (7 - (days.length % 7)) % 7;
-    for (let i = 1; i <= nDaysToAdd; i += 1) {
-      days.push({
-        day: i,
-        isThisMonth: false,
-      });
+    const nDaysOfNextMonth = (7 - (days.length % 7)) % 7;
+    for (let i = 1; i <= nDaysOfNextMonth; i += 1) {
+      days.push(new Date(year, month + 1, i));
     }
     return days;
   };
