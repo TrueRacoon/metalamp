@@ -4,7 +4,6 @@ class DateFilter {
   }
 
   init() {
-    console.log(this.dateFilterDom);
     this.arrivalExpandButton = this.dateFilterDom.querySelector(
       '.js_date-filter__arrival .js_input__button_type_dropdown',
     );
@@ -19,7 +18,6 @@ class DateFilter {
   }
 
   _handleArrivalExpandButtonClick = () => {
-    console.log(this.calendarContainer);
     this.calendarContainer.classList.toggle('date-filter__calendar-container_opened');
   }
 }
