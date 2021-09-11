@@ -58,5 +58,12 @@
 
   &__button_type_dropdown {
     background-image: url('./../../img/expand-icon.svg');
+
+    &_turned {
+      border-radius: 4px 0 0 4px;
+      transform: rotate(180deg);
+      border-right-style: none;
+      border-left-style: solid;
+    }
   }
 }
