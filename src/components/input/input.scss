@@ -66,4 +66,8 @@
       border-left-style: solid;
     }
   }
+
+  &_invalid {
+    color: $color-error;
+  }
 }
