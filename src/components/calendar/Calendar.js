@@ -5,10 +5,10 @@ class Calendar {
 
   init() {
     this.setCalendarReferenceData();
-    this.prevMonthButton = this.calendarDom.querySelector('.js_calendar__month-nav-button_prev');
-    this.nextMonthButton = this.calendarDom.querySelector('.js_calendar__month-nav-button_next');
-    this.topText = this.calendarDom.querySelector('.js_calendar__top-text');
-    this.tableBody = this.calendarDom.querySelector('.js_calendar__table-body');
+    this.prevMonthButton = this.calendarDom.querySelector('.js-calendar__month-nav-button_prev');
+    this.nextMonthButton = this.calendarDom.querySelector('.js-calendar__month-nav-button_next');
+    this.topText = this.calendarDom.querySelector('.js-calendar__top-text');
+    this.tableBody = this.calendarDom.querySelector('.js-calendar__table-body');
     this.today = new Date();
     this._setCalendarLabelText();
     this.formCalendarTableBody();

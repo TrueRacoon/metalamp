@@ -4,12 +4,12 @@ include ../dropdown-input/dropdown-input.pug
 mixin date-filter(opts)
   div(
     class='date-filter'
-    class='js_date-filter'
+    class='js-date-filter'
   )
     if opts.separateDates
       div(
         class='date-filter__arrival'
-        class='js_date-filter__arrival'
+        class='js-date-filter__arrival'
       )
         +text({
           tag: 'h3',
@@ -23,7 +23,7 @@ mixin date-filter(opts)
         })
       div(
         class='date-filter__departure'
-        class='js_date-filter__departure'
+        class='js-date-filter__departure'
       )
         +text({
           tag: 'h3',

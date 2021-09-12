@@ -1,7 +1,7 @@
 mixin input(opts)
   -
     var hasButton = opts.withSubmitButton || opts.withDropdownButton;
-    var classes = 'input js_input' + (hasButton ? ' input_hasButton' : '');
+    var classes = 'input js-input' + (hasButton ? ' input_hasButton' : '');
 
   .input__container
     input(
@@ -20,7 +20,7 @@ mixin input(opts)
       button(
         class='input__button'
         class='input__button_type_dropdown'
-        class='js_input__button_type_dropdown'
+        class='js-input__button_type_dropdown'
         type='button'
       )
 

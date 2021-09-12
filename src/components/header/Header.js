@@ -56,7 +56,7 @@ class Header {
   }
 
   _setFirstLinkCurrent = () => {
-    const firstLink = this.headerDom.querySelector('.js_header__link');
+    const firstLink = this.headerDom.querySelector('.js-header__link');
     firstLink.classList.add('header__link_current');
     firstLink.removeAttribute('href');
   }

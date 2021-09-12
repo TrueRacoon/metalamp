@@ -12,16 +12,16 @@ mixin calendar()
       button(
         class='calendar__month-nav-button'
         class='calendar__month-nav-button_prev'
-        class='js_calendar__month-nav-button_prev'
+        class='js-calendar__month-nav-button_prev'
       )
       +text({
         tag: 'h2',
-        classes: ['js_calendar__top-text']
+        classes: ['js-calendar__top-text']
       })
       button(
         class='calendar__month-nav-button'
         class='calendar__month-nav-button_next'
-        class='js_calendar__month-nav-button_next'
+        class='js-calendar__month-nav-button_next'
       )
     table.calendar__table
       thead.calendar__table-head
@@ -30,7 +30,7 @@ mixin calendar()
             th.calendar__table-head-data= dayName
       tbody(
         class='calendar__table-body'
-        class='js_calendar__table-body'
+        class='js-calendar__table-body'
       )
     .calendar__bottom
       button.calendar__control-button= 'Очистить'

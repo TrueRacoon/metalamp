@@ -5,10 +5,10 @@ class DateFilter {
 
   init() {
     this.arrivalExpandButton = this.dateFilterDom.querySelector(
-      '.js_date-filter__arrival .js_input__button_type_dropdown',
+      '.js-date-filter__arrival .js-input__button_type_dropdown',
     );
     this.departureExpandButton = this.dateFilterDom.querySelector(
-      '.js_date-filter__departure .js_input__button_type_dropdown',
+      '.js-date-filter__departure .js-input__button_type_dropdown',
     );
     this.calendarContainer = this.dateFilterDom.querySelector(
       '.js-date-filter__calendar-container',
