@@ -39,4 +39,8 @@
   border-style: none;
   cursor: pointer;
   font-family: $font-family;
+
+  &:hover {
+    color: transparentize($color-dark-shade, 0.5);
+  }
 }
