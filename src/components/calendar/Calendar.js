@@ -25,6 +25,7 @@ class Calendar {
     const tableBodyFragment = document.createDocumentFragment();
     let currentTableRowElement;
     let currentTableDataElement;
+    this.calendarDateButtons = [];
     this.calendarDates = this._getCalendarDates(this.calendarYear, this.calendarMonth);
     this.calendarDates.forEach((calendarDate, index) => {
       if (index % 7 === 0) {
@@ -33,19 +34,67 @@ class Calendar {
         tableBodyFragment.append(currentTableRowElement);
       }
       currentTableDataElement = document.createElement('td');
-      currentTableDataElement.classList.add('calendar__table-data');
-      if (calendarDate.getMonth() === this.calendarMonth) {
+      currentTableDataElement.setAttribute('data-date', calendarDate.date);
+      currentTableDataElement.classList.add('calendar__table-data', 'js-calendar__table-data');
+      if (calendarDate.date.getMonth() === this.calendarMonth) {
         currentTableDataElement.classList.add('calendar__table-data_thisMonth');
       }
-      if (calendarDate.toISOString().slice(0, 10) === this.today.toISOString().slice(0, 10)) {
+      if (calendarDate.date.toISOString().slice(0, 10) === this.today.toISOString().slice(0, 10)) {
         currentTableDataElement.classList.add('calendar__table-data_today');
       }
-      currentTableDataElement.append(calendarDate.getDate());
+      currentTableDataElement.append(calendarDate.date.getDate());
+      // eslint-disable-next-line no-param-reassign
+      calendarDate.calendarCell = currentTableDataElement;
+      currentTableDataElement.addEventListener('click', this._handleCalendarDateButtonClick);
+      this.calendarDateButtons.push(currentTableDataElement);
       currentTableRowElement.append(currentTableDataElement);
     });
     this.tableBody.innerHTML = '';
     this.tableBody.append(tableBodyFragment);
   };
+
+  updateSelectedDatesView = () => {
+    this._removeAllSelectedClasses();
+    this.calendarDates.forEach((calendarDate) => {
+      const bothDatesSelected = this.firstSelectedDate && this.secondSelectedDate;
+      const isCurrentDateSelectedFirst = (
+        this.firstSelectedDate && this._areDatesEquals(calendarDate.date, this.firstSelectedDate)
+      );
+      const isCurrentDateSelectedSecond = (
+        this.secondSelectedDate && this._areDatesEquals(calendarDate.date, this.secondSelectedDate)
+      );
+      const needAddSelectedClass = isCurrentDateSelectedFirst || isCurrentDateSelectedSecond;
+      const needAddFirstSelectedClass = isCurrentDateSelectedFirst && bothDatesSelected;
+      const needAddSecondSelectedClass = isCurrentDateSelectedSecond && bothDatesSelected;
+      const needAddBetweenSelectedClass = (
+        calendarDate.date > this.firstSelectedDate
+        && calendarDate.date < this.secondSelectedDate
+      );
+      if (needAddSelectedClass) {
+        calendarDate.calendarCell.classList.add('calendar__table-data_selected');
+      }
+      if (needAddFirstSelectedClass) {
+        calendarDate.calendarCell.classList.add('calendar__table-data_first-selected');
+      }
+      if (needAddBetweenSelectedClass) {
+        calendarDate.calendarCell.classList.add('calendar__table-data_between-selected');
+      }
+      if (needAddSecondSelectedClass) {
+        calendarDate.calendarCell.classList.add('calendar__table-data_second-selected');
+      }
+    });
+  };
+
+  _areDatesEquals = (firstDate, secondDate) => firstDate.toString() === secondDate.toString();
+
+  _removeAllSelectedClasses = () => {
+    this.calendarDateButtons.forEach((dateButton) => {
+      dateButton.classList.remove('calendar__table-data_selected');
+      dateButton.classList.remove('calendar__table-data_first-selected');
+      dateButton.classList.remove('calendar__table-data_between-selected');
+      dateButton.classList.remove('calendar__table-data_second-selected');
+    });
+  }
 
   _bindEventListeners() {
     this.prevMonthButton.addEventListener('click', this._handlePrevMonthButtonClick);
@@ -59,6 +108,7 @@ class Calendar {
     ));
     this._setCalendarLabelText();
     this.formCalendarTableBody();
+    this.updateSelectedDatesView();
   }
 
   _handleNextMonthButtonClick = () => {
@@ -68,6 +118,7 @@ class Calendar {
     ));
     this._setCalendarLabelText();
     this.formCalendarTableBody();
+    this.updateSelectedDatesView();
   }
 
   _getCalendarMonthName = () => {
@@ -95,18 +146,44 @@ class Calendar {
     const firstDayOfWeek = this._getLocalDayOfWeek(new Date(year, month, 1));
     const prevMonthDay = this._getLastDayOfMonth(year, month - 1);
     for (let i = firstDayOfWeek - 1; i > 0; i -= 1) {
-      days.push(new Date(year, month - 1, prevMonthDay - i + 1));
+      days.push({ date: new Date(year, month - 1, prevMonthDay - i + 1) });
     }
     const lastDayOfMonth = this._getLastDayOfMonth(year, month);
     for (let i = 1; i <= lastDayOfMonth; i += 1) {
-      days.push(new Date(year, month, i));
+      days.push({ date: new Date(year, month, i) });
     }
     const nDaysOfNextMonth = (7 - (days.length % 7)) % 7;
     for (let i = 1; i <= nDaysOfNextMonth; i += 1) {
-      days.push(new Date(year, month + 1, i));
+      days.push({ date: new Date(year, month + 1, i) });
     }
     return days;
   };
+
+  _handleCalendarDateButtonClick = (event) => {
+    const date = new Date(event.target.dataset.date);
+    if (date < this.today) {
+      return;
+    }
+    if (!this.firstSelectedDate) {
+      this.firstSelectedDate = date;
+      this.updateSelectedDatesView();
+      return;
+    }
+    const areTwoDatesSelected = this.firstSelectedDate && this.secondSelectedDate;
+    if (areTwoDatesSelected) {
+      this.secondSelectedDate = undefined;
+      this.firstSelectedDate = date;
+      this.updateSelectedDatesView();
+      return;
+    }
+    if (date < this.firstSelectedDate) {
+      this.secondSelectedDate = this.firstSelectedDate;
+      this.firstSelectedDate = date;
+    } else {
+      this.secondSelectedDate = date;
+    }
+    this.updateSelectedDatesView();
+  }
 }
 
 export default Calendar;

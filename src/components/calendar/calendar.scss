@@ -52,17 +52,50 @@
   &__table-data {
     color: transparentize($color-dark-shade, 0.75);
     text-align: center;
+    cursor: pointer;
   }
 
   &__table-data_thisMonth {
     color: transparentize($color-dark-shade, 0.25);
   }
 
-  &__table-data_today {
+  &__table-data:hover,
+  &__table-data_today,
+  &__table-data_selected {
     font-weight: bold;
     color: #fff;
-    background: $gradient-green;
     border-radius: 50%;
+  }
+
+  &__table-data_today {
+    background: $gradient-green;
+  }
+
+  &__table-data:hover,
+  &__table-data_selected {
+    background: $gradient-purple;
+  }
+
+  &__table-data_first-selected,
+  &__table-data_between-selected,
+  &__table-data_second-selected {
+    border-radius: unset;
+
+    &:hover {
+      border-radius: unset;
+    }
+  }
+
+  &__table-data_first-selected {
+    background: url('./../../components/calendar/img/first-selected.svg');
+  }
+
+  &__table-data_between-selected {
+    background: url('./../../components/calendar/img/between-selected.svg');
+  }
+
+  &__table-data_second-selected {
+    background: url('./../../components/calendar/img/second-selected.svg');
   }
 
   &__bottom {
