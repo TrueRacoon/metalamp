@@ -1,6 +1,7 @@
 class DateFilter {
-  constructor(dateFilterDom) {
+  constructor(dateFilterDom, calendar) {
     this.dateFilterDom = dateFilterDom;
+    this.calendar = calendar;
   }
 
   init() {
