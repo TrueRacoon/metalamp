@@ -21,23 +21,15 @@ class DateFilter {
   }
 
   _bindEventListeners() {
-    this.arrivalExpandButton.addEventListener('click', this._handleArrivalExpandButtonClick);
-    this.departureExpandButton.addEventListener('click', this._handleDepartureExpandButtonClick);
+    this.arrivalExpandButton.addEventListener('click', this._handleExpandButtonClick);
+    this.departureExpandButton.addEventListener('click', this._handleExpandButtonClick);
     this.calendarApplyButton.addEventListener('click', this._handleCalendarApplyButtonClick);
     this.arrivalDateInput.inputDom.addEventListener('blur', this._handleArrivalDateInputBlur);
     this.departureDateInput.inputDom.addEventListener('blur', this._handleDepartureDateInputBlur);
   }
 
-  _handleArrivalExpandButtonClick = () => {
+  _handleExpandButtonClick = () => {
     this.calendarContainer.classList.toggle('date-filter__calendar-container_opened');
-    this.arrivalExpandButton.classList.toggle('input__button_type_dropdown_turned');
-    this.departureExpandButton.classList.remove('input__button_type_dropdown_turned');
-  }
-
-  _handleDepartureExpandButtonClick = () => {
-    this.calendarContainer.classList.toggle('date-filter__calendar-container_opened');
-    this.departureExpandButton.classList.toggle('input__button_type_dropdown_turned');
-    this.arrivalExpandButton.classList.remove('input__button_type_dropdown_turned');
   }
 
   _handleCalendarApplyButtonClick = () => {
