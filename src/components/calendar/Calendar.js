@@ -9,11 +9,22 @@ class Calendar {
     this.nextMonthButton = this.calendarDom.querySelector('.js-calendar__month-nav-button_next');
     this.topText = this.calendarDom.querySelector('.js-calendar__top-text');
     this.tableBody = this.calendarDom.querySelector('.js-calendar__table-body');
+    this.clearButton = this.calendarDom.querySelector('.js-calendar__clear-button');
     this.today = new Date();
     this._setCalendarLabelText();
     this.formCalendarTableBody();
     this._bindEventListeners();
   }
+
+  getFirstSelectedDate = () => this.firstSelectedDate;
+
+  // eslint-disable-next-line no-return-assign
+  setFirstSelectedDate = (date) => this.firstSelectedDate = date;
+
+  getSecondSelectedDate = () => this.secondSelectedDate;
+
+  // eslint-disable-next-line no-return-assign
+  setSecondSelectedDate = (date) => this.secondSelectedDate = date;
 
   setCalendarReferenceData = (date = new Date()) => {
     this.calendarReferenceDate = date;
@@ -99,6 +110,7 @@ class Calendar {
   _bindEventListeners() {
     this.prevMonthButton.addEventListener('click', this._handlePrevMonthButtonClick);
     this.nextMonthButton.addEventListener('click', this._handleNextMonthButtonClick);
+    this.clearButton.addEventListener('click', this._handleClearButtonClick);
   }
 
   _handlePrevMonthButtonClick = () => {
@@ -119,6 +131,38 @@ class Calendar {
     this._setCalendarLabelText();
     this.formCalendarTableBody();
     this.updateSelectedDatesView();
+  }
+
+  _handleCalendarDateButtonClick = (event) => {
+    const date = new Date(event.target.dataset.date);
+    if (date < this.today) {
+      return;
+    }
+    if (!this.firstSelectedDate) {
+      this.firstSelectedDate = date;
+      this.updateSelectedDatesView();
+      return;
+    }
+    const areTwoDatesSelected = this.firstSelectedDate && this.secondSelectedDate;
+    if (areTwoDatesSelected) {
+      this.secondSelectedDate = undefined;
+      this.firstSelectedDate = date;
+      this.updateSelectedDatesView();
+      return;
+    }
+    if (date < this.firstSelectedDate) {
+      this.secondSelectedDate = this.firstSelectedDate;
+      this.firstSelectedDate = date;
+    } else {
+      this.secondSelectedDate = date;
+    }
+    this.updateSelectedDatesView();
+  }
+
+  _handleClearButtonClick = () => {
+    this.firstSelectedDate = undefined;
+    this.secondSelectedDate = undefined;
+    this._removeAllSelectedClasses();
   }
 
   _getCalendarMonthName = () => {
@@ -158,32 +202,6 @@ class Calendar {
     }
     return days;
   };
-
-  _handleCalendarDateButtonClick = (event) => {
-    const date = new Date(event.target.dataset.date);
-    if (date < this.today) {
-      return;
-    }
-    if (!this.firstSelectedDate) {
-      this.firstSelectedDate = date;
-      this.updateSelectedDatesView();
-      return;
-    }
-    const areTwoDatesSelected = this.firstSelectedDate && this.secondSelectedDate;
-    if (areTwoDatesSelected) {
-      this.secondSelectedDate = undefined;
-      this.firstSelectedDate = date;
-      this.updateSelectedDatesView();
-      return;
-    }
-    if (date < this.firstSelectedDate) {
-      this.secondSelectedDate = this.firstSelectedDate;
-      this.firstSelectedDate = date;
-    } else {
-      this.secondSelectedDate = date;
-    }
-    this.updateSelectedDatesView();
-  }
 }
 
 export default Calendar;

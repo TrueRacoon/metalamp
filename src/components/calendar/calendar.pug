@@ -33,6 +33,14 @@ mixin calendar()
         class='js-calendar__table-body'
       )
     .calendar__bottom
-      button.calendar__control-button= 'Очистить'
-      button.calendar__control-button= 'Применить'
+      button(
+        class='calendar__control-button'
+        class='calendar__clear-button'
+        class='js-calendar__clear-button'
+      )= 'Очистить'
+      button(
+        class='calendar__control-button'
+        class='calendar__apply-button'
+        class='js-calendar__apply-button'
+      )= 'Применить'
 
