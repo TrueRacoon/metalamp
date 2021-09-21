@@ -64,7 +64,7 @@
 
     &:hover {
       opacity: 0.75;
-      border-color: transparentize($color-dark-shade, 0.666);
+      border-color: transparentize($color-dark-shade, 2/3);
     }
   }
 
