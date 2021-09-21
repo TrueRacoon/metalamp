@@ -1,0 +1,51 @@
+include ../text/text.pug
+include ../dropdown-input/dropdown-input.pug
+
+mixin count-picker(opts)
+  div(
+    class='count-picker'
+    class='js-count-picker'
+  )
+    +dropdown-input({
+      label: opts.label,
+      inputText: opts.inputText,
+    })
+    .count-picker__content
+      ul.count-picker__list
+        each itemLabel in opts.itemLabels
+          li(
+            class='count-picker__item'
+            class='js-count-picker__item'
+          )
+            +text({
+              tag: 'h3',
+              text: itemLabel,
+              classes: [
+                'count-picker__item-label',
+                'js-count-picker__item-label',
+              ],
+            })
+            button(
+              class='count-picker__button'
+              class='js-count-picker__button_type_minus'
+            )='-'
+            .count-picker__item-value-container
+              +text({
+                tag: 'h3',
+                text: '0',
+                classes: ['js-count-picker__item-value'],
+              })
+            button(
+              class='count-picker__button'
+              class='js-count-picker__button_type_plus'
+            )='+'
+      if opts.withControlButtons
+        .count-picker__control-buttons
+          button(
+            class='count-picker__control-button'
+            class='js-count-picker__clear-button'
+          )= 'Очистить'
+          button(
+            class='count-picker__control-button'
+            class='js-count-picker__apply-button'
+          )= 'Применить'

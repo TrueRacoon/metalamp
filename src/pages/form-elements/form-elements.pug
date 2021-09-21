@@ -1,0 +1,18 @@
+extends ../ui-kit/ui-kit.pug
+include ../../components/count-picker/count-picker
+
+block variables
+  -
+    var title = 'Form Elements';
+    var description = 'Form Elements Description';
+    var keywords = 'Form Elements Keywords';
+    var dropdownItemLabels = ['Взрослые', 'Дети', 'Младенцы'];
+
+block content
+  .element
+    +count-picker({
+      label: 'dropdown',
+      inputText: 'Сколько гостей',
+      itemLabels: dropdownItemLabels,
+      withControlButtons: true,
+    })
