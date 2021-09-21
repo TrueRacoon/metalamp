@@ -29,7 +29,7 @@ class DateFilter {
   }
 
   _handleExpandButtonClick = () => {
-    this.calendarContainer.classList.toggle('date-filter__calendar-container_opened');
+    this.calendarContainer.classList.toggle('date-filter__calendar-container_visible');
   }
 
   _handleCalendarApplyButtonClick = () => {
@@ -47,7 +47,7 @@ class DateFilter {
       );
       this.departureDateInput.removeInvalidClass();
     }
-    this.calendarContainer.classList.toggle('date-filter__calendar-container_opened');
+    this.calendarContainer.classList.toggle('date-filter__calendar-container_visible');
   }
 
   _handleArrivalDateInputBlur = () => {

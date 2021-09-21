@@ -31,7 +31,7 @@ class CountPicker {
   }
 
   _handleDropdownBlockClick = () => {
-    this.countPickerDom.classList.toggle('count-picker_opened');
+    this.countPickerDom.classList.toggle('count-picker_expanded');
   }
 
   _handleMinusButtonClick = (event, itemLabel) => {

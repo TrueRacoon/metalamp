@@ -77,7 +77,7 @@
     display: none;
 
     @media (max-width: 1023px) {
-      &_opened {
+      &_expanded {
         display: block;
       }
     }
@@ -137,7 +137,7 @@
     }
   }
 
-  &__dropdown-content_opened > &__link-container {
+  &__dropdown-content_expanded > &__link-container {
     @media (max-width: 1023px) {
       &:first-child {
         padding-top: 2em;
@@ -203,7 +203,7 @@
       right: 0;
     }
 
-    &_opened {
+    &_expanded {
       display: block;
     }
   }
@@ -236,7 +236,7 @@
     display: none;
 
     @media (max-width: 1023px) {
-      &_opened {
+      &_expanded {
         display: block;
       }
     }

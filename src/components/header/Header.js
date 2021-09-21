@@ -34,23 +34,23 @@ class Header {
   }
 
   _handleNavMenuButtonClick = () => {
-    this._safeRemoveClass(this.profileMenu, 'header__profile-menu_opened');
-    this.headerMenu.classList.toggle('header__menu_opened');
+    this._safeRemoveClass(this.profileMenu, 'header__profile-menu_expanded');
+    this.headerMenu.classList.toggle('header__menu_expanded');
   }
 
   _handleProfileMenuButtonClick = () => {
-    this.headerMenu.classList.remove('header__menu_opened');
-    this.profileMenu.classList.toggle('header__profile-menu_opened');
+    this.headerMenu.classList.remove('header__menu_expanded');
+    this.profileMenu.classList.toggle('header__profile-menu_expanded');
   }
 
   _handleExpandButtonClick = (event) => {
-    event.target.nextElementSibling.classList.toggle('header__dropdown-content_opened');
+    event.target.nextElementSibling.classList.toggle('header__dropdown-content_expanded');
     event.target.classList.toggle('header__expand-button_turned');
     this.expandButtons.forEach((expandButton) => {
       if (expandButton === event.target) {
         return;
       }
-      expandButton.nextElementSibling.classList.remove('header__dropdown-content_opened');
+      expandButton.nextElementSibling.classList.remove('header__dropdown-content_expanded');
       expandButton.classList.remove('header__expand-button_turned');
     });
   }

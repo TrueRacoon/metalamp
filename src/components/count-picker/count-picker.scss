@@ -13,7 +13,7 @@
     box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
   }
 
-  &_opened &__content {
+  &_expanded &__content {
     display: block;
   }
 
