@@ -7,10 +7,10 @@
   }
 
   &__text {
+    padding-left: 15px;
     box-sizing: border-box;
     width: calc(100% - 44px);
     height: 44px;
-    padding-left: 15px;
     line-height: 44px;
     border: 1px solid transparentize($color-dark-shade, 0.75);
     border-right-style: none;

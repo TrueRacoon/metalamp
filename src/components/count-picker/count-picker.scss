@@ -6,11 +6,11 @@
   max-width: 320px;
 
   &__content {
-    border: 1px solid transparentize($color-dark-shade, 0.5);
-    box-sizing: border-box;
-    box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
     padding: 7px 7px 7px 15px;
     display: none;
+    box-sizing: border-box;
+    border: 1px solid transparentize($color-dark-shade, 0.5);
+    box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
   }
 
   &_opened &__content {
@@ -18,16 +18,16 @@
   }
 
   &__list {
-    list-style-type: none;
     margin: 0;
     padding: 0;
+    list-style-type: none;
   }
 
   &__item {
-    display: flex;
-    align-items: center;
-    height: 30px;
     margin-bottom: 7px;
+    display: flex;
+    height: 30px;
+    align-items: center;
   }
 
   &__item-label {
@@ -35,15 +35,15 @@
   }
 
   &__button {
-    box-sizing: border-box;
     padding: 0;
+    box-sizing: border-box;
     width: 30px;
     height: 30px;
     font-size: 18px;
+    color: transparentize($color-dark-shade, 0.5);
     background: transparent;
     border: 1px solid transparentize($color-dark-shade, 0.75);
     border-radius: 50%;
-    color: transparentize($color-dark-shade, 0.5);
     cursor: pointer;
 
     &:disabled {
@@ -64,6 +64,6 @@
 
   &__control-button {
     @include text-button;
-    margin: 12px 0 6px 0;
+    margin: 12px 0 6px;
   }
 }
