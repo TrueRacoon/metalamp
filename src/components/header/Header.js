@@ -4,7 +4,7 @@ class Header {
   }
 
   init() {
-    this.profileMenuButton = this.headerDom.querySelector('.header__profile-menu-button');
+    this.profileMenuButton = this.headerDom.querySelector('.js-header__profile-menu-button');
     this.navMenuButton = this.headerDom.querySelector('.js-header__nav-menu-button');
     this.headerMenu = this.headerDom.querySelector('.js-header__menu');
     this.profileMenu = this.headerDom.querySelector('.js-header__profile-menu');
