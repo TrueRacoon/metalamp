@@ -21,7 +21,8 @@
     /* stylelint-disable */
     + .input__button {
       /* stylelint-enable */
-      border-color: transparentize($color-dark-shade, 0.5);
+      opacity: 0.75;
+      border-color: transparentize($color-dark-shade, 0.25);
     }
   }
 
@@ -57,7 +58,14 @@
   }
 
   &__button_type_dropdown {
+    opacity: 0.5;
     background-image: url('./../../img/expand-icon.svg');
+    border-color: transparentize($color-dark-shade, 0.5);
+
+    &:hover {
+      opacity: 0.75;
+      border-color: transparentize($color-dark-shade, 0.666);
+    }
   }
 
   &_invalid {

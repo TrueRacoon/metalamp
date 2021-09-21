@@ -175,13 +175,14 @@
     margin-left: 6px;
     cursor: pointer;
     background: url('./../../img/expand-icon.svg') no-repeat;
+    opacity: 0.5;
 
     @media (min-width: 1024px) {
       margin-right: 7px;
     }
 
     &:hover {
-      opacity: 0.5;
+      opacity: 0.75;
     }
 
     &_turned {
