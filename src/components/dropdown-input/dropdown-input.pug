@@ -2,13 +2,17 @@ mixin dropdown-input(opts)
   .dropdown-input__container
     +text({
       tag: 'h3',
-      text: opts.label
+      text: opts.label,
+      classes: ['dropdown-input__label'],
     })
-    .dropdown-input
+    div(
+      class='dropdown-input'
+      class='js-dropdown-input'
+    )
       div(
         class='dropdown-input__text'
         class='js-dropdown-input__text'
-      )
+      )=opts.inputText
       button(
         class='dropdown-input__button'
         class='js-dropdown-input__button'

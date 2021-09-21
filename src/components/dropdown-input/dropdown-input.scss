@@ -1,12 +1,43 @@
-//.dropdown-input {
-//  &__button {
-//    width: 44px;
-//    height: 44px;
-//    line-height: 0;
-//    background: transparent url('./../../img/expand-icon.svg') no-repeat center;
-//    border: 1px solid transparentize($color-dark-shade, 0.75);
-//    border-left-style: none;
-//    border-radius: 0 4px 4px 0;
-//    cursor: pointer;
-//  }
-//}
+.dropdown-input {
+  display: flex;
+  cursor: pointer;
+
+  &__label {
+    margin-bottom: 5px;
+  }
+
+  &__text {
+    box-sizing: border-box;
+    width: calc(100% - 44px);
+    height: 44px;
+    padding-left: 15px;
+    line-height: 44px;
+    border: 1px solid transparentize($color-dark-shade, 0.75);
+    border-right-style: none;
+    border-radius: 4px 0 0 4px;
+  }
+
+  &:hover &__text,
+  &:hover &__button {
+    border: 1px solid transparentize($color-dark-shade, 0.5);
+  }
+
+  &:hover &__text {
+    border-right-style: none;
+  }
+
+  &__button {
+    width: 44px;
+    height: 44px;
+    line-height: 0;
+    background: transparent url('./../../img/expand-icon.svg') no-repeat center;
+    border: 1px solid transparentize($color-dark-shade, 0.75);
+    border-left-style: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+
+  &:hover &__button {
+    border-left-style: none;
+  }
+}
