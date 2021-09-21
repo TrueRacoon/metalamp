@@ -1,12 +1,12 @@
 include ../text/text.pug
-include ../dropdown-input/dropdown-input.pug
+include ../dropdown-block/dropdown-block.pug
 
 mixin count-picker(opts)
   div(
     class='count-picker'
     class='js-count-picker'
   )
-    +dropdown-input({
+    +dropdown-block({
       label: opts.label,
       inputText: opts.inputText,
     })

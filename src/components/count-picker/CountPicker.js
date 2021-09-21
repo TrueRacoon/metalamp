@@ -17,7 +17,7 @@ class CountPicker {
       };
       this.itemsDoms[label].minusButton.disabled = true;
     });
-    this.dropdownInput = this.countPickerDom.querySelector('.js-dropdown-input');
+    this.dropdownBlock = this.countPickerDom.querySelector('.js-dropdown-block');
     this._bindEventListeners();
   }
 
@@ -27,10 +27,10 @@ class CountPicker {
       itemDom.minusButton.addEventListener('click', (event) => this._handleMinusButtonClick(event, itemLabel));
       itemDom.plusButton.addEventListener('click', () => this._handlePlusButtonClick(itemLabel, itemDom.minusButton));
     });
-    this.dropdownInput.addEventListener('click', this._handleDropdownInputClick);
+    this.dropdownBlock.addEventListener('click', this._handleDropdownBlockClick);
   }
 
-  _handleDropdownInputClick = () => {
+  _handleDropdownBlockClick = () => {
     this.countPickerDom.classList.toggle('count-picker_opened');
   }
 

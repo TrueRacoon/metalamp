@@ -1,5 +1,5 @@
 include ../input/input.pug
-include ../dropdown-input/dropdown-input.pug
+include ../dropdown-block/dropdown-block.pug
 
 mixin date-filter(opts)
   div(
@@ -36,7 +36,7 @@ mixin date-filter(opts)
           withDropdownButton: true,
         })
     else
-      +dropdown-input({
+      +dropdown-block({
         label: opts.dateFilterLabel
       })
     div(
