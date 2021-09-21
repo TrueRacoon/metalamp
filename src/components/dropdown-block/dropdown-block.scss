@@ -18,11 +18,14 @@
   }
 
   &:hover &__text,
-  &:hover &__button {
+  &:hover &__button,
+  &_expanded &__text,
+  &_expanded &__button {
     border: 1px solid transparentize($color-dark-shade, 0.5);
   }
 
-  &:hover &__text {
+  &:hover &__text,
+  &_expanded &__text {
     border-right-style: none;
   }
 
@@ -38,7 +41,8 @@
     cursor: pointer;
   }
 
-  &:hover &__button {
+  &:hover &__button,
+  &_expanded &__button {
     opacity: 0.75;
     border-color: transparentize($color-dark-shade, 0.25);
     border-left-style: none;
