@@ -18,16 +18,17 @@ class CountPicker {
       this.itemsDoms[label].minusButton.disabled = true;
     });
     this.dropdownBlock = this.countPickerDom.querySelector('.js-dropdown-block');
+    this.clearButton = this.countPickerDom.querySelector('.js-count-picker__clear-button');
     this._bindEventListeners();
   }
 
   _bindEventListeners() {
-    const itemsDomsEntries = Object.entries(this.itemsDoms);
-    itemsDomsEntries.forEach(([itemLabel, itemDom]) => {
+    Object.entries(this.itemsDoms).forEach(([itemLabel, itemDom]) => {
       itemDom.minusButton.addEventListener('click', (event) => this._handleMinusButtonClick(event, itemLabel));
       itemDom.plusButton.addEventListener('click', () => this._handlePlusButtonClick(itemLabel, itemDom.minusButton));
     });
     this.dropdownBlock.addEventListener('click', this._handleDropdownBlockClick);
+    this.clearButton?.addEventListener('click', this._handleClearButtonClick);
   }
 
   _handleDropdownBlockClick = () => {
@@ -44,6 +45,9 @@ class CountPicker {
       // eslint-disable-next-line no-param-reassign
       event.target.disabled = true;
     }
+    if (this._isThereOnlyZeroCounters()) {
+      this?.clearButton.classList.add('count-picker__control-button_hidden');
+    }
     console.log(this.itemsModel);
   }
 
@@ -52,8 +56,22 @@ class CountPicker {
     this.itemsDoms[itemLabel].itemValue.innerText = this.itemsModel[itemLabel];
     // eslint-disable-next-line no-param-reassign
     minusButton.disabled = false;
+    this.clearButton?.classList.remove('count-picker__control-button_hidden');
     console.log(this.itemsModel);
   }
+
+  _handleClearButtonClick = () => {
+    Object.entries(this.itemsDoms).forEach(([itemLabel, itemDom]) => {
+      // eslint-disable-next-line no-param-reassign
+      itemDom.itemValue.innerText = '0';
+      // eslint-disable-next-line no-param-reassign
+      itemDom.minusButton.disabled = true;
+      this.itemsModel[itemLabel] = 0;
+    });
+    this.clearButton.classList.add('count-picker__control-button_hidden');
+  }
+
+  _isThereOnlyZeroCounters = () => (Object.values(this.itemsModel).every((v) => v === 0));
 }
 
 export default CountPicker;

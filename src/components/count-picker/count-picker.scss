@@ -66,5 +66,9 @@
   &__control-button {
     @include text-button;
     margin: 12px 0 6px;
+
+    &_hidden {
+      visibility: hidden;
+    }
   }
 }
