@@ -68,12 +68,8 @@ class Calendar {
     this._removeAllSelectedClasses();
     this.calendarDates.forEach((calendarDate) => {
       const bothDatesSelected = this.firstSelectedDate && this.secondSelectedDate;
-      const isCurrentDateSelectedFirst = (
-        this.firstSelectedDate && this._areDatesEquals(calendarDate.date, this.firstSelectedDate)
-      );
-      const isCurrentDateSelectedSecond = (
-        this.secondSelectedDate && this._areDatesEquals(calendarDate.date, this.secondSelectedDate)
-      );
+      const isCurrentDateSelectedFirst = this._areDatesEquals(calendarDate.date, this.firstSelectedDate);
+      const isCurrentDateSelectedSecond = this._areDatesEquals(calendarDate.date, this.secondSelectedDate);
       const needAddSelectedClass = isCurrentDateSelectedFirst || isCurrentDateSelectedSecond;
       const needAddFirstSelectedClass = isCurrentDateSelectedFirst && bothDatesSelected;
       const needAddSecondSelectedClass = isCurrentDateSelectedSecond && bothDatesSelected;
@@ -96,7 +92,7 @@ class Calendar {
     });
   };
 
-  _areDatesEquals = (firstDate, secondDate) => firstDate.toString() === secondDate.toString();
+  _areDatesEquals = (firstDate, secondDate) => firstDate.toString() === secondDate?.toString();
 
   _removeAllSelectedClasses = () => {
     this.calendarDateButtons.forEach((dateButton) => {

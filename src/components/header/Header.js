@@ -13,28 +13,16 @@ class Header {
     this._setFirstLinkCurrent();
   }
 
-  _safeAddEventListener = (element, eventName, listener) => {
-    if (element) {
-      element.addEventListener(eventName, listener);
-    }
-  }
-
   _bindEventListeners() {
     this.navMenuButton.addEventListener('click', this._handleNavMenuButtonClick);
-    this._safeAddEventListener(this.profileMenuButton, 'click', this._handleProfileMenuButtonClick);
+    this.profileMenuButton?.addEventListener('click', this._handleProfileMenuButtonClick);
     this.expandButtons.forEach((expandButton) => {
       expandButton.addEventListener('click', this._handleExpandButtonClick);
     });
   }
 
-  _safeRemoveClass = (element, className) => {
-    if (element) {
-      element.classList.remove(className);
-    }
-  }
-
   _handleNavMenuButtonClick = () => {
-    this._safeRemoveClass(this.profileMenu, 'header__profile-menu_expanded');
+    this.profileMenu?.classList.remove('header__profile-menu_expanded');
     this.headerMenu.classList.toggle('header__menu_expanded');
   }
 
