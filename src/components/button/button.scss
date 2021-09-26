@@ -9,9 +9,30 @@
   background: $gradient-purple;
   border-radius: 22px;
   cursor: pointer;
+  border-style: none;
+  font-family: $font-family;
 
   &:hover {
     opacity: 0.5;
+  }
+}
+
+@mixin submit-button {
+  @include button;
+
+  width: 100%;
+  padding: 14px 22px 15px 18px;
+  position: relative;
+
+  &:after {
+    width: 44px;
+    height: 44px;
+    content: '';
+    background: url('./../../img/forward-arrow.svg') no-repeat 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    filter: brightness(0) invert(1);
   }
 }
 
