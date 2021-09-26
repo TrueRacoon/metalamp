@@ -11,6 +11,10 @@
     max-width: 150px;
   }
 
+  &__label {
+    margin-bottom: 5px;
+  }
+
   &__calendar-container {
     position: absolute;
     display: none;
