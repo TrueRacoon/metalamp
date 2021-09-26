@@ -28,6 +28,7 @@ mixin count-picker(opts)
             button(
               class='count-picker__button'
               class='js-count-picker__button_type_minus'
+              type='button'
             )='-'
             .count-picker__item-value-container
               +text({
@@ -38,6 +39,7 @@ mixin count-picker(opts)
             button(
               class='count-picker__button'
               class='js-count-picker__button_type_plus'
+              type='button'
             )='+'
       if opts.withControlButtons
         .count-picker__control-buttons
@@ -45,8 +47,10 @@ mixin count-picker(opts)
             class='count-picker__control-button'
             class='count-picker__control-button_hidden'
             class='js-count-picker__clear-button'
+            type='button'
           )= 'Очистить'
           button(
             class='count-picker__control-button'
             class='js-count-picker__apply-button'
+            type='button'
           )= 'Применить'

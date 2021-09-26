@@ -13,6 +13,7 @@ mixin calendar()
         class='calendar__month-nav-button'
         class='calendar__month-nav-button_prev'
         class='js-calendar__month-nav-button_prev'
+        type='button'
       )
       +text({
         tag: 'h2',
@@ -22,6 +23,7 @@ mixin calendar()
         class='calendar__month-nav-button'
         class='calendar__month-nav-button_next'
         class='js-calendar__month-nav-button_next'
+        type='button'
       )
     table.calendar__table
       thead.calendar__table-head
@@ -36,9 +38,11 @@ mixin calendar()
       button(
         class='calendar__control-button'
         class='js-calendar__clear-button'
+        type='button'
       )= 'Очистить'
       button(
         class='calendar__control-button'
         class='js-calendar__apply-button'
+        type='button'
       )= 'Применить'
 
