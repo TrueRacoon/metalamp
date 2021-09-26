@@ -1,0 +1,15 @@
+@import 'src/variables.scss';
+
+.information-tooltip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: transparentize($color-dark-shade, 0.75);
+  border: 1px solid transparentize($color-dark-shade, 0.75);
+  border-radius: 50%;
+  cursor: help;
+}
