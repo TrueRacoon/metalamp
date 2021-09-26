@@ -1,0 +1,72 @@
+@import 'src/variables.scss';
+@import 'src/components/information-tooltip/information-tooltip.scss';
+@import 'src/components/button/button.scss';
+
+.booking-card {
+  padding: 40px 30px 30px;
+  min-width: 320px;
+  max-width: 380px;
+  background-color: #fff;
+
+  &__fieldset {
+    margin: 0 0 31px;
+    padding: 0;
+    border: 0;
+  }
+
+  &__legend {
+    margin-bottom: 20px;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: bold;
+  }
+
+  &__room-number {
+    font-size: 24px;
+  }
+
+  &__room-type {
+    text-transform: uppercase;
+    color: $color-purple;
+  }
+
+  &__price {
+    color: transparentize($color-dark-shade, 0.5);
+  }
+
+  &__price-period {
+    font-weight: normal;
+  }
+
+  &__date-filter-container {
+    margin-bottom: 21px;
+  }
+
+  &__cost-details-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__cost-details-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__cost-details {
+    display: flex;
+    width: 245px;
+    justify-content: space-between;
+  }
+
+  &__submit-button {
+    @include submit-button;
+
+    &_disabled {
+      cursor: not-allowed;
+    }
+  }
+}

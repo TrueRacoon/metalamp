@@ -1,6 +1,7 @@
 extends ../ui-kit/ui-kit.pug
 include ../../components/calendar/calendar.pug
 include ../../components/room-search/room-search.pug
+include ../../components/booking-card/booking-card.pug
 
 block variables
   -
@@ -13,5 +14,12 @@ block content
   .cards
     .cards__card
       +room-search()
+    .cards__card
+      +booking-card({
+        roomNumber: '888',
+        roomType: 'Люкс',
+        roomPrice: '9990',
+        discount: '2179',
+      })
     .cards__card
       +calendar()
