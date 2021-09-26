@@ -19,6 +19,7 @@
     position: absolute;
     display: none;
     top: 70px;
+    z-index: 2;
 
     &_visible {
       display: block;
