@@ -1,10 +1,10 @@
 mixin dropdown-block(opts)
   .dropdown-block__container
-    +text({
-      tag: 'h3',
-      text: opts.label,
-      classes: ['dropdown-block__label'],
-    })
+    .dropdown-block__label
+      +text({
+        tag: 'h3',
+        text: opts.label,
+      })
     div(
       class='dropdown-block'
       class='js-dropdown-block'
