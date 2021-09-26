@@ -1,5 +1,8 @@
+@import '../../components/date-filter/date-filter.scss';
+@import '../../components/calendar/calendar.scss';
 @import '../../components/count-picker/count-picker.scss';
 
 .element {
   margin: 40px;
+  max-width: 320px;
 }
