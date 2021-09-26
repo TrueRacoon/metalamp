@@ -1,11 +1,27 @@
 include ../date-filter/date-filter.pug
+include ../count-picker/count-picker.pug
 
-mixin arrival-filters(opts)
+mixin arrival-filters()
   .arrival-filters
-    +date-filter({
-      arrivalLabel: opts.arrivalLabel,
-      departureLabel: opts.departureLabel,
-      dateFilterLabel: opts.dateFilterLabel,
-      separateDates: opts.separateDates,
-    })
-
+    form
+      fieldset.arrival-filters__fieldset
+        legend.arrival-filters__legend
+          +text({
+            text: 'Найдём номера под ваши пожелания',
+            tag: 'h1',
+          })
+        .arrival-filters__date-filter-container
+          +date-filter({
+            arrivalLabel: 'Прибытие',
+            departureLabel: 'Выезд',
+            separateDates: true,
+          })
+        +count-picker({
+          label: 'Гости',
+          inputText: 'Сколько гостей',
+          withControlButtons: true,
+          itemLabels: ['Взрослые', 'Дети', 'Младенцы'],
+        })
+      button.arrival-filters__submit-button(
+        type='submit'
+      )='Подобрать номер'

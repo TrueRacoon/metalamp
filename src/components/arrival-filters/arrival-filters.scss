@@ -1,1 +1,25 @@
 @import 'src/components/date-filter/date-filter.scss';
+@import 'src/components/button/button.scss';
+
+.arrival-filters {
+  padding: 40px 30px 30px;
+
+  &__fieldset {
+    margin: 0 0 31px;
+    padding: 0;
+    border: 0;
+  }
+
+  &__legend {
+    margin-bottom: 21px;
+    padding: 0;
+  }
+
+  &__date-filter-container {
+    margin-bottom: 21px;
+  }
+
+  &__submit-button {
+    @include submit-button;
+  }
+}
