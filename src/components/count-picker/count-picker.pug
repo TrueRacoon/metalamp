@@ -12,14 +12,14 @@ mixin count-picker(opts)
     })
     .count-picker__content
       ul.count-picker__list
-        each itemLabel in opts.itemLabels
+        each item in opts.items
           li(
             class='count-picker__item'
             class='js-count-picker__item'
           )
             +text({
               tag: 'h3',
-              text: itemLabel,
+              text: item.label,
               classes: [
                 'count-picker__item-label',
                 'js-count-picker__item-label',
@@ -33,7 +33,7 @@ mixin count-picker(opts)
             .count-picker__item-value-container
               +text({
                 tag: 'h3',
-                text: '0',
+                text: item.count.toString(),
                 classes: ['js-count-picker__item-value'],
               })
             button(

@@ -9,13 +9,15 @@ class CountPicker {
     const items = [...this.countPickerDom.getElementsByClassName('js-count-picker__item')];
     items.forEach((item) => {
       const label = item.querySelector('.js-count-picker__item-label').innerText;
-      this.itemsModel[label] = 0;
+      this.itemsModel[label] = parseInt(item.querySelector('.js-count-picker__item-value').innerText, 10);
       this.itemsDoms[label] = {
         minusButton: item.querySelector('.js-count-picker__button_type_minus'),
         itemValue: item.querySelector('.js-count-picker__item-value'),
         plusButton: item.querySelector('.js-count-picker__button_type_plus'),
       };
-      this.itemsDoms[label].minusButton.disabled = true;
+      if (this.itemsModel[label] === 0) {
+        this.itemsDoms[label].minusButton.disabled = true;
+      }
     });
     this.dropdownBlock = this.countPickerDom.querySelector('.js-dropdown-block');
     this.clearButton = this.countPickerDom.querySelector('.js-count-picker__clear-button');

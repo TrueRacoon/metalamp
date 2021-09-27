@@ -7,19 +7,24 @@ block variables
     var title = 'Form Elements';
     var description = 'Form Elements Description';
     var keywords = 'Form Elements Keywords';
-    var dropdownItemLabels = ['Взрослые', 'Дети', 'Младенцы'];
+    var guestPickerItems = [
+      { label: 'Взрослые', count: 0 },
+      { label: 'Дети', count: 0 },
+      { label: 'Младенцы', count: 0 }
+    ];
 
 block content
-  .element
-    +date-filter({
-      arrivalLabel: 'Date dropdown',
-      departureLabel: 'Date dropdown',
-      separateDates: true,
-    })
-  .element
-    +count-picker({
-      label: 'dropdown',
-      inputText: 'Сколько гостей',
-      itemLabels: dropdownItemLabels,
-      withControlButtons: true,
-    })
+  .js-elements
+    .elemetns__element
+      +date-filter({
+        arrivalLabel: 'Date dropdown',
+        departureLabel: 'Date dropdown',
+        separateDates: true,
+      })
+    .elemetns__element
+      +count-picker({
+        label: 'dropdown',
+        inputText: 'Сколько гостей',
+        items: guestPickerItems,
+        withControlButtons: true,
+      })

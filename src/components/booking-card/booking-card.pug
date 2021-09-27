@@ -11,6 +11,11 @@ mixin booking-card(opts)
     var discount = opts.discount ? formatNumber(opts.discount) : '';
     var initialArrivalDate = opts.initialArrivalDate || '';
     var initialDepartureDate = opts.initialDepartureDate || '';
+    var guestPickerItems = [
+      { label: 'Взрослые', count: 2 },
+      { label: 'Дети', count: 1 },
+      { label: 'Младенцы', count: 0 }
+    ];
 
   div(
     class='booking-card'
@@ -42,7 +47,7 @@ mixin booking-card(opts)
             label: 'Гости',
             inputText: 'Сколько гостей',
             withControlButtons: true,
-            itemLabels: ['Взрослые', 'Дети', 'Младенцы'],
+            items: guestPickerItems,
           })
         ul.booking-card__cost-details-list
           li.booking-card__cost-details-item

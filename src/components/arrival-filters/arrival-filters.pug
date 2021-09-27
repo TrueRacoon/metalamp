@@ -2,6 +2,13 @@ include ../date-filter/date-filter.pug
 include ../count-picker/count-picker.pug
 
 mixin arrival-filters()
+  -
+    var guestPickerItems = [
+      { label: 'Взрослые', count: 0 },
+      { label: 'Дети', count: 0 },
+      { label: 'Младенцы', count: 0 }
+    ];
+
   .arrival-filters
     form
       fieldset.arrival-filters__fieldset
@@ -20,7 +27,7 @@ mixin arrival-filters()
           label: 'Гости',
           inputText: 'Сколько гостей',
           withControlButtons: true,
-          itemLabels: ['Взрослые', 'Дети', 'Младенцы'],
+          items: guestPickerItems,
         })
       button.arrival-filters__submit-button(
         type='submit'
