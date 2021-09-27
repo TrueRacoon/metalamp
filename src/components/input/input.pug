@@ -1,6 +1,7 @@
 mixin input(opts)
   -
     var hasButton = opts.withSubmitButton || opts.withDropdownButton;
+    var initialValue = opts.initialValue || '';
     var classes = 'input js-input' + (hasButton ? ' input_hasButton' : '');
 
   .input__container
@@ -9,6 +10,7 @@ mixin input(opts)
       name=opts.name
       placeholder=opts.placeholder
       type=opts.type
+      value=initialValue
     )
     if opts.withSubmitButton
       button(

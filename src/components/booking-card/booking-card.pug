@@ -9,6 +9,8 @@ mixin booking-card(opts)
     }
     var roomPrice = opts.roomPrice ? formatNumber(opts.roomPrice) : '';
     var discount = opts.discount ? formatNumber(opts.discount) : '';
+    var initialArrivalDate = opts.initialArrivalDate || '';
+    var initialDepartureDate = opts.initialDepartureDate || '';
 
   div(
     class='booking-card'
@@ -29,6 +31,8 @@ mixin booking-card(opts)
             span.booking-card__price-period=' в сутки'
         .booking-card__date-filter-container
           +date-filter({
+            initialArrivalDate,
+            initialDepartureDate,
             arrivalLabel: 'Прибытие',
             departureLabel: 'Выезд',
             separateDates: true,

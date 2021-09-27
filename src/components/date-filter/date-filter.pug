@@ -3,6 +3,10 @@ include ../dropdown-block/dropdown-block.pug
 include ../calendar/calendar.pug
 
 mixin date-filter(opts)
+  -
+    var initialArrivalDate = opts.initialArrivalDate || '';
+    var initialDepartureDate = opts.initialDepartureDate || '';
+
   div(
     class='date-filter'
     class='js-date-filter'
@@ -22,6 +26,7 @@ mixin date-filter(opts)
           placeholder: 'ДД.ММ.ГГГГ',
           type: 'text',
           withDropdownButton: true,
+          initialValue: initialArrivalDate,
         })
       div(
         class='date-filter__departure'
@@ -37,6 +42,7 @@ mixin date-filter(opts)
           placeholder: 'ДД.ММ.ГГГГ',
           type: 'text',
           withDropdownButton: true,
+          initialValue: initialDepartureDate,
         })
     else
       +dropdown-block({
