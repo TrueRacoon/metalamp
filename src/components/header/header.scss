@@ -252,6 +252,7 @@
     @media (min-width: 1024px) {
       @include button;
       @include button_outlined;
+      @include button_tight;
     }
   }
 }

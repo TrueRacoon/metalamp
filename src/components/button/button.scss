@@ -37,7 +37,7 @@
 }
 
 @mixin button_outlined {
-  padding: 8px 18px;
+  padding: 13px 25px 14px;
   color: $color-purple;
   background: #fff;
   border: 2px solid $color-purple;
@@ -49,8 +49,8 @@
   }
 }
 
-@mixin button_wide {
-  padding: 13px 25px 14px;
+@mixin button_tight {
+  padding: 8px 18px;
 }
 
 @mixin text-button {
