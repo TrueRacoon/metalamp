@@ -4,11 +4,11 @@ include ../information-tooltip/information-tooltip.pug
 
 mixin booking-card(opts)
   -
-    function formatNumber(num) {
-      return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
+    function formatSum(sum) {
+      return sum.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
     }
-    var roomPrice = opts.roomPrice ? formatNumber(opts.roomPrice) : '';
-    var discount = opts.discount ? formatNumber(opts.discount) : '';
+    var roomPrice = opts.roomPrice ? formatSum(opts.roomPrice) : '';
+    var discount = opts.discount ? formatSum(opts.discount) : '';
     var initialArrivalDate = opts.initialArrivalDate || '';
     var initialDepartureDate = opts.initialDepartureDate || '';
     var guestPickerItems = [
@@ -32,13 +32,19 @@ mixin booking-card(opts)
             |
             span.booking-card__room-type=opts.roomType
           span.booking-card__price
-            span.booking-card__price-value=roomPrice
+            span(
+              class='booking-card__price-value'
+              class='js-booking-card__price-value'
+            )=roomPrice
             span.booking-card__price-period=' в сутки'
         +arrival-filters({ initialArrivalDate, initialDepartureDate, guestPickerItems })
-        ul.booking-card__cost-details-list
+        ul(
+          class='booking-card__cost-details-list'
+          class='js-booking-card__cost-details-list'
+        )
           li.booking-card__cost-details-item
             .booking-card__cost-details
-              span.js-booking-card__stay-duration
+              span.js-booking-card__base-cost-details
             span.js-booking-card__total-base-cost
           li.booking-card__cost-details-item
             .booking-card__cost-details
@@ -50,13 +56,13 @@ mixin booking-card(opts)
               span='Сбор за дополнительные услуги'
               +information-tooltip('Tooltip')
             span.js-booking-card__additional-services-fees
-        .booking-card__total-cost-block
-          span.booking-card__total-cost-text
-          .booking-card__total-cost-separator
-          span(
-            class='booking-card__total-cost-text'
-            class='js-booking-card__total-cost'
-          )
+        div(
+          class='booking-card__total-cost-block'
+          class='js-booking-card__total-cost-block'
+        )
+          span.booking-card__total-cost-text='Итого'
+          span.booking-card__total-cost-separator
+          span.js-booking-card__total-cost
       button(
         class='booking-card__submit-button'
         class='js-booking-card__submit-button'

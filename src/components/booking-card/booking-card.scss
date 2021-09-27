@@ -9,7 +9,7 @@
   background-color: #fff;
 
   &__fieldset {
-    margin: 0 0 31px;
+    margin: 0 0 20px;
     padding: 0;
     border: 0;
   }
@@ -38,6 +38,7 @@
   }
 
   &__price-period {
+    font-size: 12px;
     font-weight: normal;
   }
 
@@ -47,11 +48,16 @@
 
   &__cost-details-list {
     margin: 0;
-    padding: 0;
+    padding: 15px 0 25px;
     list-style-type: none;
+
+    &_hidden {
+      display: none;
+    }
   }
 
   &__cost-details-item {
+    padding: 5px 0;
     display: flex;
     justify-content: space-between;
   }
@@ -62,11 +68,26 @@
     justify-content: space-between;
   }
 
+  &__total-cost-block {
+    display: flex;
+    font-size: 19px;
+    font-weight: bold;
+
+    &_hidden {
+      display: none;
+    }
+  }
+
+  &__total-cost-separator {
+    width: 100%;
+    border-bottom: 1px dashed transparentize($color-dark-shade, 0.75);
+  }
+
   &__submit-button {
     @include submit-button;
 
-    &_disabled {
-      cursor: not-allowed;
+    &_hidden {
+      display: none;
     }
   }
 }
