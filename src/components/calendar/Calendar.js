@@ -64,15 +64,16 @@ class Calendar {
     this.tableBody.append(tableBodyFragment);
   };
 
+  areBothDatesSelected = () => !!(this.firstSelectedDate && this.secondSelectedDate);
+
   updateSelectedDatesView = () => {
     this._removeAllSelectedClasses();
     this.calendarDates.forEach((calendarDate) => {
-      const bothDatesSelected = this.firstSelectedDate && this.secondSelectedDate;
       const isCurrentDateSelectedFirst = this._areDatesEquals(calendarDate.date, this.firstSelectedDate);
       const isCurrentDateSelectedSecond = this._areDatesEquals(calendarDate.date, this.secondSelectedDate);
       const needAddSelectedClass = isCurrentDateSelectedFirst || isCurrentDateSelectedSecond;
-      const needAddFirstSelectedClass = isCurrentDateSelectedFirst && bothDatesSelected;
-      const needAddSecondSelectedClass = isCurrentDateSelectedSecond && bothDatesSelected;
+      const needAddFirstSelectedClass = isCurrentDateSelectedFirst && this.areBothDatesSelected();
+      const needAddSecondSelectedClass = isCurrentDateSelectedSecond && this.areBothDatesSelected();
       const needAddBetweenSelectedClass = (
         calendarDate.date > this.firstSelectedDate
         && calendarDate.date < this.secondSelectedDate
@@ -139,8 +140,7 @@ class Calendar {
       this.updateSelectedDatesView();
       return;
     }
-    const areTwoDatesSelected = this.firstSelectedDate && this.secondSelectedDate;
-    if (areTwoDatesSelected) {
+    if (this.areBothDatesSelected()) {
       this.secondSelectedDate = undefined;
       this.firstSelectedDate = date;
       this.updateSelectedDatesView();
