@@ -21,6 +21,9 @@ class CountPicker {
     });
     this.dropdownBlock = this.countPickerDom.querySelector('.js-dropdown-block');
     this.clearButton = this.countPickerDom.querySelector('.js-count-picker__clear-button');
+    if (this.getCountersSum() === 0) {
+      this?.clearButton.classList.add('count-picker__control-button_hidden');
+    }
     this._bindEventListeners();
   }
 
@@ -32,6 +35,8 @@ class CountPicker {
     this.dropdownBlock.addEventListener('click', this._handleDropdownBlockClick);
     this.clearButton?.addEventListener('click', this._handleClearButtonClick);
   }
+
+  getCountersSum = () => Object.values(this.itemsModel).reduce((a, b) => a + b);
 
   _handleDropdownBlockClick = () => {
     this.countPickerDom.classList.toggle('count-picker_expanded');
@@ -47,7 +52,7 @@ class CountPicker {
       // eslint-disable-next-line no-param-reassign
       event.target.disabled = true;
     }
-    if (this._isThereOnlyZeroCounters()) {
+    if (this.getCountersSum() === 0) {
       this?.clearButton.classList.add('count-picker__control-button_hidden');
     }
     console.log(this.itemsModel);
@@ -72,8 +77,6 @@ class CountPicker {
     });
     this.clearButton.classList.add('count-picker__control-button_hidden');
   }
-
-  _isThereOnlyZeroCounters = () => (Object.values(this.itemsModel).every((v) => v === 0));
 }
 
 export default CountPicker;
