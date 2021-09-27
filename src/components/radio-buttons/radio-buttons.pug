@@ -1,0 +1,14 @@
+mixin radio-buttons(opts)
+  .radio-buttons
+    each radioButton in opts.radioButtons
+      .radio-buttons__container
+        label.radio-buttons__label
+          input.radio-buttons__input(
+            type='radio'
+            name=opts.name
+            value=radioButton.value
+            checked=radioButton.checked === true
+          )
+          span.radio-buttons__checkmark
+          span.radio-buttons__value
+            | #{radioButton.value}

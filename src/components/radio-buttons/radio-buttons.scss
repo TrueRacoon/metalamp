@@ -1,0 +1,60 @@
+@import 'src/variables.scss';
+
+.radio-buttons {
+  display: flex;
+
+  &__container {
+    margin-right: 20px;
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 21px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__input {
+    width: 0;
+  }
+
+  &__checkmark {
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid transparentize($color-dark-shade, 0.75);
+    border-radius: 50%;
+
+    &::after {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      display: none;
+      width: 12px;
+      height: 12px;
+      content: '';
+      background: $gradient-purple;
+      border-radius: 50%;
+    }
+  }
+
+  &__input:checked ~ &__checkmark {
+    border-color: $color-purple;
+  }
+
+  &__input:checked ~ &__checkmark::after {
+    display: block;
+  }
+
+  &__value {
+    height: 20px;
+    color: transparentize($color-dark-shade, 0.5);
+  }
+
+  &__input:checked ~ &__value {
+    color: transparentize($color-dark-shade, 0.25);
+  }
+}
