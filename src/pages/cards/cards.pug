@@ -2,6 +2,7 @@ extends ../ui-kit/ui-kit.pug
 include ../../components/calendar/calendar.pug
 include ../../components/room-search/room-search.pug
 include ../../components/booking-card/booking-card.pug
+include ../../components/registration-card/registration-card.pug
 
 block variables
   -
@@ -25,3 +26,5 @@ block content
       })
     .cards__card
       +calendar()
+    .cards__card
+      +registration-card()

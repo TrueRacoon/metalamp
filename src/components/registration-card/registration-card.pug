@@ -1,0 +1,79 @@
+include ../input/input.pug
+include ../radio-buttons/radio-buttons.pug
+include ../toggle-switch/toggle-switch.pug
+
+mixin registration-card()
+  .registration-card
+    form
+      fieldset.registration-card__fieldset
+        legend.registration-card__legend
+          +text({
+            text: 'Регистрация аккаунта',
+            tag: 'h1',
+          })
+        .registration-card__input-container
+          +input({
+            name: 'firstName',
+            placeholder: 'Имя',
+            type: 'text',
+          })
+        .registration-card__input-container
+          +input({
+            name: 'lastName',
+            placeholder: 'Фамилия',
+            type: 'text',
+          })
+        .registration-card__radio-buttons-container
+          +radio-buttons({
+            name: 'gender',
+            radioButtons: [
+              {value: 'Мужчина', checked: true},
+              {value: 'Женщина'},
+            ]
+          })
+        .registration-card__label-container
+          +text({
+            text: 'Дата рождения',
+            tag: 'h3',
+          })
+        div(
+          class='registration-card__input-container'
+          class='registration-card__input-container_small-margin'
+        )
+          +input({
+            name: 'birthday',
+            placeholder: 'ДД.ММ.ГГГГ',
+            type: 'text',
+          })
+        .registration-card__label-container
+          +text({
+            text: 'Данные для входа в сервис',
+            tag: 'h3',
+          })
+        div(
+          class='registration-card__input-container'
+          class='registration-card__input-container_small-margin'
+        )
+          +input({
+            name: 'email',
+            placeholder: 'Email',
+            type: 'text',
+          })
+        .registration-card__input-container
+          +input({
+            name: 'password',
+            placeholder: 'Пароль',
+            type: 'text',
+          })
+        .registration-card__toggle-switch-container
+          +toggle-switch({
+            name: 'subscribe',
+            value: 'Получать спецпредложения'
+          })
+        button.registration-card__submit-button(
+          type='submit'
+        )='Перейти к оплате'
+    .registration-card__signup-block
+      span='Уже есть аккаунт на Toxin'
+      a(href= 'signup.html')
+        button.registration-card__button_outlined='Войти'
