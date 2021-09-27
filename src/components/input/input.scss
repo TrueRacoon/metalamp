@@ -39,9 +39,9 @@
   }
 
   &_hasButton {
+    width: calc(100% - 44px);
     border-right-style: none;
     border-radius: 4px 0 0 4px;
-    width: calc(100% - 44px);
   }
 
   &__button {
