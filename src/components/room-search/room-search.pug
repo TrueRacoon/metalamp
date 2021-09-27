@@ -2,4 +2,15 @@ include ../arrival-filters/arrival-filters.pug
 
 mixin room-search()
   .room-search
-    +arrival-filters()
+    form
+      fieldset.room-search__fieldset
+        legend.room-search__legend
+          +text({
+            text: 'Найдём номера под ваши пожелания',
+            tag: 'h1',
+          })
+        +arrival-filters()
+      button.room-search__submit-button(
+        type='submit'
+      )='Подобрать номер'
+

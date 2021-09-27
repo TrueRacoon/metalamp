@@ -34,21 +34,7 @@ mixin booking-card(opts)
           span.booking-card__price
             span.booking-card__price-value=roomPrice
             span.booking-card__price-period=' в сутки'
-        .booking-card__date-filter-container
-          +date-filter({
-            initialArrivalDate,
-            initialDepartureDate,
-            arrivalLabel: 'Прибытие',
-            departureLabel: 'Выезд',
-            separateDates: true,
-          })
-        .booking-card__guest-picker-container
-          +count-picker({
-            label: 'Гости',
-            inputText: 'Сколько гостей',
-            withControlButtons: true,
-            items: guestPickerItems,
-          })
+        +arrival-filters({ initialArrivalDate, initialDepartureDate, guestPickerItems })
         ul.booking-card__cost-details-list
           li.booking-card__cost-details-item
             .booking-card__cost-details

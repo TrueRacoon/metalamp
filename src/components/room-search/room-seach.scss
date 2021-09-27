@@ -1,8 +1,23 @@
 @import 'src/components/arrival-filters/arrival-filters.scss';
+@import 'src/components/button/button.scss';
 
-/* stylelint-disable */
 .room-search {
+  padding: 40px 30px 30px;
+  max-width: 320px;
   background: #fff;
-  min-width: 320px;
-  max-width: 380px;
+
+  &__fieldset {
+    margin: 0 0 31px;
+    padding: 0;
+    border: 0;
+  }
+
+  &__legend {
+    margin-bottom: 21px;
+    padding: 0;
+  }
+
+  &__submit-button {
+    @include submit-button;
+  }
 }
