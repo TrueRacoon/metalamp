@@ -7,6 +7,9 @@ class DateFilter {
   }
 
   init() {
+    this.calendar.setFirstSelectedDate(this.arrivalDateInput.getDate());
+    this.calendar.setSecondSelectedDate(this.departureDateInput.getDate());
+    this.calendar.updateSelectedDatesView();
     this.arrivalExpandButton = this.dateFilterDom.querySelector(
       '.js-date-filter__arrival .js-input__button_type_dropdown',
     );
@@ -21,14 +24,28 @@ class DateFilter {
   }
 
   _bindEventListeners() {
-    this.arrivalExpandButton.addEventListener('click', this._handleExpandButtonClick);
-    this.departureExpandButton.addEventListener('click', this._handleExpandButtonClick);
+    this.arrivalExpandButton.addEventListener('click', this._handleArrivalExpandButtonClick);
+    this.departureExpandButton.addEventListener('click', this._handleDepartureExpandButtonClick);
     this.calendarApplyButton.addEventListener('click', this._handleCalendarApplyButtonClick);
     this.arrivalDateInput.inputDom.addEventListener('blur', this._handleArrivalDateInputBlur);
     this.departureDateInput.inputDom.addEventListener('blur', this._handleDepartureDateInputBlur);
   }
 
-  _handleExpandButtonClick = () => {
+  _handleArrivalExpandButtonClick = () => {
+    if (this.arrivalDateInput.isValidDate()) {
+      this.calendar.setCalendarReferenceData(this.arrivalDateInput.getDate());
+      this.calendar.formCalendar();
+      this.calendar.updateSelectedDatesView();
+    }
+    this.calendarContainer.classList.toggle('date-filter__calendar-container_visible');
+  }
+
+  _handleDepartureExpandButtonClick = () => {
+    if (this.departureDateInput.isValidDate()) {
+      this.calendar.setCalendarReferenceData(this.departureDateInput.getDate());
+      this.calendar.formCalendar();
+      this.calendar.updateSelectedDatesView();
+    }
     this.calendarContainer.classList.toggle('date-filter__calendar-container_visible');
   }
 

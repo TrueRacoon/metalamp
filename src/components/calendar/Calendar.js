@@ -11,8 +11,7 @@ class Calendar {
     this.tableBody = this.calendarDom.querySelector('.js-calendar__table-body');
     this.clearButton = this.calendarDom.querySelector('.js-calendar__clear-button');
     this.today = new Date();
-    this._setCalendarLabelText();
-    this.formCalendarTableBody();
+    this.formCalendar();
     this._bindEventListeners();
   }
 
@@ -32,7 +31,8 @@ class Calendar {
     this.calendarYear = this.calendarReferenceDate.getFullYear();
   }
 
-  formCalendarTableBody = () => {
+  formCalendar = () => {
+    this._setCalendarLabelText();
     const tableBodyFragment = document.createDocumentFragment();
     let currentTableRowElement;
     let currentTableDataElement;
@@ -115,7 +115,7 @@ class Calendar {
       this.calendarReferenceDate.getMonth() - 1,
     ));
     this._setCalendarLabelText();
-    this.formCalendarTableBody();
+    this.formCalendar();
     this.updateSelectedDatesView();
   }
 
@@ -125,7 +125,7 @@ class Calendar {
       this.calendarReferenceDate.getMonth() + 1,
     ));
     this._setCalendarLabelText();
-    this.formCalendarTableBody();
+    this.formCalendar();
     this.updateSelectedDatesView();
   }
 
