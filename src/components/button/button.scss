@@ -49,6 +49,10 @@
   }
 }
 
+@mixin button_wide {
+  padding: 13px 25px 14px;
+}
+
 @mixin text-button {
   font-size: 12px;
   line-height: 15px;
