@@ -1,7 +1,10 @@
 include ../arrival-filters/arrival-filters.pug
 
 mixin room-search()
-  .room-search
+  div(
+    class='room-search'
+    class='js-room-search'
+  )
     form
       fieldset.room-search__fieldset
         legend.room-search__legend

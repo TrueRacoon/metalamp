@@ -2,9 +2,12 @@ import DateFilter from './DateFilter';
 import Calendar from '../calendar/Calendar';
 import Input from '../input/Input';
 
-const dateFilters = document.querySelectorAll('.js-date-filter');
+const dateFilters = document.querySelectorAll(
+  '.js-elements .js-date-filter,'
+  + '.js-room-search .js-date-filter',
+);
 
-dateFilters.forEach((dateFilterDom) => {
+const createAndInitDateFilter = (dateFilterDom) => {
   const calendarDom = dateFilterDom.querySelector('.js-calendar');
   const calendar = new Calendar(calendarDom);
   calendar.init();
@@ -19,4 +22,9 @@ dateFilters.forEach((dateFilterDom) => {
   departureDateInput.init();
   const dateFilter = new DateFilter(dateFilterDom, calendar, arrivalDateInput, departureDateInput);
   dateFilter.init();
-});
+  return dateFilter;
+};
+
+dateFilters.forEach((dateFilterDom) => createAndInitDateFilter(dateFilterDom));
+
+export default createAndInitDateFilter;
