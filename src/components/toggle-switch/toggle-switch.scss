@@ -1,0 +1,49 @@
+@import 'src/variables.scss';
+
+.toggle-switch {
+  &__label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__input {
+    margin: 0;
+    width: 0;
+  }
+
+  &__slider {
+    position: absolute;
+    box-sizing: border-box;
+    width: 40px;
+    height: 20px;
+    border: 1px solid transparentize($color-dark-shade, 0.75);
+    border-radius: 20px;
+
+    &::before {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 12px;
+      height: 12px;
+      content: '';
+      background-color: transparentize($color-dark-shade, 0.75);
+      border-radius: 50%;
+    }
+  }
+
+  &__input:checked + &__slider {
+    border-color: $color-purple;
+
+    &::before {
+      background: $gradient-purple;
+      transform: translateX(20px);
+    }
+  }
+
+  &__value {
+    position: absolute;
+    left: 50px;
+    width: max-content;
+    color: transparentize($color-dark-shade, 0.25);
+  }
+}

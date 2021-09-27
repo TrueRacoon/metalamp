@@ -1,0 +1,10 @@
+mixin toggle-switch(opts)
+  .toggle-switch
+    label.toggle-switch__label
+      input.toggle-switch__input(
+        type='checkbox'
+        name=opts.name
+      )
+      span.toggle-switch__slider
+      span.toggle-switch__value
+        | #{opts.value}
