@@ -14,14 +14,23 @@ block variables
     ];
 
 block content
-  .js-elements
-    .elemetns__element
+  div(
+    class='elements'
+    class='js-elements'
+  )
+    div(
+      class='elements__element'
+      class='js-elements__element'
+    )
       +date-filter({
         arrivalLabel: 'Date dropdown',
         departureLabel: 'Date dropdown',
         separateDates: true,
       })
-    .elemetns__element
+    div(
+      class='elements__element'
+      class='js-elements__element'
+    )
       +count-picker({
         label: 'dropdown',
         inputText: 'Сколько гостей',
