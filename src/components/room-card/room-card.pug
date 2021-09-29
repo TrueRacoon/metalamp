@@ -1,0 +1,18 @@
+include ../carousel/carousel.pug
+include ../room-number-and-price/room-number-and-price.pug
+include ../rating/rating.pug
+
+mixin room-card(opts)
+  .room-card
+    .room-card__carousel
+      +carousel({ roomNumber: opts.roomNumber })
+    .room-card__description
+      +room-number-and-price({
+        price: opts.price,
+        roomNumber: opts.roomNumber,
+        roomSpecialType: opts.roomSpecialType,
+        isRoomDetailsBlock: opts.isRoomDetailsBlock,
+      })
+      .room-card__delimiter
+      +rating({ rating: opts.rating, nReviews: opts.nReviews })
+

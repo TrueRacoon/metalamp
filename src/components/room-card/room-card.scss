@@ -1,0 +1,24 @@
+@import 'src/components/carousel/carousel.scss';
+@import 'src/components/room-number-and-price/room-number-and-price.scss';
+@import 'src/components/rating/rating.scss';
+
+.room-card {
+  max-width: fit-content;
+  background-color: #fff;
+
+  &__carousel {
+    width: 270px;
+    height: 151px;
+  }
+
+  &__description {
+    padding: 20px;
+  }
+
+  &__delimiter {
+    margin: 12px 0 7px;
+    width: 100%;
+    height: 1px;
+    background-color: transparentize($color-dark-shade, 0.9);
+  }
+}

@@ -3,6 +3,7 @@ include ../../components/calendar/calendar.pug
 include ../../components/room-search/room-search.pug
 include ../../components/booking-card/booking-card.pug
 include ../../components/registration-card/registration-card.pug
+include ../../components/room-card/room-card.pug
 
 block variables
   -
@@ -13,6 +14,21 @@ block variables
 
 block content
   .cards
+    .cards__card
+      +room-card({
+        roomNumber: 888,
+        price: 9990,
+        roomSpecialType: 'Люкс',
+        rating: 5,
+        nReviews: 145,
+      })
+    .cards__card
+      +room-card({
+        roomNumber: 840,
+        price: 9990,
+        rating: 4,
+        nReviews: 65,
+      })
     .cards__card
       +room-search()
     .cards__card

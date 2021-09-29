@@ -3,9 +3,11 @@
 @import '../../components/count-picker/count-picker.scss';
 @import '../../components/booking-card/booking-card.scss';
 @import '../../components/registration-card/registration-card.scss';
+@import '../../components/room-card/room-card.scss';
 
 .cards {
   display: flex;
+  flex-direction: column;
 
   &__card {
     margin: 40px;
