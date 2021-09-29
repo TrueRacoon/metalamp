@@ -1,0 +1,17 @@
+@import 'src/variables.scss';
+@import 'src/components/rate-buttons/rate-buttons.scss';
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 0;
+
+  &__reviews {
+    color: transparentize($color-dark-shade, 0.5);
+  }
+
+  &__reviews-number {
+    font-weight: bold;
+  }
+}

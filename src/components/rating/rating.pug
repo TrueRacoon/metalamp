@@ -1,0 +1,30 @@
+include ../rate-buttons/rate-buttons.pug
+
+mixin rating(opts)
+  -
+    function getWordDeclension(number, wordForms) {
+      var hundredthPart = number % 100;
+      var tenthPart = number % 10;
+      var isThirdForm = hundredthPart > 10 && hundredthPart < 20;
+      var isSecondForm = tenthPart > 1 && tenthPart < 5;
+      var isFirstForm = tenthPart === 1;
+      if (isThirdForm) {
+        return wordForms[2];
+      }
+      if (isSecondForm) {
+        return wordForms[1];
+      }
+      if (isFirstForm) {
+        return wordForms[0];
+      }
+      return wordForms[2];
+    }
+    var reviewsDeclension = getWordDeclension(opts.nReviews, ['Отзыв', 'Отзыва', 'Отзывов']);
+
+  .rating
+    +rate-buttons({ nFilled: opts.rating })
+    .rating__reviews
+      span.rating__reviews-number=opts.nReviews
+      |
+      |
+      span.rating__reviews-label=reviewsDeclension
