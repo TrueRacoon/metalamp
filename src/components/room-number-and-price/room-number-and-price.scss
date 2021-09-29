@@ -1,0 +1,39 @@
+@import 'src/variables.scss';
+
+.room-number-and-price {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: bold;
+
+  &__room {
+    &_link {
+      text-decoration: none;
+      color: $color-dark-shade;
+    }
+  }
+
+  &__room-number {
+    font-size: 19px;
+
+    &_bigger-font {
+      font-size: 24px;
+    }
+  }
+
+  &__room-special-type {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $color-purple;
+  }
+
+  &__price {
+    color: transparentize($color-dark-shade, 0.5);
+  }
+
+  &__price-period {
+    font-size: 12px;
+    font-weight: normal;
+  }
+}

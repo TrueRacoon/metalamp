@@ -1,0 +1,27 @@
+mixin room-number-and-price(opts)
+  -
+    function formatSum(sum) {
+      return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
+    }
+    var price = opts.price ? formatSum(opts.price) : '';
+
+  .room-number-and-price
+    a(
+      class=`room-number-and-price__room${!opts.isRoomDetailsBlock ? '_link' : ''}`
+      href=!opts.isRoomDetailsBlock ? 'room-details.html' : null
+    )
+      | №
+      |
+      span(
+        class=`room-number-and-price__room-number
+        ${opts.isRoomDetailsBlock ? ' room-number-and-price__room-number_bigger-font' : ''}`
+      )=opts.roomNumber
+      |
+      |
+      span.room-number-and-price__room-special-type=opts.roomSpecialType
+    span.room-number-and-price__price
+      span(
+        class='room-number-and-price__price-value'
+        class='js-room-number-and-price__price-value'
+      )=price
+      span.booking-card__price-period=' в сутки'
