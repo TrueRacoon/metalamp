@@ -1,0 +1,9 @@
+mixin rate-buttons(opts)
+  - var i = 1;
+  .rate-buttons
+    while i <= opts.nFilled
+      .rate-buttons__rate-button
+      - i++
+    while i <= 5
+      .rate-buttons__rate-button.rate-buttons__rate-button_unfilled
+      - i++

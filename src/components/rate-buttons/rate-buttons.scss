@@ -1,0 +1,12 @@
+.rate-buttons {
+  &__rate-button {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('./../../components/rate-buttons/img/star.svg');
+
+    &_unfilled {
+      background-image: url('./../../components/rate-buttons/img/star_border.svg');
+    }
+  }
+}
