@@ -1,0 +1,110 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 270px;
+  height: 151px;
+
+  &::after {
+    position: absolute;
+    height: 100%;
+    content: '';
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 85%, rgba(0, 0, 0, 0.5) 100%);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &__activator,
+  &__controls {
+    display: none;
+  }
+
+  &__control {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+    border-width: 2px 2px 0 0;
+    border-style: solid;
+    border-color: #fff;
+    cursor: pointer;
+
+    &_backward {
+      left: 18px;
+      transform: rotate(-135deg);
+    }
+
+    &_forward {
+      right: 18px;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover &__control {
+    opacity: 1;
+  }
+
+  &__track {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.5s ease 0s;
+  }
+
+  &__slide {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+  }
+
+  &__img {
+    display: block;
+  }
+
+  &__indicators {
+    position: absolute;
+    z-index: 1;
+    right: 15px;
+    bottom: 15px;
+    line-height: 0;
+  }
+
+  &__indicator {
+    margin-left: 4px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  @for $i from 1 through 4 {
+    &__activator:nth-of-type(#{$i}):checked ~ &__controls:nth-of-type(#{$i}) {
+      display: block;
+    }
+
+    &__activator:nth-child(#{$i}):checked ~ &__track {
+      transform: translateX(#{($i - 1) * -100%});
+    }
+
+    &__slide:nth-of-type(#{$i}) {
+      transform: translateX(#{($i - 1) * 100%});
+    }
+
+    &__activator:nth-of-type(#{$i}):checked ~ &__indicators &__indicator:nth-of-type(#{$i}) {
+      background-color: #fff;
+    }
+  }
+}
