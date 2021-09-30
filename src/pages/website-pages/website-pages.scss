@@ -1,0 +1,25 @@
+@import 'src/components/header/header.scss';
+@import 'src/components/footer/footer.scss';
+
+.website-pages {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+
+  &__header {
+    grid-area: header;
+  }
+
+  &__main {
+    grid-area: main;
+  }
+
+  &__footer {
+    grid-area: footer;
+  }
+}

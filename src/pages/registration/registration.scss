@@ -1,0 +1,16 @@
+@import 'src/components/registration-card/registration-card.scss';
+
+.registration {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://unsplash.it/2560?random');
+  //background-color: black;
+  //padding: 19px 0;
+
+  &__registration-card {
+    //margin: auto;
+  }
+}

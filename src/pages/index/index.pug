@@ -1,0 +1,20 @@
+extends ../website-pages/website-pages.pug
+include ../../components/room-search/room-search.pug
+include ../../components/text/text.pug
+
+block variables
+  -
+    var title = 'Landing';
+    var description = 'Landing Description';
+    var keywords = 'Landing Keywords';
+
+block content
+  .index
+    .index__room-search-card
+      +room-search()
+    .index__tagline
+      +text({
+        tag: 'p',
+        text: 'Лучшие номера для вашей работы, отдыха и просто вдохновения',
+        modifiers: ['align_right'],
+      })

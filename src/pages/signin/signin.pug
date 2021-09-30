@@ -1,0 +1,12 @@
+extends ../website-pages/website-pages.pug
+include ../../components/signin-card/signin-card.pug
+
+block variables
+  -
+    var title = 'Sign in';
+    var description = 'Sign in Description';
+    var keywords = 'Sign in Keywords';
+
+block content
+  .signin
+    +signin-card()

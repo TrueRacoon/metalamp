@@ -1,0 +1,30 @@
+include ../input/input.pug
+
+mixin signin-card()
+  .signin-card
+    form
+      fieldset.signin-card__fieldset
+        legend.signin-card__legend
+          +text({
+            text: 'Войти',
+            tag: 'h1',
+          })
+        .signin-card__input-container
+          +input({
+            name: 'email',
+            placeholder: 'Email',
+            type: 'text',
+          })
+        .signin-card__input-container
+          +input({
+            name: 'password',
+            placeholder: 'Пароль',
+            type: 'text',
+          })
+        button.signin-card__submit-button(
+          type='submit'
+        ) Войти
+    .signin-card__signup-block
+      span='Нет аккаунта на Toxin?'
+      a(href= 'registration.html')
+        button.signin-card__button_outlined='Создать'
