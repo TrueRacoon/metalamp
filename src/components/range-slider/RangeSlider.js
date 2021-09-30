@@ -1,3 +1,5 @@
+const thumbWidth = 16;
+
 class RangeSlider {
   constructor(rangeSliderDom) {
     this.rangeSliderDom = rangeSliderDom;
@@ -8,11 +10,24 @@ class RangeSlider {
     this.lowerInput = this.rangeSliderDom.querySelector('.js-range-slider__input_lower');
     this.upperInput = this.rangeSliderDom.querySelector('.js-range-slider__input_upper');
     this.sliderRange = this.rangeSliderDom.querySelector('.js-range-slider__range-label');
-    this.lowerValue = parseInt(this.lowerInput.value, 10);
-    this.upperValue = parseInt(this.upperInput.value, 10);
     this.step = parseInt(this.lowerInput.step, 10);
-    this._updateRangeLabel();
+    this.stepMultiplierForNoCrossing = Math.ceil(this.rangeSliderDom.getBoundingClientRect().width / (thumbWidth * 2));
+    this.offset = this.step * (this.stepMultiplierForNoCrossing / 2);
+    this._setInputsInitialValues();
     this._bindEventListeners();
+  }
+
+  _setInputsInitialValues = () => {
+    this.lowerInput.min = parseInt(this.sliderRange.dataset.minValue, 10) - this.offset;
+    this.upperInput.min = parseInt(this.sliderRange.dataset.minValue, 10) - this.offset;
+    this.lowerInput.max = parseInt(this.sliderRange.dataset.maxValue, 10) + this.offset;
+    this.upperInput.max = parseInt(this.sliderRange.dataset.maxValue, 10) + this.offset;
+    this.lowerInput.value = parseInt(this.sliderRange.dataset.initialLowerValue, 10) - this.offset;
+    this.upperInput.value = parseInt(this.sliderRange.dataset.initialUpperValue, 10) + this.offset;
+    this.sliderRange.innerText = (
+      `${this._formatSum(parseInt(this.sliderRange.dataset.initialLowerValue, 10))}`
+      + ` - ${this._formatSum(parseInt(this.sliderRange.dataset.initialUpperValue, 10))}`
+    );
   }
 
   _bindEventListeners() {
@@ -21,32 +36,46 @@ class RangeSlider {
   }
 
   _handleLowerInputInput = () => {
-    console.log(`Before(LI): ${this.lowerInput.value} - ${this.upperInput.value}`);
     this.lowerValue = parseInt(this.lowerInput.value, 10);
     this.upperValue = parseInt(this.upperInput.value, 10);
-    if (this.lowerValue > this.upperValue - this.step) {
-      this.upperInput.value = this.lowerValue + this.step;
+    this.upperMax = parseInt(this.upperInput.max, 10);
+    const needOffsetUpperValue = this.lowerValue >= this.upperValue - this.step * this.stepMultiplierForNoCrossing;
+    const needOffsetLowerValue = (
+      needOffsetUpperValue
+      && this.upperValue >= this.upperMax - this.step * this.stepMultiplierForNoCrossing
+    );
+    if (needOffsetUpperValue) {
+      this.upperInput.value = this.lowerValue + this.step * this.stepMultiplierForNoCrossing;
+    }
+    if (needOffsetLowerValue) {
+      this.lowerInput.value = this.upperValue - this.step * this.stepMultiplierForNoCrossing;
     }
     this._updateRangeLabel();
-    console.log(`After(LI): ${this.lowerInput.value} - ${this.upperInput.value}`);
   }
 
   _handleUpperInputInput = () => {
-    console.log(`Before(AI): ${this.lowerInput.value} - ${this.upperInput.value}`);
     this.lowerValue = parseInt(this.lowerInput.value, 10);
     this.upperValue = parseInt(this.upperInput.value, 10);
-    if (this.upperValue < this.lowerValue + this.step) {
-      console.log(this.upperValue)
-      console.log(this.lowerValue + this.step)
-      console.log('*')
-      this.lowerInput.value = this.upperValue - this.step;
+    this.lowerMin = parseInt(this.lowerInput.min, 10);
+    const needOffsetLowerValue = this.upperValue <= this.lowerValue + this.step * this.stepMultiplierForNoCrossing;
+    if (needOffsetLowerValue) {
+      this.lowerInput.value = this.upperValue - this.step * this.stepMultiplierForNoCrossing;
+    }
+    const needOffsetUpperValue = (
+      this.upperValue <= this.lowerValue + this.step * this.stepMultiplierForNoCrossing
+      && this.lowerValue <= this.lowerMin + this.step * this.stepMultiplierForNoCrossing
+    );
+    if (needOffsetUpperValue) {
+      this.upperInput.value = this.lowerValue + this.step * this.stepMultiplierForNoCrossing;
     }
     this._updateRangeLabel();
-    console.log(`After(AI): ${this.lowerInput.value} - ${this.upperInput.value}`);
   }
 
   _updateRangeLabel = () => {
-    this.sliderRange.innerText = `${this._formatSum(this.lowerValue)} - ${this._formatSum(this.upperValue)}`;
+    this.sliderRange.innerText = (
+      `${this._formatSum(parseInt(this.lowerInput.value, 10) + this.offset)}`
+      + ` - ${this._formatSum(parseInt(this.upperInput.value, 10) - this.offset)}`
+    );
   }
 
   _formatSum = (sum) => (

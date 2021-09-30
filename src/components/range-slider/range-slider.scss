@@ -1,5 +1,18 @@
 @import 'src/variables.scss';
 
+@mixin thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $gradient-green;
+  border: 2px solid #fff;
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  pointer-events: all;
+  box-sizing: border-box;
+}
+
 .range-slider {
   &__details {
     display: flex;
@@ -16,6 +29,7 @@
     width: 100%;
     height: 6px;
     margin: 0;
+    background: transparent;
     border: 1px solid transparentize($color-dark-shade, 0.75);
     border-radius: 3px;
     outline: none;
@@ -27,30 +41,16 @@
       outline: none;
     }
 
+    &_upper {
+      border: 1px solid transparent;
+    }
+
     &::-webkit-slider-thumb {
-      height: 16px;
-      width: 16px;
-      border-radius: 50%;
-      background: $gradient-green;
-      border: 2px solid #fff;
-      position: relative;
-      cursor: pointer;
-      appearance: none;
-      pointer-events: all;
-      z-index: 1;
+      @include thumb;
     }
 
     &::-moz-range-thumb {
-      height: 16px;
-      width: 16px;
-      border-radius: 50%;
-      background: $gradient-green;
-      border: 2px solid #fff;
-      position: relative;
-      cursor: pointer;
-      appearance: none;
-      pointer-events: all;
-      z-index: 1;
+      @include thumb;
     }
   }
 
