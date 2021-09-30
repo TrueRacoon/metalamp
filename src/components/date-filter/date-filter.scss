@@ -8,6 +8,10 @@
   position: relative;
   justify-content: space-between;
 
+  &_single-date-input {
+    display: block;
+  }
+
   &__arrival,
   &__departure {
     max-width: 150px;

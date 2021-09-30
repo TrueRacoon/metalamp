@@ -8,10 +8,16 @@ mixin date-filter(opts)
     var initialDepartureDate = opts.initialDepartureDate || '';
 
   div(
-    class='date-filter'
+    class=`date-filter${opts.singleDateInput ? ' date-filter_single-date-input' : ''}`
     class='js-date-filter'
   )
-    if opts.separateDates
+    if opts.singleDateInput
+      +dropdown-block({
+        label: opts.dateFilterLabel,
+        initialArrivalDate,
+        initialDepartureDate,
+      })
+    else
       div(
         class='date-filter__arrival'
         class='js-date-filter__arrival'
@@ -44,10 +50,6 @@ mixin date-filter(opts)
           withDropdownButton: true,
           initialValue: initialDepartureDate,
         })
-    else
-      +dropdown-block({
-        label: opts.dateFilterLabel
-      })
     div(
       class='date-filter__calendar-container'
       class='js-date-filter__calendar-container'

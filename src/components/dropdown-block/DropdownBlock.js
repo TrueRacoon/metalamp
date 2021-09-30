@@ -16,6 +16,10 @@ class DropdownBlock {
   _handleClick = () => {
     this.dropdownBlockDom.classList.toggle('dropdown-block_expanded');
   }
+
+  setText = (text) => {
+    this.dropdownBlockTextDom.innerText = text;
+  }
 }
 
 export default DropdownBlock;

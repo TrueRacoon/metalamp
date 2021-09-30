@@ -1,5 +1,5 @@
 import '../../index.scss';
-import './form-elements.scss';
-import '../ui-kit/ui-kit.scss';
+import './search-room.scss';
+import '../website-pages/website-pages.scss';
 import '../../components/date-filter';
 import '../../components/count-picker';

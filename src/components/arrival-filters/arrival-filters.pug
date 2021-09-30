@@ -5,20 +5,22 @@ mixin arrival-filters(opts)
   -
     var initialArrivalDate = opts?.initialArrivalDate || '';
     var initialDepartureDate = opts?.initialDepartureDate || '';
+    var singleDateInput = opts?.singleDateInput || false;
     var guestPickerItems = opts?.guestPickerItems || [
       { label: 'Взрослые', count: 0 },
       { label: 'Дети', count: 0 },
       { label: 'Младенцы', count: 0 }
     ];
 
-  .arrival-filters
+  .arrival-filters.js-arrival-filters
     .arrival-filters__date-filter-container
       +date-filter({
         initialArrivalDate,
         initialDepartureDate,
+        singleDateInput,
         arrivalLabel: 'Прибытие',
         departureLabel: 'Выезд',
-        separateDates: true,
+        dateFilterLabel: 'Даты пребывания в отеле',
       })
     +count-picker({
       label: 'Гости',

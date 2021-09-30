@@ -1,0 +1,8 @@
+@import 'src/components/text/text.scss';
+@import 'src/components/arrival-filters/arrival-filters.scss';
+
+.search-room {
+  &__filters {
+    width: 266px;
+  }
+}
