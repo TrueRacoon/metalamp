@@ -6,5 +6,8 @@ mixin text(opts)
     additionalClasses.forEach((className) => {
       classes += ' ' + className;
     });
+    opts.modifiers?.forEach((modifier) => {
+      classes += ` text_${modifier}`
+    })
 
   #{opts.tag}(class=classes)= opts.text
