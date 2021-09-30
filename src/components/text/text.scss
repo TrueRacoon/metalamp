@@ -27,4 +27,8 @@
     line-height: 24px;
     color: transparentize($color-dark-shade, 0.25);
   }
+
+  &_align_right {
+    text-align: right;
+  }
 }
