@@ -1,40 +1,50 @@
 @import 'src/variables.scss';
+@import 'src/components/text/text.scss';
 
 @mixin thumb {
-  height: 16px;
+  position: relative;
+  box-sizing: border-box;
   width: 16px;
-  border-radius: 50%;
+  height: 16px;
+  pointer-events: all;
   background: $gradient-green;
   border: 2px solid #fff;
-  position: relative;
+  border-radius: 50%;
   cursor: pointer;
   appearance: none;
-  pointer-events: all;
-  box-sizing: border-box;
 }
+
+$slider-view-height: 6px;
 
 .range-slider {
   &__details {
+    margin-bottom: 23px;
     display: flex;
     justify-content: space-between;
   }
 
+  &__label {
+    font-size: 12px;
+    line-height: 15px;
+    color: transparentize($color-dark-shade, 0.5);
+  }
+
   &__view {
     position: relative;
+    height: $slider-view-height;
   }
 
   &__input {
     position: absolute;
+    margin: 0;
     box-sizing: border-box;
     width: 100%;
-    height: 6px;
-    margin: 0;
+    height: $slider-view-height;
+    pointer-events: none;
     background: transparent;
-    border: 1px solid transparentize($color-dark-shade, 0.75);
-    border-radius: 3px;
+    border: 1px solid transparent;
     outline: none;
     appearance: none;
-    pointer-events: none;
 
     &:active,
     &:focus {
@@ -54,7 +64,25 @@
     }
   }
 
-  &__range-view {
+  &__border {
     position: absolute;
+    z-index: -2;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparentize($color-dark-shade, 0.75);
+    border-radius: $slider-view-height / 2;
+  }
+
+  &__fill {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    background: $gradient-green;
+  }
+
+  &__label-container {
+    margin-top: 14px;
   }
 }

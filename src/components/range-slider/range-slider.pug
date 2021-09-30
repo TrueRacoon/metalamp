@@ -1,8 +1,10 @@
+include ../text/text.pug
+
 mixin range-slider(opts)
   .range-slider
     .range-slider__details
-      .range-slider__name Name
-      .range-slider__range-label.js-range-slider__range-label(
+      +text({ tag: 'h3', text: opts.name })
+      .range-slider__label.js-range-slider__range-label(
         data-min-value=opts.minValue
         data-max-value=opts.maxValue
         data-initial-lower-value=opts.initialLowerValue
@@ -17,4 +19,8 @@ mixin range-slider(opts)
         type='range'
         step=opts.step || 1
       )
-      .range-slider__range-view
+      .range-slider__border
+      .range-slider__fill.js-range-slider__fill
+    if (opts.description)
+      .range-slider__label-container
+        .range-slider__label=opts.description
