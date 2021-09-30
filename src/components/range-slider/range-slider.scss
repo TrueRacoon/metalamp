@@ -1,0 +1,60 @@
+@import 'src/variables.scss';
+
+.range-slider {
+  &__details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__view {
+    position: relative;
+  }
+
+  &__input {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 6px;
+    margin: 0;
+    border: 1px solid transparentize($color-dark-shade, 0.75);
+    border-radius: 3px;
+    outline: none;
+    appearance: none;
+    pointer-events: none;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-slider-thumb {
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: $gradient-green;
+      border: 2px solid #fff;
+      position: relative;
+      cursor: pointer;
+      appearance: none;
+      pointer-events: all;
+      z-index: 1;
+    }
+
+    &::-moz-range-thumb {
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: $gradient-green;
+      border: 2px solid #fff;
+      position: relative;
+      cursor: pointer;
+      appearance: none;
+      pointer-events: all;
+      z-index: 1;
+    }
+  }
+
+  &__range-view {
+    position: absolute;
+  }
+}

@@ -1,0 +1,21 @@
+mixin range-slider(opts)
+  .range-slider
+    .range-slider__details
+      .range-slider__name Name
+      .range-slider__range-label.js-range-slider__range-label 100-220
+    .range-slider__view
+      input.range-slider__input.range-slider__input_lower.js-range-slider__input_lower(
+        type='range'
+        min=opts.minValue || 0
+        max=opts.maxValue || 100
+        value=opts.initialLowerValue
+        step=opts.step || 1
+      )
+      input.range-slider__input.range-slider__input_upper.js-range-slider__input_upper(
+        type='range'
+        min=opts.minValue || 0
+        max=opts.maxValue || 100
+        value=opts.initialUpperValue
+        step=opts.step || 1
+      )
+      .range-slider__range-view
