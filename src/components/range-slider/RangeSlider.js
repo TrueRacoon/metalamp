@@ -40,10 +40,7 @@ class RangeSlider {
     this.upperValue = parseInt(this.upperInput.value, 10);
     this.upperMax = parseInt(this.upperInput.max, 10);
     const needOffsetUpperValue = this.lowerValue >= this.upperValue - this.step * this.stepMultiplierForNoCrossing;
-    const needOffsetLowerValue = (
-      needOffsetUpperValue
-      && this.upperValue >= this.upperMax - this.step * this.stepMultiplierForNoCrossing
-    );
+    const needOffsetLowerValue = this.upperValue >= this.upperMax - this.step * this.stepMultiplierForNoCrossing;
     if (needOffsetUpperValue) {
       this.upperInput.value = this.lowerValue + this.step * this.stepMultiplierForNoCrossing;
     }
@@ -58,13 +55,10 @@ class RangeSlider {
     this.upperValue = parseInt(this.upperInput.value, 10);
     this.lowerMin = parseInt(this.lowerInput.min, 10);
     const needOffsetLowerValue = this.upperValue <= this.lowerValue + this.step * this.stepMultiplierForNoCrossing;
+    const needOffsetUpperValue = this.lowerValue <= this.lowerMin + this.step * this.stepMultiplierForNoCrossing;
     if (needOffsetLowerValue) {
       this.lowerInput.value = this.upperValue - this.step * this.stepMultiplierForNoCrossing;
     }
-    const needOffsetUpperValue = (
-      this.upperValue <= this.lowerValue + this.step * this.stepMultiplierForNoCrossing
-      && this.lowerValue <= this.lowerMin + this.step * this.stepMultiplierForNoCrossing
-    );
     if (needOffsetUpperValue) {
       this.upperInput.value = this.lowerValue + this.step * this.stepMultiplierForNoCrossing;
     }
