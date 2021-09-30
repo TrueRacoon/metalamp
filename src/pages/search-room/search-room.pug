@@ -12,14 +12,12 @@ block variables
 block content
   .search-room.js-search-room
     .search-room__filters
-      +arrival-filters({
-        initialArrivalDate: '19.08.2019',
-        initialDepartureDate: '23.08.2019',
-        singleDateInput: true
-      })
-      .search-room__rooms-container
-        .search-room__rooms-container-title
-        .search-room__rooms
+      .search-room__arrival-filters
+        +arrival-filters({
+          initialArrivalDate: '19.08.2019',
+          initialDepartureDate: '23.08.2019',
+          singleDateInput: true
+        })
       .search-room__slider
         +range-slider({
           minValue: 100,
@@ -27,4 +25,10 @@ block content
           initialLowerValue: 5000,
           initialUpperValue: 10000,
           step: 100,
+          name: 'Диапазон цены',
+          description: 'Стоимость за сутки пребывания в номере',
         })
+    .search-room__rooms-container
+      .search-room__rooms-container-title
+      .search-room__rooms
+

@@ -4,6 +4,11 @@
 
 .search-room {
   &__filters {
+    margin-left: 10px;
     width: 266px;
+  }
+
+  &__arrival-filters {
+    margin-bottom: 30px;
   }
 }
