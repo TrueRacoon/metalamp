@@ -17,14 +17,13 @@ mixin count-picker(opts)
             class='count-picker__item'
             class='js-count-picker__item'
           )
-            +text({
-              tag: 'h3',
-              text: item.label,
-              classes: [
-                'count-picker__item-label',
-                'js-count-picker__item-label',
-              ],
-            })
+            // FIXME: Replace extra class with container
+            .count-picker__item-label
+              +text({
+                tag: 'h3',
+                text: item.label,
+                classes: ['js-count-picker__item-label'],
+              })
             button(
               class='count-picker__button'
               class='js-count-picker__button_type_minus'
