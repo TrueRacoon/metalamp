@@ -5,7 +5,8 @@
 /* stylelint-disable */
 .calendar {
   background-color: #fff;
-  width: fit-content;
+  min-width: 320px;
+  box-sizing: border-box;
   padding: 20px;
   border-radius: 4px;
   font-size: 12px;
