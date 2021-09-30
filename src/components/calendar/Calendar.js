@@ -1,9 +1,10 @@
 class Calendar {
   constructor(calendarDom) {
     this.calendarDom = calendarDom;
+    this._init();
   }
 
-  init() {
+  _init() {
     this.setCalendarReferenceData();
     this.prevMonthButton = this.calendarDom.querySelector('.js-calendar__month-nav-button_prev');
     this.nextMonthButton = this.calendarDom.querySelector('.js-calendar__month-nav-button_next');

@@ -4,9 +4,10 @@ class DateFilter {
     this.calendar = calendar;
     this.arrivalDateInput = arrivalDateInput;
     this.departureDateInput = departureDateInput;
+    this._init();
   }
 
-  init() {
+  _init() {
     this.calendar.setFirstSelectedDate(this.arrivalDateInput.getDate());
     this.calendar.setSecondSelectedDate(this.departureDateInput.getDate());
     this.calendar.updateSelectedDatesView();

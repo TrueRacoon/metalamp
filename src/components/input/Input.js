@@ -1,10 +1,11 @@
 class Input {
   constructor(inputDom) {
     this.inputDom = inputDom;
+    this._init();
   }
 
-  init() {
-    this.typeIsDate = this.inputDom.placeholder === Input.consts.DATE_PLACEHOLDER;
+  _init() {
+    this.typeIsDate = this.inputDom?.placeholder === Input.consts.DATE_PLACEHOLDER;
     this._bindEventListeners();
   }
 
