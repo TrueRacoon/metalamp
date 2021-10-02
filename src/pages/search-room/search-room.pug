@@ -83,97 +83,97 @@ block variables
     }];
 
 block content
-  .search-room.js-search-room
-    .search-room__filters
-      .search-room__filter-container
-        +arrival-filters({
-          initialArrivalDate: '19.08.2019',
-          initialDepartureDate: '23.08.2019',
-          singleDateInput: true
+  .search-room__container
+    .search-room.js-search-room
+      .search-room__filters
+        .search-room__filter-container
+          +arrival-filters({
+            initialArrivalDate: '19.08.2019',
+            initialDepartureDate: '23.08.2019',
+            singleDateInput: true
+          })
+        .search-room__filter-container
+          +range-slider({
+            minValue: 100,
+            maxValue: 15100,
+            initialLowerValue: 5000,
+            initialUpperValue: 10000,
+            step: 100,
+            name: 'Диапазон цены',
+            description: 'Стоимость за сутки пребывания в номере',
+          })
+        .search-room__filter-container
+          +checkbox-buttons({
+            name: 'roomRules',
+            title: 'Правила дома',
+            items: [{
+              value: 'Можно курить',
+            }, {
+              value: 'Можно с питомцами',
+              checked: true,
+            }, {
+              value: 'Можно пригласить гостей (до\xA010\xA0человек)',
+              checked: true,
+            }]
+          })
+        .search-room__filter-container
+          +checkbox-buttons({
+            name: 'accessibility',
+            title: 'Доступность',
+            rich: true,
+            items: [{
+              title: 'Широкий коридор',
+              description: 'Ширина коридоров в номере не\xA0менее 91 см.'
+            }, {
+              title: 'Помощник для инвалидов',
+              description: 'На 1 этаже вас встретит специалист и\xA0проводит до номера.'
+            }]
+          })
+        .search-room__filter-container_smaller-margin
+          +count-picker({
+            label: 'Удобства номера',
+            inputText: 'Выбор удобств',
+            items: facilitiesPickerItems,
+            withControlButtons: false,
+          })
+        .search-room__filter-container
+          +expandable-checkbox-list({
+            title: 'Дополнительные удобства',
+            items: [{
+              value: 'Завтрак',
+            }, {
+              value: 'Письменный стол',
+              checked: true,
+            }, {
+              value: 'Стул для кормления',
+              checked: true,
+            }, {
+              value: 'Кроватка',
+              checked: true,
+            }, {
+              value: 'Телевизор',
+            }, {
+              value: 'Шампунь',
+            }, {
+              value: 'Телевизор',
+            }, {
+              value: 'Шампунь',
+            }],
+          })
+      .search-room__rooms-container
+        +text({
+          tag: 'h1',
+          text: 'Номера, которые мы для вас подобрали'
         })
-      .search-room__filter-container
-        +range-slider({
-          minValue: 100,
-          maxValue: 15100,
-          initialLowerValue: 5000,
-          initialUpperValue: 10000,
-          step: 100,
-          name: 'Диапазон цены',
-          description: 'Стоимость за сутки пребывания в номере',
-        })
-      .search-room__filter-container
-        +checkbox-buttons({
-          name: 'roomRules',
-          title: 'Правила дома',
-          items: [{
-            value: 'Можно курить',
-          }, {
-            value: 'Можно с питомцами',
-            checked: true,
-          }, {
-            value: 'Можно пригласить гостей (до\xA010\xA0человек)',
-            checked: true,
-          }]
-        })
-      .search-room__filter-container
-        +checkbox-buttons({
-          name: 'accessibility',
-          title: 'Доступность',
-          rich: true,
-          items: [{
-            title: 'Широкий коридор',
-            description: 'Ширина коридоров в номере не\xA0менее 91 см.'
-          }, {
-            title: 'Помощник для инвалидов',
-            description: 'На 1 этаже вас встретит специалист и\xA0проводит до номера.'
-          }]
-        })
-      .search-room__filter-container_smaller-margin
-        +count-picker({
-          label: 'Удобства номера',
-          inputText: 'Выбор удобств',
-          items: facilitiesPickerItems,
-          withControlButtons: false,
-        })
-      .search-room__filter-container
-        +expandable-checkbox-list({
-          title: 'Дополнительные удобства',
-          items: [{
-            value: 'Завтрак',
-          }, {
-            value: 'Письменный стол',
-            checked: true,
-          }, {
-            value: 'Стул для кормления',
-            checked: true,
-          }, {
-            value: 'Кроватка',
-            checked: true,
-          }, {
-            value: 'Телевизор',
-          }, {
-            value: 'Шампунь',
-          }, {
-            value: 'Телевизор',
-          }, {
-            value: 'Шампунь',
-          }],
-        })
-    .search-room__rooms-container
-      +text({
-        tag: 'h1',
-        text: 'Номера, которые мы для вас подобрали'
-      })
-      .search-room__rooms
-        each room in rooms
-          .search-room__room-card-container
-            +room-card({
-              roomNumber: room.roomNumber,
-              price: room.price,
-              roomSpecialType: room.roomSpecialType,
-              rating: room.rating,
-              nReviews: room.nReviews,
-            })
-      .search-room__pagination
-        +pagination()
-
+        .search-room__rooms
+          each room in rooms
+            .search-room__room-card-container
+              +room-card({
+                roomNumber: room.roomNumber,
+                price: room.price,
+                roomSpecialType: room.roomSpecialType,
+                rating: room.rating,
+                nReviews: room.nReviews,
+              })
+        .search-room__pagination
+          +pagination()
