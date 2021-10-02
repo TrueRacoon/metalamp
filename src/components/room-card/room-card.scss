@@ -4,14 +4,12 @@
 @import 'src/components/rating/rating.scss';
 
 .room-card {
-  max-width: fit-content;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
 
   &__carousel {
-    width: 270px;
-    height: 151px;
+    width: 100%;
   }
 
   &__description {

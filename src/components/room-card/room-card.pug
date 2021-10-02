@@ -3,8 +3,8 @@ include ../room-number-and-price/room-number-and-price.pug
 include ../rating/rating.pug
 
 mixin room-card(opts)
-  .room-card
-    .room-card__carousel
+  .room-card.js-room-card
+    .room-card__carousel.js-room-card__carousel
       +carousel({ roomNumber: opts.roomNumber })
     .room-card__description
       +room-number-and-price({

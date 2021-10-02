@@ -8,12 +8,17 @@
 @import 'src/components/pagination/pagination.scss';
 
 .search-room {
-  padding: 0 5%;
+  padding: 30px 5% 0;
   display: flex;
   border-bottom: 1px solid transparentize($color-dark-shade, 0.75);
 
   @media (min-width: 1440px) {
-    padding: 0 140px;
+    padding-right: 140px;
+    padding-left: 140px;
+  }
+
+  @media (max-width: 957px) {
+    flex-direction: column;
   }
 
   &__filters {
@@ -44,7 +49,7 @@
   &__rooms {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 270px);
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     grid-column-gap: 12px;
     grid-row-gap: 20px;
   }

@@ -6,3 +6,10 @@ import '../../components/count-picker';
 import '../../components/dropdown-block';
 import '../../components/range-slider';
 import '../../components/expandable-checkbox-list';
+import RoomCard from '../../components/room-card/RoomCard';
+
+const roomCardsDoms = document.querySelectorAll('.js-room-card');
+const roomCards = [];
+roomCardsDoms.forEach((roomCardDom) => roomCards.push(new RoomCard(roomCardDom)));
+const handleWindowResize = () => roomCards.forEach((roomCard) => roomCard.updateCarouselHeight());
+window.addEventListener('resize', handleWindowResize);
