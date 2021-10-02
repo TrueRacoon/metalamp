@@ -1,0 +1,38 @@
+include ../../components/text/text.pug
+
+mixin pagination()
+  -
+    var currentPage = 1;
+    var nPages = 15;
+    var nRoomsPerPage = 12;
+    var nRoomsPlus = 100;
+    var labelText = `${nRoomsPerPage * (currentPage - 1) + 1} - ${nRoomsPerPage * currentPage} из ${nRoomsPlus}+ вариантов аренды`;
+
+  .pagination
+    .pagination__links
+      - i = 1;
+      while i < 4
+        if (i === currentPage)
+          .pagination__link-container.pagination__link-container_current
+            a.pagination__link.pagination__link_current #{i}
+        else
+          .pagination__link-container
+            a.pagination__link(href='page-not-found.html') #{i}
+        - i += 1;
+      .pagination__link-container
+        a.pagination__link ...
+      if (nPages === currentPage)
+        .pagination__link-container.pagination__link-container_current
+          a.pagination__link.pagination__link_current #{nPages}
+      else
+        .pagination__link-container
+          a.pagination__link(href='page-not-found.html') #{nPages}
+      .pagination__link-container.pagination__link-container_next
+        a.pagination__link(href='page-not-found.html')
+          .pagination__next-page-arrow
+    .pagination__label
+      +text({
+        tag: 'p',
+        text: labelText,
+        modifiers: ['align_center'],
+      })

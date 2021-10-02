@@ -1,0 +1,49 @@
+@import 'src/variables.scss';
+@import 'src/components/text/text.scss';
+
+.pagination {
+  max-width: fit-content;
+
+  &__links {
+    display: flex;
+  }
+
+  &__link {
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: transparentize($color-dark-shade, 0.5);
+    user-select: none;
+
+    &_current {
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+  &__link-container {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50%;
+
+    &_current {
+      background: $gradient-purple;
+    }
+
+    &_next {
+      background: $gradient-green;
+    }
+  }
+
+  &__next-page-arrow {
+    width: 40px;
+    height: 40px;
+    background: url('./../../img/forward-arrow.svg') no-repeat center;
+    filter: brightness(0) invert(1);
+  }
+
+  &__label {
+    margin-top: 10px;
+  }
+}
