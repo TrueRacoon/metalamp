@@ -4,11 +4,27 @@
 @import 'src/components/checkbox-buttons/checkbox-buttons.scss';
 @import 'src/components/count-picker/count-picker.scss';
 @import 'src/components/expandable-checkbox-list/expandable-checkbox-list.scss';
+@import 'src/components/room-card/room-card.scss';
+@import 'src/components/pagination/pagination.scss';
 
 .search-room {
+  padding: 0 5%;
+  display: flex;
+  border-bottom: 1px solid transparentize($color-dark-shade, 0.75);
+
+  @media (min-width: 1440px) {
+    padding: 0 140px;
+  }
+
   &__filters {
-    margin-left: 10px;
-    width: 266px;
+    padding-right: 5%;
+
+    min-width: 266px;
+    max-width: 266px;
+
+    @media (min-width: 1440px) {
+      padding-right: 60px;
+    }
   }
 
   &__filter-container {
@@ -17,5 +33,28 @@
     &_smaller-margin {
       margin-bottom: 16px;
     }
+  }
+
+  &__rooms-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &__rooms {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 270px);
+    grid-column-gap: 12px;
+    grid-row-gap: 20px;
+  }
+
+  &__room-card-container {
+    //margin-bottom: 20px;
+    //margin-right: 12px;
+  }
+
+  &__pagination {
+    margin: 40px auto 70px;
   }
 }

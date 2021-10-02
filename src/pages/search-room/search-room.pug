@@ -5,6 +5,8 @@ include ../../components/range-slider/range-slider.pug
 include ../../components/checkbox-buttons/checkbox-buttons.pug
 include ../../components/count-picker/count-picker.pug
 include ../../components/expandable-checkbox-list/expandable-checkbox-list.pug
+include ../../components/room-card/room-card.pug
+include ../../components/pagination/pagination.pug
 
 block variables
   -
@@ -16,6 +18,69 @@ block variables
       { label: 'Кровати', count: 2 },
       { label: 'Ванные комнаты', count: 1 }
     ];
+    var rooms = [{
+      roomNumber: 888,
+      price: 9990,
+      roomSpecialType: 'Люкс',
+      rating: 5,
+      nReviews: 145,
+    }, {
+      roomNumber: 840,
+      price: 9990,
+      rating: 3,
+      nReviews: 65,
+    }, {
+      roomNumber: 980,
+      price: 8500,
+      roomSpecialType: 'Люкс',
+      rating: 3,
+      nReviews: 35,
+    }, {
+      roomNumber: 856,
+      price: 7300,
+      rating: 5,
+      nReviews: 19,
+    }, {
+      roomNumber: 740,
+      price: 6000,
+      rating: 4,
+      nReviews: 44,
+    }, {
+      roomNumber: 982,
+      price: 5800,
+      rating: 3,
+      nReviews: 56,
+    }, {
+      roomNumber: 678,
+      price: 550,
+      rating: 5,
+      nReviews: 45,
+    }, {
+      roomNumber: 450,
+      price: 5300,
+      rating: 4,
+      nReviews: 39,
+    }, {
+      roomNumber: 350,
+      price: 5000,
+      rating: 3,
+      nReviews: 77,
+    }, {
+      roomNumber: 666,
+      price: 5000,
+      rating: 5,
+      nReviews: 25,
+    }, {
+      roomNumber: 444,
+      price: 5000,
+      rating: 3,
+      nReviews: 15,
+    }, {
+      roomNumber: 352,
+      price: 5000,
+      rating: 3,
+      nReviews: 55,
+    }];
 
 block content
   .search-room.js-search-room
@@ -95,6 +160,20 @@ block content
           }],
         })
     .search-room__rooms-container
-      .search-room__rooms-container-title
+      +text({
+        tag: 'h1',
+        text: 'Номера, которые мы для вас подобрали'
+      })
       .search-room__rooms
+        each room in rooms
+          .search-room__room-card-container
+            +room-card({
+              roomNumber: room.roomNumber,
+              price: room.price,
+              roomSpecialType: room.roomSpecialType,
+              rating: room.rating,
+              nReviews: room.nReviews,
+            })
+      .search-room__pagination
+        +pagination()
 
