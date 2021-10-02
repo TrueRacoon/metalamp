@@ -22,7 +22,7 @@ mixin carousel(opts)
           img.carousel__img(
             height='100%'
             width='100%'
-            src=`https://unsplash.it/${i}${opts.roomNumber}?random`
+            src=require(`../../img/miniatures/${opts.roomNumber}-${1}.jpg`)
             alt='Фотография номера'
           )
     .carousel__indicators
