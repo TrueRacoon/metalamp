@@ -1,6 +1,9 @@
 @import 'src/components/text/text.scss';
 @import 'src/components/arrival-filters/arrival-filters.scss';
 @import 'src/components/range-slider/range-slider.scss';
+@import 'src/components/checkbox-buttons/checkbox-buttons.scss';
+@import 'src/components/count-picker/count-picker.scss';
+@import 'src/components/expandable-checkbox-list/expandable-checkbox-list.scss';
 
 .search-room {
   &__filters {
@@ -8,7 +11,11 @@
     width: 266px;
   }
 
-  &__arrival-filters {
+  &__filter-container {
     margin-bottom: 30px;
+
+    &_smaller-margin {
+      margin-bottom: 16px;
+    }
   }
 }

@@ -5,3 +5,4 @@ import '../../components/date-filter';
 import '../../components/count-picker';
 import '../../components/dropdown-block';
 import '../../components/range-slider';
+import '../../components/expandable-checkbox-list';
