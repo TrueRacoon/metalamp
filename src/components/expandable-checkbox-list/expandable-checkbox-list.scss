@@ -1,0 +1,32 @@
+@import 'src/components/checkbox-buttons/checkbox-buttons.scss';
+
+.expandable-checkbox-list {
+  &__dropdown {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__dropdown-button {
+    width: 44px;
+    height: 44px;
+    opacity: 0.5;
+    line-height: 0;
+    background: transparent url('./../../img/expand-icon.svg') no-repeat center;
+    border-style: none;
+    cursor: pointer;
+
+    &_turned {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dropdown-content {
+    display: none;
+
+    &_expanded {
+      display: block;
+    }
+  }
+}
