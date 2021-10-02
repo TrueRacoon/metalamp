@@ -1,0 +1,25 @@
+include ../../components/text/text.pug
+
+mixin checkbox-buttons(opts)
+  .checkbox-buttons
+    if (opts.title)
+      .checkbox-buttons__title
+        +text({
+          tag: 'h3',
+          text: opts.title,
+        })
+    each item in opts.items
+      label.checkbox-buttons__label
+        input.checkbox-buttons__input(
+          type='checkbox'
+          name=opts.name
+          value=item.value || item.title
+          checked=item.checked === true
+        )
+        .checkbox-buttons__checkmark
+        if (opts.rich)
+          .checkbox-buttons__item-text
+            .checkbox-buttons__item-title #{item.title}
+            .checkbox-buttons__item-description #{item.description}
+        else
+          .checkbox-buttons__item-value #{item.value}
