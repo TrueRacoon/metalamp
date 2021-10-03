@@ -1,0 +1,53 @@
+@import 'src/variables.scss';
+@import 'src/components/text/text.scss';
+
+.features {
+  width: max-content;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__item + &__item {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid transparentize($color-dark-shade, 0.9);
+  }
+
+  &__icon {
+    margin-right: 10px;
+    width: 48px;
+    height: 48px;
+
+    &_insert-emoticon {
+      background-image: url('./../../components/features/img/insert-emoticon.svg');
+    }
+
+    &_location-city {
+      background-image: url('./../../components/features/img/location-city.svg');
+    }
+
+    &_whatshot {
+      background-image: url('./../../components/features/img/whatshot.svg');
+    }
+  }
+
+  &__text {
+    line-height: 24px;
+    color: transparentize($color-dark-shade, 0.25);
+  }
+
+  &__feature-title {
+    font-weight: bold;
+  }
+}

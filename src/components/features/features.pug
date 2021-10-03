@@ -1,0 +1,19 @@
+include ../../components/text/text.pug
+
+mixin features(opts)
+  .features
+    if (opts.title)
+      .features__title
+        +text({
+          tag: 'h2',
+          text: opts.title,
+        })
+    ul.features__list
+      each feature in opts.features
+        li.features__item
+          div(
+            class=`features__icon features__icon_${feature.icon}`
+          )
+          .features__text
+            .features__feature-title #{feature.title}
+            .features__feature-description #{feature.description}
