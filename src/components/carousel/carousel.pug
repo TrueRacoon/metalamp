@@ -1,30 +1,32 @@
 mixin carousel(opts)
-  .carousel
-    - var slides = [1, 2, 3, 4]
-    each val in slides
-      input.carousel__activator(
-        type="radio",
-        name=`${opts.roomNumber}carousel`,
-        id=`${opts.roomNumber}${val}`,
-        checked=(val === slides[0])
-      )
-    each val, index in slides
-      .carousel__controls
-        label.carousel__control.carousel__control_backward(
-          for=`${opts.roomNumber}${(index === 0) ? slides[slides.length - 1] : slides[index - 1]}`
-        )
-        label.carousel__control.carousel__control_forward(
-          for=`${opts.roomNumber}${(index === slides.length - 1) ? slides[0] : slides[index + 1]}`
-        )
-    .carousel__track
-      each _, i in slides
-        li.carousel__slide
-          img.carousel__img(
-            height='100%'
-            width='100%'
-            src=require(`../../img/miniatures/${opts.roomNumber}-${1}.jpg`)
-            alt='Фотография номера'
-          )
-    .carousel__indicators
+  .carousel__container
+    .carousel__aspect-ratio
+    .carousel
+      - var slides = [1, 2, 3, 4]
       each val in slides
-        label.carousel__indicator(for=`${opts.roomNumber}${val}`)
+        input.carousel__activator(
+          type="radio",
+          name=`${opts.roomNumber}carousel`,
+          id=`${opts.roomNumber}${val}`,
+          checked=(val === slides[0])
+        )
+      each val, index in slides
+        .carousel__controls
+          label.carousel__control.carousel__control_backward(
+            for=`${opts.roomNumber}${(index === 0) ? slides[slides.length - 1] : slides[index - 1]}`
+          )
+          label.carousel__control.carousel__control_forward(
+            for=`${opts.roomNumber}${(index === slides.length - 1) ? slides[0] : slides[index + 1]}`
+          )
+      .carousel__track
+        each _, i in slides
+          li.carousel__slide
+            img.carousel__img(
+              height='100%'
+              width='100%'
+              src=require(`../../img/miniatures/${opts.roomNumber}-${1}.jpg`)
+              alt='Фотография номера'
+            )
+      .carousel__indicators
+        each val in slides
+          label.carousel__indicator(for=`${opts.roomNumber}${val}`)
