@@ -1,0 +1,97 @@
+@import 'src/variables.scss';
+
+$first-color: #ffba9c;
+$first-color-gradient: #ffe39c;
+$second-color: $color-green-gradient;
+$second-color-gradient: $color-green;
+$third-color: $color-purple-gradient;
+$third-color-gradient: $color-purple;
+$fourth-color: #3d4975;
+$fourth-color-gradient: #909090;
+
+.pie-chart {
+  &__diagram {
+    width: 500px; // FIX
+    height: 500px; // FIX
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__center-background {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 14px; //FIX
+    left: 14px;
+    bottom: 14px;
+    right: 14px;
+    z-index: 5;
+  }
+
+  &__center-text {
+    height: max-content;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-purple;
+    z-index: 6;
+    font-weight: bold;
+  }
+
+  &__total-value {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__part {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  &__delimiter {
+    position: absolute;
+    height: calc(50% + 1px);
+    width: 10px; // FIX
+    bottom: 50%;
+    left: calc(50% - 5px); // FIX
+    background-color: #fff;
+    z-index: 5;
+    transform-origin: bottom;
+  }
+
+  &__4-part {
+    background: conic-gradient(transparent 0deg 180deg, $first-color 180deg, $first-color-gradient 360deg, transparent 360deg);
+  }
+
+  &__3-part {
+    background: conic-gradient(transparent 0deg 90deg, $second-color 90deg, $second-color-gradient 180deg, transparent 180deg);
+  }
+
+  &__2-part {
+    background: conic-gradient(transparent 0deg 45deg, $third-color 45deg, $third-color-gradient 90deg, transparent 90deg);
+  }
+
+  &__1-part {
+    background: conic-gradient(transparent 0deg 0deg, $fourth-color 0deg, $fourth-color-gradient 45deg, transparent 45deg);
+  }
+
+  &__1-delimiter {
+    transform: rotate(360deg);
+  }
+
+  &__2-delimiter {
+    transform: rotate(180deg);
+  }
+
+  &__3-delimiter {
+    transform: rotate(90deg);
+  }
+
+  &__4-delimiter {
+    transform: rotate(45deg);
+  }
+}

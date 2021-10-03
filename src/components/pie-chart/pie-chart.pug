@@ -1,0 +1,46 @@
+mixin pie-chart(opts)
+  -
+    var totalValue = opts.data.reduce((a, b) => a + b.value, 0);
+    function getWordDeclension(number, wordForms) {
+      var hundredthPart = number % 100;
+      var tenthPart = number % 10;
+      var isThirdForm = hundredthPart > 10 && hundredthPart < 20;
+      var isSecondForm = tenthPart > 1 && tenthPart < 5;
+      var isFirstForm = tenthPart === 1;
+      if (isThirdForm) {
+        return wordForms[2];
+      }
+      if (isSecondForm) {
+        return wordForms[1];
+      }
+      if (isFirstForm) {
+        return wordForms[0];
+      }
+      return wordForms[2];
+    }
+    var reviewsDeclension = getWordDeclension(totalValue, opts.labelForms);
+    var valueCounter = 0;
+    var pieChartData = opts.data.map((dataElement) => {
+      valueCounter += dataElement.value;
+      return {
+        legend: dataElement.legend,
+        degreeFrom: ((valueCounter - dataElement.value) * 360) / totalValue,
+        degreeTo: (valueCounter * 360) / totalValue,
+      }
+    });
+
+  .pie-chart
+    .pie-chart__diagram
+      .pie-chart__center-background
+      .pie-chart__center-text
+        .pie-chart__total-value #{totalValue}
+        .pie-chart__total-label голосов
+      .pie-chart__part.pie-chart__1-part
+      .pie-chart__part.pie-chart__2-part
+      .pie-chart__part.pie-chart__3-part
+      .pie-chart__part.pie-chart__4-part
+      .pie-chart__delimiter.pie-chart__1-delimiter
+      .pie-chart__delimiter.pie-chart__2-delimiter
+      .pie-chart__delimiter.pie-chart__3-delimiter
+      .pie-chart__delimiter.pie-chart__4-delimiter
+  | #{JSON.stringify(pieChartData)}
