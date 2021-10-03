@@ -1,0 +1,12 @@
+@import 'src/components/features/features.scss';
+@import 'src/components/pie-chart/pie-chart.scss';
+@import 'src/components/reviews/reviews.scss';
+@import 'src/components/bullet-list/bullet-list.scss';
+@import 'src/components/text/text.scss';
+@import 'src/components/booking-card/booking-card.scss';
+
+.room-details {
+  &__cancellation-policy {
+    margin-top: 20px;
+  }
+}
