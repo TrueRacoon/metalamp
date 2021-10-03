@@ -1,0 +1,32 @@
+@import 'src/variables.scss';
+@import 'src/components/text/text.scss';
+
+.bullet-list {
+  &__title {
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item + &__item {
+    margin-top: 10px;
+  }
+
+  &__marker {
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: transparentize($color-dark-shade, 0.75);
+    border-radius: 50%;
+  }
+}

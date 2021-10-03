@@ -1,0 +1,15 @@
+include ../../components/text/text.pug
+
+mixin bullet-list(opts)
+  .bullet-list
+    if (opts.title)
+      .bullet-list__title
+        +text({
+          tag: 'h2',
+          text: opts.title,
+        })
+    ul.bullet-list__list
+      each listElement in opts.list
+        li.bullet-list__item
+          .bullet-list__marker
+          +text({ tag: 'p', text: listElement })
