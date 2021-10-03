@@ -1,0 +1,8 @@
+mixin like-button(opts)
+  .like-button__container
+    div(
+      class=`like-button${opts.pressed ? ' like-button_pressed' : ''}`
+    ) #{opts.nLikes}
+    div(
+      class=`like-button__icon${opts.pressed ? ' like-button__icon_pressed' : ''}`
+    )

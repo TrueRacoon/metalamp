@@ -1,0 +1,39 @@
+@import 'src/variables.scss';
+
+.like-button {
+  padding-left: 13px;
+  display: flex;
+  box-sizing: border-box;
+  width: 40px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  line-height: 20px;
+  color: transparentize($color-dark-shade, 0.75);
+  border: 1px solid transparentize($color-dark-shade, 0.75);
+  border-radius: 10px;
+
+  &_pressed {
+    color: $color-purple;
+    border-color: $color-purple;
+  }
+
+  &__container {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url('./../../components/like-button/img/favorite-border.svg');
+
+    &_pressed {
+      background-image: url('./../../components/like-button/img/favorite.svg');
+    }
+  }
+}
