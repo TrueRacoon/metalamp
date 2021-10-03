@@ -167,13 +167,12 @@ block content
         })
         .search-room__rooms
           each room in rooms
-            .search-room__room-card-container
-              +room-card({
-                roomNumber: room.roomNumber,
-                price: room.price,
-                roomSpecialType: room.roomSpecialType,
-                rating: room.rating,
-                nReviews: room.nReviews,
-              })
+            +room-card({
+              roomNumber: room.roomNumber,
+              price: room.price,
+              roomSpecialType: room.roomSpecialType,
+              rating: room.rating,
+              nReviews: room.nReviews,
+            })
         .search-room__pagination
           +pagination()
