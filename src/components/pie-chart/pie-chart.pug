@@ -20,7 +20,7 @@ mixin pie-chart(opts)
       }
       return wordForms[2];
     }
-    var reviewsDeclension = getWordDeclension(totalValue, opts.labelForms);
+    var totalLabelDeclension = getWordDeclension(totalValue, opts.labelForms);
     var valueCounter = 0;
     var data = opts.data.map((dataElement) => {
       valueCounter += dataElement.value;
@@ -43,7 +43,7 @@ mixin pie-chart(opts)
         .pie-chart__center-background
         .pie-chart__center-text
           .pie-chart__total-value #{totalValue}
-          .pie-chart__total-label голосов
+          .pie-chart__total-label #{totalLabelDeclension}
         each dataElement, index in data
           div(
             class=`pie-chart__part pie-chart__${index + 1}-part`
