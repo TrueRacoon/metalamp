@@ -1,0 +1,56 @@
+include ../../components/text/text.pug
+include ../../components/like-button/like-button.pug
+
+mixin reviews(opts)
+  -
+    var totalValue = opts.reviews.length;
+    function getWordDeclension(number, wordForms) {
+      var hundredthPart = number % 100;
+      var tenthPart = number % 10;
+      var isThirdForm = hundredthPart > 10 && hundredthPart < 20;
+      var isSecondForm = tenthPart > 1 && tenthPart < 5;
+      var isFirstForm = tenthPart === 1;
+      if (isThirdForm) {
+        return wordForms[2];
+      }
+      if (isSecondForm) {
+        return wordForms[1];
+      }
+      if (isFirstForm) {
+        return wordForms[0];
+      }
+      return wordForms[2];
+    }
+    var totalLabelDeclension = getWordDeclension(totalValue, opts.labelForms);
+
+  .reviews
+    .reviews__top
+      +text({
+        tag: 'h2',
+        text: opts.title,
+      })
+      .reviews__total #{totalValue + '\xA0' + totalLabelDeclension}
+    .reviews__content
+      each review in opts.reviews
+        .reviews__review-container
+          .reviews__avatar-and-likes
+            img.reviews__avatar(
+              height='44px'
+              width='44px'
+              src=require(`../../img/users-avatars/user-${review.userId}-avatar.jpg`)
+              alt=`Аватар пользователя ${review.username}`
+            )
+            .reviews__like-button
+              +like-button({
+                nLikes: review.nLikes,
+                pressed: review.likePressed
+              })
+          .reviews__review
+            .reviews__username
+              +text({ tag: 'p', text: review.username })
+            .reviews__date
+              +text({ tag: 'p', text: review.date })
+            .reviews__review-text
+              +text({ tag: 'p', text: review.text })
+
+
