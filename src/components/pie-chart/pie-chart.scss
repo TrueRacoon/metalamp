@@ -1,43 +1,47 @@
 @import 'src/variables.scss';
+@import 'src/components/text/text.scss';
 
-$first-color: #ffba9c;
-$first-color-gradient: #ffe39c;
-$second-color: $color-green-gradient;
-$second-color-gradient: $color-green;
-$third-color: $color-purple-gradient;
-$third-color-gradient: $color-purple;
-$fourth-color: #3d4975;
-$fourth-color-gradient: #909090;
+$number-of-parts: 4;
+$main-colors: (#909090, $color-purple, $color-green, #ffe39c);
+$gradient-colors: (#3d4975, $color-purple-gradient, $color-green-gradient, #ffba9c);
 
 .pie-chart {
+  &__title {
+    margin-bottom: 21px;
+  }
+
+  &__content {
+    display: flex;
+  }
+
   &__diagram {
-    width: 500px; // FIX
-    height: 500px; // FIX
-    border-radius: 50%;
     position: relative;
     display: flex;
-    align-items: center;
+    width: 120px;
+    height: 120px;
     justify-content: center;
+    align-items: center;
+    border-radius: 50%;
   }
 
   &__center-background {
     position: absolute;
+    z-index: 1;
+    top: 4px;
+    right: 4px;
+    bottom: 4px;
+    left: 4px;
     background-color: #fff;
     border-radius: 50%;
-    top: 14px; //FIX
-    left: 14px;
-    bottom: 14px;
-    right: 14px;
-    z-index: 5;
   }
 
   &__center-text {
+    z-index: 2;
     height: max-content;
+    font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     color: $color-purple;
-    z-index: 6;
-    font-weight: bold;
   }
 
   &__total-value {
@@ -54,44 +58,55 @@ $fourth-color-gradient: #909090;
 
   &__delimiter {
     position: absolute;
-    height: calc(50% + 1px);
-    width: 10px; // FIX
+    z-index: 1;
     bottom: 50%;
-    left: calc(50% - 5px); // FIX
+    left: calc(50% - 1px);
+    width: 2px;
+    height: calc(50% + 1px);
     background-color: #fff;
-    z-index: 5;
     transform-origin: bottom;
   }
 
-  &__4-part {
-    background: conic-gradient(transparent 0deg 180deg, $first-color 180deg, $first-color-gradient 360deg, transparent 360deg);
+  @for $i from 1 through $number-of-parts {
+    &__#{$i}-part {
+      background: conic-gradient(transparent 0deg var(--degreeFrom), nth($gradient-colors, $i) var(--degreeFrom), nth($main-colors, $i) var(--degreeTo), transparent var(--degreeTo));
+    }
   }
 
-  &__3-part {
-    background: conic-gradient(transparent 0deg 90deg, $second-color 90deg, $second-color-gradient 180deg, transparent 180deg);
+  @for $i from 1 through $number-of-parts {
+    &__#{$i}-delimiter {
+      transform: rotate(var(--degree));
+    }
   }
 
-  &__2-part {
-    background: conic-gradient(transparent 0deg 45deg, $third-color 45deg, $third-color-gradient 90deg, transparent 90deg);
+  &__legend {
+    margin: 0 0 5px 30px;
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    list-style: none;
   }
 
-  &__1-part {
-    background: conic-gradient(transparent 0deg 0deg, $fourth-color 0deg, $fourth-color-gradient 45deg, transparent 45deg);
+  &__legend-item {
+    margin-top: 14px;
+    display: flex;
   }
 
-  &__1-delimiter {
-    transform: rotate(360deg);
+  &__legend-marker {
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    @for $i from 1 through $number-of-parts {
+      &_#{$i} {
+        background: linear-gradient(180deg, nth($main-colors, $i), nth($gradient-colors, $i));
+      }
+    }
   }
 
-  &__2-delimiter {
-    transform: rotate(180deg);
-  }
-
-  &__3-delimiter {
-    transform: rotate(90deg);
-  }
-
-  &__4-delimiter {
-    transform: rotate(45deg);
+  &__legend-label {
+    line-height: 10px;
+    color: transparentize($color-dark-shade, 0.25);
   }
 }

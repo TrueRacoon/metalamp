@@ -1,3 +1,5 @@
+include ../../components/text/text.pug
+
 mixin pie-chart(opts)
   -
     var totalValue = opts.data.reduce((a, b) => a + b.value, 0);
@@ -20,7 +22,7 @@ mixin pie-chart(opts)
     }
     var reviewsDeclension = getWordDeclension(totalValue, opts.labelForms);
     var valueCounter = 0;
-    var pieChartData = opts.data.map((dataElement) => {
+    var data = opts.data.map((dataElement) => {
       valueCounter += dataElement.value;
       return {
         legend: dataElement.legend,
@@ -30,17 +32,31 @@ mixin pie-chart(opts)
     });
 
   .pie-chart
-    .pie-chart__diagram
-      .pie-chart__center-background
-      .pie-chart__center-text
-        .pie-chart__total-value #{totalValue}
-        .pie-chart__total-label голосов
-      .pie-chart__part.pie-chart__1-part
-      .pie-chart__part.pie-chart__2-part
-      .pie-chart__part.pie-chart__3-part
-      .pie-chart__part.pie-chart__4-part
-      .pie-chart__delimiter.pie-chart__1-delimiter
-      .pie-chart__delimiter.pie-chart__2-delimiter
-      .pie-chart__delimiter.pie-chart__3-delimiter
-      .pie-chart__delimiter.pie-chart__4-delimiter
-  | #{JSON.stringify(pieChartData)}
+    if (opts.title)
+      .pie-chart__title
+        +text({
+          tag: 'h2',
+          text: opts.title,
+        })
+    .pie-chart__content
+      .pie-chart__diagram
+        .pie-chart__center-background
+        .pie-chart__center-text
+          .pie-chart__total-value #{totalValue}
+          .pie-chart__total-label голосов
+        each dataElement, index in data
+          div(
+            class=`pie-chart__part pie-chart__${index + 1}-part`
+            style=`--degreeFrom: ${dataElement.degreeFrom}deg; --degreeTo: ${dataElement.degreeTo}deg`
+          )
+          div(
+            class=`pie-chart__delimiter pie-chart__${index + 1}-delimiter`
+            style=`--degree: ${dataElement.degreeTo}deg;`
+          )
+      ul.pie-chart__legend
+        each dataElement, index in data
+          li.pie-chart__legend-item
+            div(
+              class=`pie-chart__legend-marker pie-chart__legend-marker_${index + 1}`
+            )
+            .pie-chart__legend-label #{dataElement.legend}
