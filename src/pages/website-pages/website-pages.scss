@@ -1,5 +1,5 @@
 @import 'src/components/header/header.scss';
-@import 'src/components/footer/footer.scss';
+@import '../../components/footer/footer.scss';
 
 .website-pages {
   display: grid;
@@ -21,5 +21,18 @@
 
   &__footer {
     grid-area: footer;
+
+    @media (min-width: 769px) {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        bottom: 70px;
+        width: 100%;
+        height: 1px;
+        content: '';
+        background-color: transparentize($color-dark-shade, 0.9);
+      }
+    }
   }
 }
