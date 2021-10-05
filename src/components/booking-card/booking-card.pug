@@ -6,7 +6,7 @@ include ../arrival-filters/arrival-filters.pug
 mixin booking-card(opts)
   -
     function formatSum(sum) {
-      return sum.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
+      return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
     }
     var roomPrice = opts.roomPrice ? formatSum(opts.roomPrice) : '';
     var discount = opts.discount ? formatSum(opts.discount) : '';
