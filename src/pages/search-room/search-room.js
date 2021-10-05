@@ -4,3 +4,4 @@ import '../website-pages/website-pages.scss';
 import '../../components/range-slider';
 import '../../components/booking-card';
 import '../../components/expandable-checkbox-list';
+import '../../components/header';
