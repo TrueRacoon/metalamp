@@ -12,6 +12,10 @@
     box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
   }
 
+  &__header {
+    box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
+  }
+
   &__footer {
     &:not(&_narrow) {
       position: relative;

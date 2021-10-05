@@ -3,17 +3,12 @@
 
 /* stylelint-disable */
 .header {
-  &__container {
-    background-color: #fff;
-  }
-
   margin: 0 auto;
   min-width: 320px;
   max-width: 1920px;
   display: flex;
   position: relative;
   align-items: center;
-  box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
 
   @media (min-width: 769px) {
     padding: 0 5%;
@@ -65,7 +60,7 @@
     }
   }
 
-  &__logo {
+  &__logo-container {
     padding: 15px;
     line-height: 0;
 
