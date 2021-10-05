@@ -6,17 +6,10 @@ mixin dropdown-block(opts)
         text: opts.label,
       })
     div(
-      class='dropdown-block'
-      class='js-dropdown-block'
+      class=`dropdown-block js-dropdown-block
+      ${opts.isContentAreExtension ? 'dropdown-block_content-are-extension' : ''}`
       data-arrival-date=opts.initialArrivalDate
       data-departure-date=opts.initialDepartureDate
     )
-      div(
-        class='dropdown-block__text'
-        class='js-dropdown-block__text'
-      )=opts.inputText
-      button(
-        class='dropdown-block__button'
-        class='js-dropdown-block__button'
-        type='button'
-      )
+      .dropdown-block__text.js-dropdown-block__text=opts.inputText
+      button.dropdown-block__button.js-dropdown-block__button(type='button')

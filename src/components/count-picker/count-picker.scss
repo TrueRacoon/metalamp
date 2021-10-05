@@ -15,6 +15,7 @@
     width: 100%;
     background: #fff;
     border: 1px solid transparentize($color-dark-shade, 0.5);
+    border-top-style: none;
     border-radius: 0 0 4px 4px;
     box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
   }

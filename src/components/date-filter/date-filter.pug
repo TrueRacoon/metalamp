@@ -13,9 +13,10 @@ mixin date-filter(opts)
   )
     if opts.singleDateInput
       +dropdown-block({
-        label: opts.dateFilterLabel,
         initialArrivalDate,
         initialDepartureDate,
+        label: opts.dateFilterLabel,
+        isContentAreExtension: false,
       })
     else
       div(
