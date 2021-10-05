@@ -6,6 +6,30 @@
 @import 'src/components/booking-card/booking-card.scss';
 
 .room-details {
+  &__gallery {
+    position: relative;
+  }
+
+  &__gallery-aspect-ratio {
+    padding-top: calc(485 / 1440 * 100%);
+    width: 100%;
+  }
+
+  &__gallery-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+  }
+
+  &__gallery-secondary-images {
+    display: flex;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+
   &__cancellation-policy {
     margin-top: 20px;
   }
