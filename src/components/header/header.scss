@@ -151,7 +151,7 @@
     text-decoration: none;
 
     &:hover {
-      opacity: 0.5;
+      color: transparentize($color-dark-shade, 0.25);
     }
 
     &_current {
