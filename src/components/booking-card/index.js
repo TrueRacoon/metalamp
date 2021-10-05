@@ -1,6 +1,7 @@
 import BookingCard from './BookingCard';
 import createAndInitDateFilter from '../date-filter';
 import CountPicker from '../count-picker/CountPicker';
+import '../count-picker';
 
 const bookingCards = document.querySelectorAll('.js-booking-card');
 

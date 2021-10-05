@@ -1,4 +1,5 @@
 import CountPicker from './CountPicker';
+import '../dropdown-block';
 
 const countPickers = document.querySelectorAll(
   '.js-elements .js-count-picker,'
