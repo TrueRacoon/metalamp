@@ -3,20 +3,36 @@
 
 .index {
   position: relative;
-  width: 100%;
-  height: 830px;
-  background-image: url('https://unsplash.it/2560?random');
+  margin: 0 auto;
+  display: flex;
+  max-width: 1920px;
+  height: 100%;
+  flex-direction: column;
+  background: url('./../../img/backgrounds/landing-background.jpg') no-repeat center center fixed;
+  background-size: cover;
 
   &__room-search-card {
-    position: absolute;
-    top: 70px;
-    left: 140px;
+    margin: 70px auto 18px;
+
+    @media (max-width: 380px) {
+      margin-top: 0;
+    }
+
+    @media (min-width: 660px) {
+      margin-left: 140px;
+    }
   }
 
   &__tagline {
-    position: absolute;
-    right: 134px;
-    bottom: 18px;
+    margin: auto 18px 18px auto;
     width: 297px;
+
+    @media (min-width: 660px) {
+      margin-right: 70px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-right: 134px;
+    }
   }
 }

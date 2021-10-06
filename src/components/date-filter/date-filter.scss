@@ -8,6 +8,24 @@
   position: relative;
   justify-content: space-between;
 
+  @media (max-width: 380px) {
+    flex-direction: column;
+
+    &__arrival,
+    &__departure {
+      min-width: 100%;
+    }
+
+    &__arrival {
+      margin-bottom: 21px;
+    }
+
+    &__calendar-container {
+      top: 161px;
+      margin-left: calc((100vw - 320px) / 2 - 30px);
+    }
+  }
+
   &_single-date-input {
     display: block;
   }
