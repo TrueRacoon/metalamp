@@ -1,6 +1,9 @@
 @import 'src/variables.scss';
 @import 'src/components/button/button.scss';
 
+$narrow-width-end: 1049px;
+$wide-width-start: 1050px;
+
 /* stylelint-disable */
 .header {
   margin: 0 auto;
@@ -10,12 +13,12 @@
   position: relative;
   align-items: center;
 
-  @media (min-width: 769px) {
-    padding: 0 5%;
+  @media (max-width: $narrow-width-end) {
+    padding-right: 0;
   }
 
-  @media (max-width: 1023px) {
-    padding-right: 0;
+  @media (min-width: $wide-width-start) {
+    padding: 0 70px;
   }
 
   @media (min-width: 1440px) {
@@ -39,7 +42,7 @@
     background-size: 34px;
     cursor: pointer;
 
-    @media (min-width: 1024px) {
+    @media (min-width: $wide-width-start) {
       display: none;
     }
   }
@@ -64,7 +67,7 @@
     padding: 15px;
     line-height: 0;
 
-    @media (min-width: 769px) {
+    @media (min-width: $wide-width-start) {
       padding-left: 0;
     }
   }
@@ -72,7 +75,7 @@
   &__menu {
     display: none;
 
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       &_expanded {
         display: block;
       }
@@ -81,7 +84,7 @@
 
   &__menu,
   &__profile-menu {
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       position: absolute;
       box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
       z-index: 1;
@@ -89,7 +92,7 @@
       background-color: #fff;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: $wide-width-start) {
       display: flex;
       align-items: center;
       margin-left: auto;
@@ -98,7 +101,7 @@
 
   &__menu,
   &__profile-menu {
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       top: 70px;
       width: 100%;
       text-align: right;
@@ -109,14 +112,14 @@
     padding-left: 20px;
     position: relative;
 
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       padding: 1em;
     }
   }
 
   &__menu > &__link-container,
   &__profile-menu > &__link-container {
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       &:first-child {
         padding-top: 0;
       }
@@ -124,17 +127,17 @@
   }
 
   &__dropdown-content > &__link-container {
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       padding-right: 0;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: $wide-width-start) {
       padding: 20px;
     }
   }
 
   &__dropdown-content_expanded > &__link-container {
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       &:first-child {
         padding-top: 2em;
       }
@@ -173,7 +176,7 @@
     background: url('./../../img/expand-icon.svg') no-repeat;
     opacity: 0.5;
 
-    @media (min-width: 1024px) {
+    @media (min-width: $wide-width-start) {
       margin-right: 7px;
     }
 
@@ -189,7 +192,7 @@
   &__dropdown-content {
     display: none;
 
-    @media (min-width: 1023px) {
+    @media (min-width: $narrow-width-end) {
       background-color: #fff;
       position: absolute;
       width: max-content;
@@ -205,7 +208,7 @@
   }
 
   &__profile {
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       margin: 0 65px 0 auto;
     }
   }
@@ -216,7 +219,7 @@
     line-height: 17px;
     color: transparentize($color-dark-shade, 0.5);
 
-    @media (min-width: 1023px) {
+    @media (min-width: $narrow-width-end) {
       &:before {
         width: 1px;
         height: 30px;
@@ -231,7 +234,7 @@
   &__profile-menu {
     display: none;
 
-    @media (max-width: 1023px) {
+    @media (max-width: $narrow-width-end) {
       &_expanded {
         display: block;
       }
@@ -239,13 +242,13 @@
   }
 
   &__button {
-    @media (min-width: 1024px) {
+    @media (min-width: $wide-width-start) {
       @include button;
     }
   }
 
   &__button_outlined {
-    @media (min-width: 1024px) {
+    @media (min-width: $wide-width-start) {
       @include button;
       @include button_outlined;
       @include button_tight;
