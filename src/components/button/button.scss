@@ -2,7 +2,7 @@
 
 /* stylelint-disable */
 @mixin button {
-  padding: 10px 20px;
+  padding: 9px 20px 10px 19px;
   font-size: 12px;
   font-weight: bold;
   text-decoration: none;
@@ -23,7 +23,7 @@
   @include button;
 
   width: 100%;
-  padding: 14px 22px 15px 18px;
+  padding: 14px 20px 15px;
   position: relative;
 
   &:after {
@@ -39,7 +39,8 @@
 }
 
 @mixin button_outlined {
-  padding: 13px 25px 14px;
+  padding: 7px 18px 8px;
+
   color: $color-purple;
   background: #fff;
   border: 2px solid $color-purple;
@@ -51,8 +52,10 @@
   }
 }
 
-@mixin button_tight {
-  padding: 8px 18px;
+@mixin button_size_fixed {
+  padding: 0;
+  width: 99px;
+  height: 44px;
 }
 
 @mixin text-button {

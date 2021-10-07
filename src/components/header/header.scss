@@ -153,7 +153,7 @@ $wide-width-start: 1050px;
     color: transparentize($color-dark-shade, 0.5);
     text-decoration: none;
 
-    &:hover {
+    &:hover:not(.header__button) {
       color: transparentize($color-dark-shade, 0.25);
     }
 
@@ -244,14 +244,10 @@ $wide-width-start: 1050px;
   &__button {
     @media (min-width: $wide-width-start) {
       @include button;
-    }
-  }
 
-  &__button_outlined {
-    @media (min-width: $wide-width-start) {
-      @include button;
-      @include button_outlined;
-      @include button_tight;
+      &_outlined {
+        @include button_outlined;
+      }
     }
   }
 }
