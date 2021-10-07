@@ -1,15 +1,23 @@
+@import 'src/variables.scss';
 @import 'src/components/button/button.scss';
 @import 'src/components/radio-buttons/radio-buttons.scss';
 @import 'src/components/toggle-switch/toggle-switch.scss';
 
 .registration-card {
-  padding: 40px 30px 30px;
-  width: 320px;
+  padding: 0 30px 30px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 320px;
   background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   user-select: none;
+
+  @media (min-width: 382px) {
+    padding: 40px 29px 29px;
+    width: 380px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  }
 
   &__fieldset {
     margin: 0 0 30px;
