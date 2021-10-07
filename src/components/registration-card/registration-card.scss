@@ -45,8 +45,15 @@
     align-items: center;
   }
 
-  &__button_outlined {
+  &__button {
     @include button;
-    @include button_outlined;
+
+    &_outlined {
+      @include button_outlined;
+    }
+
+    &_size_fixed {
+      @include button_size_fixed;
+    }
   }
 }
