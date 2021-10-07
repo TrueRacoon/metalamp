@@ -45,6 +45,10 @@
     align-items: center;
   }
 
+  &__signup-label {
+    margin-right: 10px;
+  }
+
   &__button {
     @include button;
 
