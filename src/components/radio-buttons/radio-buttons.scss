@@ -3,12 +3,9 @@
 .radio-buttons {
   display: flex;
 
-  &__container {
-    margin-right: 20px;
-  }
-
   &__label {
     position: relative;
+    margin-right: 20px;
     padding-left: 21px;
     cursor: pointer;
     user-select: none;
