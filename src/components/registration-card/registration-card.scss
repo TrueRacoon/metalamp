@@ -22,24 +22,16 @@
     padding: 0;
   }
 
-  &__input-container {
+  &__container {
     margin-top: 10px;
 
-    &_small-margin {
+    &_smaller-margin {
       margin-top: 5px;
     }
-  }
 
-  &__radio-buttons-container {
-    margin-top: 10.44px;
-  }
-
-  &__label-container {
-    margin-top: 20px;
-  }
-
-  &__toggle-switch-container {
-    margin-top: 10px;
+    &_bigger-margin {
+      margin-top: 20px;
+    }
   }
 
   &__submit-button {

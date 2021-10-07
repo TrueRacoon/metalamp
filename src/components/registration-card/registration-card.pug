@@ -11,19 +11,19 @@ mixin registration-card()
             text: 'Регистрация аккаунта',
             tag: 'h1',
           })
-        .registration-card__input-container
+        .registration-card__container
           +input({
             name: 'firstName',
             placeholder: 'Имя',
             type: 'text',
           })
-        .registration-card__input-container
+        .registration-card__container
           +input({
             name: 'lastName',
             placeholder: 'Фамилия',
             type: 'text',
           })
-        .registration-card__radio-buttons-container
+        .registration-card__container
           +radio-buttons({
             name: 'gender',
             radioButtons: [
@@ -31,41 +31,35 @@ mixin registration-card()
               {value: 'Женщина'},
             ]
           })
-        .registration-card__label-container
+        .registration-card__container.registration-card__container_bigger-margin
           +text({
             text: 'Дата рождения',
             tag: 'h3',
           })
-        div(
-          class='registration-card__input-container'
-          class='registration-card__input-container_small-margin'
-        )
+        .registration-card__container.registration-card__container_smaller-margin
           +input({
             name: 'birthday',
             placeholder: 'ДД.ММ.ГГГГ',
             type: 'text',
           })
-        .registration-card__label-container
+        .registration-card__container.registration-card__container_bigger-margin
           +text({
             text: 'Данные для входа в сервис',
             tag: 'h3',
           })
-        div(
-          class='registration-card__input-container'
-          class='registration-card__input-container_small-margin'
-        )
+        .registration-card__container.registration-card__container_smaller-margin
           +input({
             name: 'email',
             placeholder: 'Email',
             type: 'text',
           })
-        .registration-card__input-container
+        .registration-card__container
           +input({
             name: 'password',
             placeholder: 'Пароль',
             type: 'text',
           })
-        .registration-card__toggle-switch-container
+        .registration-card__container
           +toggle-switch({
             name: 'subscribe',
             value: 'Получать спецпредложения'
