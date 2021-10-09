@@ -2,7 +2,8 @@
 
 .information-tooltip {
   display: flex;
-  width: 20px;
+  box-sizing: border-box;
+  min-width: 20px;
   height: 20px;
   justify-content: center;
   align-items: center;
