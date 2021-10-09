@@ -75,28 +75,18 @@ block variables
 block content
   .room-details
     .room-details__gallery
-      .room-details__gallery-aspect-ratio
-      .room-details__gallery-content
-        .room-details__gallery-main-image
-          img.room-details__gallery-img(
-            height='100%'
-            width='auto'
-            src=require(`../../img/rooms/room-${roomNumber}-1.jpg`)
-            alt='Фотография номера'
-          )
-        .room-details__gallery-secondary-images
-          img.room-details__gallery-img_overflow-x_hidden(
-            height='50%'
-            width='auto'
-            src=require(`../../img/rooms/room-${roomNumber}-2.jpg`)
-            alt='Фотография номера'
-          )
-          img.room-details__gallery-img_overflow-x_hidden(
-            height='50%'
-            width='auto'
-            src=require(`../../img/rooms/room-${roomNumber}-3.jpg`)
-            alt='Фотография номера'
-          )
+      img.room-details__image.room-details__image_main(
+        src=require(`../../img/rooms/room-${roomNumber}-1.jpg`)
+        alt='Фотография номера'
+      )
+      img.room-details__image(
+        src=require(`../../img/rooms/room-${roomNumber}-2.jpg`)
+        alt='Фотография номера'
+      )
+      img.room-details__image(
+        src=require(`../../img/rooms/room-${roomNumber}-3.jpg`)
+        alt='Фотография номера'
+      )
     .room-details__main-content
       .room-details__features-block
         +features({
