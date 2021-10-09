@@ -49,6 +49,11 @@ $gradient-colors: (#3d4975, $color-purple-gradient, $color-green-gradient, #ffba
     line-height: 29px;
   }
 
+  &__total-label {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
   &__part {
     position: absolute;
     width: 100%;
