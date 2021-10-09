@@ -30,8 +30,8 @@ class BookingCard {
       this.submitButton.classList.add('booking-card__submit-button_hidden');
       return;
     }
-    const priceValue = parseInt(this.priceValue.innerText.split(' ').join(''), 10);
-    const discount = parseInt(this.discount.innerText.slice(22).split(' ').join(''), 10);
+    const priceValue = parseInt(this.priceValue.innerText.split('\xa0').join(''), 10);
+    const discount = parseInt(this.discount.innerText.slice(22).split('\xa0').join(''), 10);
     const hostelStay = this._getHotelStay();
     const baseCost = priceValue * hostelStay;
     const additionalServicesFees = guestCounter * 100;

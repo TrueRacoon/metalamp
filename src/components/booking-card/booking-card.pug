@@ -6,7 +6,7 @@ include ../arrival-filters/arrival-filters.pug
 mixin booking-card(opts)
   -
     function formatSum(sum) {
-      return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
+      return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1\xa0').concat('₽');
     }
     var roomPrice = opts.roomPrice ? formatSum(opts.roomPrice) : '';
     var discount = opts.discount ? formatSum(opts.discount) : '';
@@ -33,30 +33,23 @@ mixin booking-card(opts)
             |
             span.booking-card__room-type=opts.roomType
           span.booking-card__price
-            span(
-              class='booking-card__price-value'
-              class='js-booking-card__price-value'
-            )=roomPrice
-            span.booking-card__price-period=' в сутки'
+            span.booking-card__price-value.js-booking-card__price-value=roomPrice
+            span.booking-card__price-period  в сутки
         +arrival-filters({ initialArrivalDate, initialDepartureDate, guestPickerItems })
-        ul(
-          class='booking-card__cost-details-list'
-          class='js-booking-card__cost-details-list'
-        )
+        ul.booking-card__cost-details-list.js-booking-card__cost-details-list
           li.booking-card__cost-details-item
-            .booking-card__cost-details
-              span.js-booking-card__base-cost-details
+            span.js-booking-card__base-cost-details
             span.js-booking-card__total-base-cost
           li.booking-card__cost-details-item
-            .booking-card__cost-details
-              span.js-booking-card__discount='Сбор за услуги: скидка ' + discount
+            span.js-booking-card__discount='Сбор за услуги: скидка\xa0' + discount
+            .booking-card__cost-details-total
               +information-tooltip('Tooltip')
-            span='0₽'
+              span 0₽
           li.booking-card__cost-details-item
-            .booking-card__cost-details
-              span='Сбор за дополнительные услуги'
+            span Сбор за дополнительные услуги
+            .booking-card__cost-details-total
               +information-tooltip('Tooltip')
-            span.js-booking-card__additional-services-fees
+              span.js-booking-card__additional-services-fees
         div(
           class='booking-card__total-cost-block'
           class='js-booking-card__total-cost-block'

@@ -4,12 +4,17 @@
 @import 'src/components/arrival-filters/arrival-filters.scss';
 
 .booking-card {
-  padding: 40px 30px 30px;
-  width: 320px;
-  background-color: #fff;
-  border: 1px solid transparentize(#000, 0.88);
-  border-radius: 4px;
-  box-shadow: 0 0 25px transparentize(#000, 0.8);
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+
+  @media (min-width: 440px) {
+    padding: 40px 29px 29px;
+    width: 380px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  }
 
   &__fieldset {
     margin: 0 0 20px;
@@ -32,6 +37,8 @@
   }
 
   &__room-type {
+    margin-left: 4px;
+    font-size: 12px;
     text-transform: uppercase;
     color: $color-purple;
   }
@@ -51,8 +58,9 @@
 
   &__cost-details-list {
     margin: 0;
-    padding: 15px 0 25px;
+    padding: 21px 0 25px;
     list-style-type: none;
+    line-height: 18px;
 
     &_hidden {
       display: none;
@@ -60,14 +68,18 @@
   }
 
   &__cost-details-item {
-    padding: 5px 0;
     display: flex;
     justify-content: space-between;
   }
 
-  &__cost-details {
+  &__cost-details-item + &__cost-details-item {
+    margin-top: 10px;
+  }
+
+  &__cost-details-total {
+    margin-left: 5px;
     display: flex;
-    width: 245px;
+    min-width: 100px;
     justify-content: space-between;
   }
 
