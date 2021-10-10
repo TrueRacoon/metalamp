@@ -24,6 +24,9 @@ html(lang='ru')
       header.website-pages__header
         +header()
       main.website-pages__main
-          block content
-      footer.website-pages__footer
+        block content
+      footer(
+        class=`website-pages__footer${needTopBorder ?
+          ' website-pages__footer_has-top-border' : ''}`
+      )
         +footer()

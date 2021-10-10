@@ -23,6 +23,10 @@
   &__footer {
     grid-area: footer;
 
+    &_has-top-border {
+      border-top: 1px solid transparentize($color-dark-shade, 0.75);
+    }
+
     @media (min-width: 769px) {
       position: relative;
 

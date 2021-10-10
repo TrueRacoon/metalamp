@@ -11,7 +11,6 @@
   padding: 30px 26px 0;
   display: flex;
   max-width: 1920px;
-  border-bottom: 1px solid transparentize($color-dark-shade, 0.75);
 
   @media (min-width: 1440px) {
     padding-right: 140px;
