@@ -52,7 +52,8 @@ mixin date-filter(opts)
           initialValue: initialDepartureDate,
         })
     div(
-      class='date-filter__calendar-container'
+      class=`date-filter__calendar-container${opts.singleDateInput ? ' ' +
+        'date-filter__calendar-container_offset_small' : ''}`
       class='js-date-filter__calendar-container'
     )
       +calendar()
