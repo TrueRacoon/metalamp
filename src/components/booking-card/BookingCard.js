@@ -16,7 +16,13 @@ class BookingCard {
     this.discount = this.bookingCardDom.querySelector('.js-booking-card__discount');
     this.totalCostBlock = this.bookingCardDom.querySelector('.js-booking-card__total-cost-block');
     this.totalCost = this.bookingCardDom.querySelector('.js-booking-card__total-cost');
+    this.guestPickerApplyButton = this.guestPicker.countPickerDom.querySelector('.js-count-picker__apply-button');
     this._handleState();
+    this._bindEventListeners();
+  }
+
+  _bindEventListeners = () => {
+    this.guestPickerApplyButton.addEventListener('click', this._handleState);
   }
 
   _handleState = () => {
