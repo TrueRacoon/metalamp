@@ -6,8 +6,7 @@ mixin dropdown-block(opts)
         text: opts.label,
       })
     div(
-      class=`dropdown-block js-dropdown-block
-      ${opts.isContentAreExtension ? 'dropdown-block_content-are-extension' : ''}`
+      class=`dropdown-block js-dropdown-block${opts.isContentAreExtension ? ' dropdown-block_content-are-extension' : ''}`
       data-arrival-date=opts.initialArrivalDate
       data-departure-date=opts.initialDepartureDate
     )
