@@ -1,10 +1,60 @@
+@import 'src/variables.scss';
 @import '../../components/date-filter/date-filter.scss';
 @import '../../components/calendar/calendar.scss';
 @import '../../components/count-picker/count-picker.scss';
+@import '../../components/checkbox-buttons/checkbox-buttons.scss';
+@import '../../components/radio-buttons/radio-buttons.scss';
+@import '../../components/toggle-switch/toggle-switch.scss';
+@import '../../components/like-button/like-button.scss';
+@import '../../components/rate-buttons/rate-buttons.scss';
+@import '../../components/range-slider/range-slider.scss';
+@import '../../components/button/button.scss';
+@import '../../components/pagination/pagination.scss';
+@import '../../components/expandable-checkbox-list/expandable-checkbox-list.scss';
+@import '../../components/features/features.scss';
+@import '../../components/review/review.scss';
+@import '../../components/bullet-list/bullet-list.scss';
 
 .elements {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  grid-column-gap: 72px;
+
   &__element {
-    margin: 40px;
-    max-width: 320px;
+    margin-bottom: 20px;
+  }
+
+  &__labeled-block {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__label {
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: transparentize($color-dark-shade, 0.5);
+  }
+
+  &__button {
+    @include button;
+    margin-right: 20px;
+
+    &_outlined {
+      @include button_outlined;
+    }
+
+    &_size_fixed {
+      @include button_size_fixed;
+    }
+
+    &_text {
+      @include text-button;
+    }
+
+    &_submit {
+      @include submit-button;
+    }
   }
 }
