@@ -51,7 +51,7 @@ class Calendar {
       if (calendarDate.date.getMonth() === this.calendarMonth) {
         currentTableDataElement.classList.add('calendar__table-data_thisMonth');
       }
-      if (calendarDate.date.toISOString().slice(0, 10) === this.today.toISOString().slice(0, 10)) {
+      if (this._isToday(calendarDate.date)) {
         currentTableDataElement.classList.add('calendar__table-data_today');
       }
       currentTableDataElement.append(calendarDate.date.getDate());
@@ -93,6 +93,12 @@ class Calendar {
       }
     });
   };
+
+  _isToday = (date) => (
+    date.getDate() === this.today.getDate()
+    && date.getMonth() === this.today.getMonth()
+    && date.getFullYear() === this.today.getFullYear()
+  )
 
   _areDatesEquals = (firstDate, secondDate) => firstDate.toString() === secondDate?.toString();
 
