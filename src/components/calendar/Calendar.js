@@ -76,7 +76,8 @@ class Calendar {
       const needAddFirstSelectedClass = isCurrentDateSelectedFirst && this.areBothDatesSelected();
       const needAddSecondSelectedClass = isCurrentDateSelectedSecond && this.areBothDatesSelected();
       const needAddBetweenSelectedClass = (
-        calendarDate.date > this.firstSelectedDate
+        this.areBothDatesSelected()
+        && calendarDate.date > this.firstSelectedDate
         && calendarDate.date < this.secondSelectedDate
       );
       if (needAddSelectedClass) {

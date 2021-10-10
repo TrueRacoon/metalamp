@@ -16,13 +16,15 @@ class BookingCard {
     this.discount = this.bookingCardDom.querySelector('.js-booking-card__discount');
     this.totalCostBlock = this.bookingCardDom.querySelector('.js-booking-card__total-cost-block');
     this.totalCost = this.bookingCardDom.querySelector('.js-booking-card__total-cost');
-    this.guestPickerApplyButton = this.guestPicker.countPickerDom.querySelector('.js-count-picker__apply-button');
     this._handleState();
     this._bindEventListeners();
   }
 
   _bindEventListeners = () => {
-    this.guestPickerApplyButton.addEventListener('click', this._handleState);
+    this.dateFilter.arrivalDateInput.inputDom.addEventListener('blur', this._handleState);
+    this.dateFilter.departureDateInput.inputDom.addEventListener('blur', this._handleState);
+    this.dateFilter.calendarApplyButton.addEventListener('blur', this._handleState);
+    this.guestPicker.applyButton.addEventListener('click', this._handleState);
   }
 
   _handleState = () => {
@@ -37,6 +39,9 @@ class BookingCard {
       this.submitButton.classList.add('booking-card__submit-button_hidden');
       return;
     }
+    this.costDetailsList.classList.remove('booking-card__cost-details-list_hidden');
+    this.totalCostBlock.classList.remove('booking-card__total-cost-block_hidden');
+    this.submitButton.classList.remove('booking-card__submit-button_hidden');
     const priceValue = parseInt(this.priceValue.innerText.split('\xa0').join(''), 10);
     const discount = parseInt(this.discount.innerText.slice(22).split('\xa0').join(''), 10);
     const hostelStay = this._getHotelStay();

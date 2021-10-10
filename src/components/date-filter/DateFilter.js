@@ -71,15 +71,19 @@ class DateFilter {
   _handleArrivalDateInputBlur = () => {
     if (this.arrivalDateInput.isValidDate()) {
       this.calendar.setFirstSelectedDate(this.arrivalDateInput.getDate());
-      this.calendar.updateSelectedDatesView();
+    } else {
+      this.calendar.setFirstSelectedDate(null);
     }
+    this.calendar.updateSelectedDatesView();
   }
 
   _handleDepartureDateInputBlur = () => {
     if (this.departureDateInput.isValidDate()) {
       this.calendar.setSecondSelectedDate(this.departureDateInput.getDate());
-      this.calendar.updateSelectedDatesView();
+    } else {
+      this.calendar.setSecondSelectedDate(null);
     }
+    this.calendar.updateSelectedDatesView();
   }
 }
 
