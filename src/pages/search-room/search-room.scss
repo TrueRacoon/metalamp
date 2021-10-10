@@ -8,7 +8,7 @@
 @import 'src/components/pagination/pagination.scss';
 
 .search-room {
-  padding: 30px 5% 0;
+  padding: 30px 26px 0;
   display: flex;
   max-width: 1920px;
   border-bottom: 1px solid transparentize($color-dark-shade, 0.75);
@@ -28,7 +28,7 @@
   }
 
   &__filters {
-    padding-right: 5%;
+    padding-right: 26px;
 
     min-width: 266px;
     max-width: 266px;
