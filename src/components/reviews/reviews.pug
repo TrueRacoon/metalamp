@@ -1,5 +1,5 @@
 include ../../components/text/text.pug
-include ../../components/like-button/like-button.pug
+include ../../components/review/review.pug
 
 mixin reviews(opts)
   -
@@ -33,24 +33,11 @@ mixin reviews(opts)
     .reviews__content
       each review in opts.reviews
         .reviews__review-container
-          .reviews__avatar-and-likes
-            img.reviews__avatar(
-              height='44px'
-              width='44px'
-              src=require(`../../img/users-avatars/user-${review.userId}-avatar.jpg`)
-              alt=`Аватар пользователя ${review.username}`
-            )
-            .reviews__like-button
-              +like-button({
-                nLikes: review.nLikes,
-                pressed: review.likePressed
-              })
-          .reviews__review
-            .reviews__username
-              +text({ tag: 'p', text: review.username })
-            .reviews__date
-              +text({ tag: 'p', text: review.date })
-            .reviews__review-text
-              +text({ tag: 'p', text: review.text })
-
-
+          +review({
+            userId: review.userId,
+            username: review.username,
+            nLikes: review.nLikes,
+            likePressed: review.likePressed,
+            date: review.date,
+            text: review.text
+          })
