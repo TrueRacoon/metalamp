@@ -4,6 +4,7 @@ include ../../components/room-search/room-search.pug
 include ../../components/booking-card/booking-card.pug
 include ../../components/registration-card/registration-card.pug
 include ../../components/room-card/room-card.pug
+include ../../components/signin-card/signin-card.pug
 
 block variables
   -
@@ -14,33 +15,38 @@ block variables
 
 block content
   .cards
-    .cards__card
-      +room-card({
-        roomNumber: 888,
-        price: 9990,
-        roomSpecialType: 'Люкс',
-        rating: 5,
-        nReviews: 145,
-      })
-    .cards__card
-      +room-card({
-        roomNumber: 840,
-        price: 9990,
-        rating: 4,
-        nReviews: 65,
-      })
-    .cards__card
-      +room-search()
-    .cards__card
-      +booking-card({
-        roomNumber: 888,
-        roomType: 'Люкс',
-        roomPrice: 9990,
-        discount: 2179,
-        initialArrivalDate: '19.08.2019',
-        initialDepartureDate: '23.08.2019',
-      })
-    .cards__card
-      +calendar()
-    .cards__card
-      +registration-card()
+    .cards__column
+      .cards__card
+        +room-search()
+      .cards__card
+        +registration-card()
+    .cards__column
+      .cards__card
+        +booking-card({
+          roomNumber: 888,
+          roomType: 'Люкс',
+          roomPrice: 9990,
+          discount: 2179,
+          initialArrivalDate: '19.08.2019',
+          initialDepartureDate: '23.08.2019',
+        })
+      .cards__card
+        +signin-card()
+    .cards__column
+      .cards__card
+        +calendar()
+      .cards__card.cards__room-card
+        +room-card({
+          roomNumber: 888,
+          price: 9990,
+          roomSpecialType: 'Люкс',
+          rating: 5,
+          nReviews: 145,
+        })
+      .cards__card.cards__room-card
+        +room-card({
+          roomNumber: 840,
+          price: 9990,
+          rating: 4,
+          nReviews: 65,
+        })

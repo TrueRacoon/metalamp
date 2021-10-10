@@ -3,12 +3,17 @@
 @import '../../components/booking-card/booking-card.scss';
 @import '../../components/registration-card/registration-card.scss';
 @import '../../components/room-card/room-card.scss';
+@import '../../components/signin-card/signin-card.scss';
 
 .cards {
+  margin: 52px 120px;
   display: flex;
-  flex-direction: column;
 
   &__card {
-    margin: 40px;
+    padding: 20px;
+  }
+
+  &__room-card {
+    width: 270px;
   }
 }
