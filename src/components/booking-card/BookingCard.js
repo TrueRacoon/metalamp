@@ -3,9 +3,10 @@ class BookingCard {
     this.bookingCardDom = bookingCardDom;
     this.dateFilter = dateFilter;
     this.guestPicker = guestPicker;
+    this._init();
   }
 
-  init() {
+  _init() {
     this.priceValue = this.bookingCardDom.querySelector('.js-booking-card__price-value');
     this.costDetailsList = this.bookingCardDom.querySelector('.js-booking-card__cost-details-list');
     this.baseCostDetails = this.bookingCardDom.querySelector('.js-booking-card__base-cost-details');

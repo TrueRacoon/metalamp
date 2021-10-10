@@ -14,6 +14,10 @@ class DropdownBlock {
   }
 
   _handleClick = () => {
+    this.toggleExpanded();
+  }
+
+  toggleExpanded = () => {
     this.dropdownBlockDom.classList.toggle('dropdown-block_expanded');
   }
 

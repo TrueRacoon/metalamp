@@ -1,9 +1,13 @@
+import getWordDeclension from './getWordDeclension';
+
 class CountPicker {
-  constructor(countPickerDom) {
+  constructor(countPickerDom, dropdownBlock) {
     this.countPickerDom = countPickerDom;
+    this.dropdownBlock = dropdownBlock;
+    this._init();
   }
 
-  init() {
+  _init() {
     this.itemsModel = {};
     this.itemsDoms = {};
     const items = [...this.countPickerDom.getElementsByClassName('js-count-picker__item')];
@@ -19,11 +23,13 @@ class CountPicker {
         this.itemsDoms[label].minusButton.disabled = true;
       }
     });
-    this.dropdownBlock = this.countPickerDom.querySelector('.js-dropdown-block');
+    this.dropdownBlockDom = this.countPickerDom.querySelector('.js-dropdown-block');
     this.clearButton = this.countPickerDom.querySelector('.js-count-picker__clear-button');
+    this.applyButton = this.countPickerDom.querySelector('.js-count-picker__apply-button');
     if (this.getCountersSum() === 0) {
       this?.clearButton.classList.add('count-picker__control-button_hidden');
     }
+    this._setDropdownBlockText();
     this._bindEventListeners();
   }
 
@@ -32,8 +38,9 @@ class CountPicker {
       itemDom.minusButton.addEventListener('click', (event) => this._handleMinusButtonClick(event, itemLabel));
       itemDom.plusButton.addEventListener('click', () => this._handlePlusButtonClick(itemLabel, itemDom.minusButton));
     });
-    this.dropdownBlock.addEventListener('click', this._handleDropdownBlockClick);
+    this.dropdownBlockDom.addEventListener('click', this._handleDropdownBlockClick);
     this.clearButton?.addEventListener('click', this._handleClearButtonClick);
+    this.applyButton?.addEventListener('click', this._handleApplyButtonClick);
   }
 
   getCountersSum = () => Object.values(this.itemsModel).reduce((a, b) => a + b);
@@ -53,7 +60,10 @@ class CountPicker {
       event.target.disabled = true;
     }
     if (this.getCountersSum() === 0) {
-      this?.clearButton.classList.add('count-picker__control-button_hidden');
+      this.clearButton?.classList.add('count-picker__control-button_hidden');
+    }
+    if (!this.applyButton) {
+      this._setDropdownBlockText();
     }
     console.log(this.itemsModel);
   }
@@ -64,6 +74,9 @@ class CountPicker {
     // eslint-disable-next-line no-param-reassign
     minusButton.disabled = false;
     this.clearButton?.classList.remove('count-picker__control-button_hidden');
+    if (!this.applyButton) {
+      this._setDropdownBlockText();
+    }
     console.log(this.itemsModel);
   }
 
@@ -76,6 +89,52 @@ class CountPicker {
       this.itemsModel[itemLabel] = 0;
     });
     this.clearButton.classList.add('count-picker__control-button_hidden');
+  }
+
+  _handleApplyButtonClick = () => {
+    this._setDropdownBlockText();
+    this.dropdownBlock.toggleExpanded();
+    this.countPickerDom.classList.toggle('count-picker_expanded');
+  }
+
+  _setDropdownBlockText = () => {
+    if (this.countPickerDom.dataset.type === 'guests') {
+      this._setGuestPickerText();
+    }
+    if (this.countPickerDom.dataset.type === 'facilities') {
+      this._setFacilitiesPickerText();
+    }
+  }
+
+  _setGuestPickerText = () => {
+    const counterSum = this.getCountersSum();
+    if (counterSum === 0) {
+      this.dropdownBlock.setText('Сколько гостей');
+      return;
+    }
+    let text = `${counterSum} ${getWordDeclension(counterSum, ['гость', 'гостя', 'гостей'])}`;
+    if (this.itemsModel['Младенцы'] > 0) {
+      text += `, ${this.itemsModel['Младенцы']} ${getWordDeclension(this.itemsModel['Младенцы'], ['младенец', 'младенца', 'младенцев'])}`;
+    }
+    this.dropdownBlock.setText(text);
+  }
+
+  _setFacilitiesPickerText = () => {
+    const counterSum = this.getCountersSum();
+    if (counterSum === 0) {
+      this.dropdownBlock.setText('Выбор удобств');
+      return;
+    }
+    let text = '';
+    if (this.itemsModel['Спальни'] > 0) {
+      text += `${this.itemsModel['Спальни']} ${getWordDeclension(this.itemsModel['Спальни'], ['спальня', 'спальни', 'спален'])}`;
+    }
+    const needComma = this.itemsModel['Спальни'] > 0 && this.itemsModel['Кровати'] > 0;
+    if (this.itemsModel['Кровати'] > 0) {
+      text += `${needComma ? ', ' : ''}${this.itemsModel['Кровати']} ${getWordDeclension(this.itemsModel['Кровати'], ['кровать', 'кровати', 'кроватей'])}`;
+    }
+    text += '...';
+    this.dropdownBlock.setText(text);
   }
 }
 

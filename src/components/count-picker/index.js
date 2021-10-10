@@ -1,5 +1,5 @@
 import CountPicker from './CountPicker';
-import '../dropdown-block';
+import DropdownBlock from '../dropdown-block/DropdownBlock';
 
 const countPickers = document.querySelectorAll(
   '.js-elements .js-count-picker,'
@@ -8,6 +8,7 @@ const countPickers = document.querySelectorAll(
 );
 
 countPickers.forEach((countPickerDom) => {
-  const countPicker = new CountPicker(countPickerDom);
-  countPicker.init();
+  const dropdownBlockDom = countPickerDom.querySelector('.js-dropdown-block');
+  const dropdownBlock = new DropdownBlock(dropdownBlockDom);
+  return new CountPicker(countPickerDom, dropdownBlock);
 });

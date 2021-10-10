@@ -14,6 +14,13 @@ block variables
     var description = 'Search room Description';
     var keywords = 'Search room Keywords';
     var needTopBorder = true;
+
+    var guestPickerItems = [
+      { label: 'Взрослые', count: 2 },
+      { label: 'Дети', count: 0 },
+      { label: 'Младенцы', count: 1 },
+    ];
+
     var facilitiesPickerItems = [
       { label: 'Спальни', count: 2 },
       { label: 'Кровати', count: 2 },
@@ -89,6 +96,7 @@ block content
       .search-room__filters
         .search-room__filter-container
           +arrival-filters({
+            guestPickerItems,
             initialArrivalDate: '19.08.2019',
             initialDepartureDate: '23.08.2019',
             singleDateInput: true
@@ -136,6 +144,7 @@ block content
             inputText: 'Выбор удобств',
             items: facilitiesPickerItems,
             withControlButtons: false,
+            type: 'facilities',
           })
         .search-room__filter-container
           +expandable-checkbox-list({

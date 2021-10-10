@@ -5,6 +5,7 @@ mixin count-picker(opts)
   div(
     class='count-picker'
     class='js-count-picker'
+    data-type=opts.type
   )
     +dropdown-block({
       label: opts.label,
