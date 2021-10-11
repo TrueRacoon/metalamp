@@ -20,6 +20,12 @@ block variables
     var description = 'Form Elements Description';
     var keywords = 'Form Elements Keywords';
 
+    var initialGuestPickerItems = [
+      { label: 'Взрослые', count: 0 },
+      { label: 'Дети', count: 0 },
+      { label: 'Младенцы', count: 0 }
+    ];
+
     var guestPickerItems = [
       { label: 'Взрослые', count: 2 },
       { label: 'Дети', count: 1 },
@@ -78,10 +84,10 @@ block variables
     ];
 
 block content
-  .elements
-    .elements__block
+  .elements.js-elements
+    .elements__block.elements__block_column_first.elements__block_row_first
       .elements__element
-        .elements__labeled-block
+        .elements__label-block
           +text({
             tag: 'h3',
             text: 'Text field'
@@ -91,7 +97,7 @@ block content
           placeholder: 'Email',
         })
       .elements__element
-        .elements__labeled-block
+        .elements__label-block
           +text({
             tag: 'h3',
             text: 'Text field'
@@ -104,12 +110,12 @@ block content
         +count-picker({
           label: 'dropdown',
           inputText: 'Сколько гостей',
-          items: guestPickerItems,
+          items: initialGuestPickerItems,
           withControlButtons: true,
           type: 'guests',
         })
-      .elements__element
-        .elements__labeled-block
+      .elements__element.elements__element_bottom-margin_bigger
+        .elements__label-block
           +text({
             tag: 'h3',
             text: 'Masked text field'
@@ -117,36 +123,41 @@ block content
         +input({
           placeholder: 'ДД.ММ.ГГГГ',
         })
-      .elements__element
+      .elements__element.elements__element_bottom-margin_bigger
         +date-filter({
           arrivalLabel: 'Date dropdown',
           departureLabel: 'Date dropdown',
           initialDepartureDate: '19.08.2019',
         })
-      .elements__element
-        +date-filter({
-          dateFilterLabel: 'Filter date dropdown',
-          initialArrivalDate: '19.08.2019',
-          initialDepartureDate: '23.08.2019',
-          singleDateInput: true,
-        })
-      .elements__element
-        .elements__labeled-block
+      .elements__block.elements__block_narrow
+        .elements__element.elements__element_bottom-margin_bigger
+          +date-filter({
+            dateFilterLabel: 'Filter date dropdown',
+            initialArrivalDate: '19.08.2019',
+            initialDepartureDate: '23.08.2019',
+            singleDateInput: true,
+          })
+        .elements__element
+          .elements__label-block
+            +text({
+              tag: 'h3',
+              text: 'Subscription text field'
+            })
+          +input({
+            name: 'email',
+            placeholder: 'Email',
+            type: 'email',
+            withSubmitButton: true,
+          })
+    .elements__block.elements__block_column_second
+      .elements__element.elements__element_bottom-margin_bigger
+        .elements__label-block.elements__label-block_bottom-margin_bigger
           +text({
             tag: 'h3',
-            text: 'Subscription text field'
+            text: 'Checkbox buttons'
           })
-        +input({
-          name: 'email',
-          placeholder: 'Email',
-          type: 'email',
-          withSubmitButton: true,
-        })
-    .elements__block
-      .elements__element
         +checkbox-buttons({
           name: 'roomRules',
-          title: 'Правила дома',
           items: [{
             value: 'Можно курить',
           }, {
@@ -157,11 +168,11 @@ block content
             checked: true,
           }]
         })
-      .elements__element
-        .elements__labeled-block
+      .elements__element.elements__element_bottom-margin_bigger
+        .elements__label-block.elements__label-block_bottom-margin_bigger
           +text({
             tag: 'h3',
-            text: 'Checkbox buttons'
+            text: 'Radio buttons'
           })
         +radio-buttons({
           name: 'gender',
@@ -170,137 +181,111 @@ block content
             { value: 'Женщина' },
           ]
         })
-      .elements__element
-        .elements__labeled-block
+      .elements__element.elements__element_bottom-margin_bigger
+        .elements__label-block.elements__label-block_bottom-margin_bigger
           +text({
             tag: 'h3',
             text: 'Toggle'
           })
-        +toggle-switch({
-          name: 'subscribe1',
-          value: 'Получать спецпредложения',
-          checked: true
-        })
-        +toggle-switch({
-          name: 'subscribe2',
-          value: 'Получать спецпредложения'
-        })
-      .elements__element
-        .elements__labeled-block
+        .elements__element-container.elements__toggle-switches-container
+          +toggle-switch({
+            name: 'subscribe1',
+            value: 'Получать спецпредложения',
+            checked: true
+          })
+          +toggle-switch({
+            name: 'subscribe2',
+            value: 'Получать спецпредложения'
+          })
+      .elements__element.elements__element_bottom-margin_bigger
+        .elements__label-block.elements__label-block_bottom-margin_bigger
           +text({
             tag: 'h3',
             text: 'Like button'
           })
-        +like-button({
-          nLikes: 2,
-        })
-        +like-button({
-          nLikes: 12,
-          pressed: true,
-        })
+        .elements__element-container.elements__like-buttons-container
+          +like-button({
+            nLikes: 2,
+          })
+          +like-button({
+            nLikes: 12,
+            pressed: true,
+          })
       .elements__element
-        .elements__labeled-block
+        .elements__label-block.elements__label-block_bottom-margin_bigger
           +text({
             tag: 'h3',
             text: 'Rate button'
           })
-        +rate-buttons({ nFilled: 4 })
-        +rate-buttons({ nFilled: 5 })
+        .elements__element-container.elements__rate-buttons-container
+          +rate-buttons({ nFilled: 4 })
+          +rate-buttons({ nFilled: 5 })
     .elements__block
+      .elements__block.elements__block_narrow
+        .elements__element.elements__element_bottom-margin_bigger
+          +range-slider({
+            minValue: 100,
+            maxValue: 15100,
+            initialLowerValue: 5000,
+            initialUpperValue: 10000,
+            step: 100,
+            name: 'Range slider',
+          })
+      .elements__element.elements__element_bottom-margin_bigger
+          .elements__label-block.elements__label-block_bottom-margin_bigger
+            +text({
+              tag: 'h3',
+              text: 'Buttons'
+            })
+          button.elements__button.elements__button_size_fixed Click me
+          button.elements__button.elements__button_size_fixed Click me
+          button.elements__button.elements__button_outlined.elements__button_size_fixed Click me
+          button.elements__button.elements__button_outlined.elements__button_size_fixed Click me
+          .elements__text-buttons
+            button.elements__button.elements__button_text Click me
+            button.elements__button.elements__button_text Click me
+          button.elements__button.elements__button_submit Перейти к оплате
       .elements__element
-        +range-slider({
-          minValue: 100,
-          maxValue: 15100,
-          initialLowerValue: 5000,
-          initialUpperValue: 10000,
-          step: 100,
-          name: 'Range slider',
-        })
-      .elements__labeled-block
-        +text({
-          tag: 'h3',
-          text: 'Buttons'
-        })
-      .elements__element
-        button.elements__button.elements__button_size_fixed Click me
-        button.elements__button.elements__button_size_fixed Click me
-      .elements__element
-        button.elements__button.elements__button_outlined.elements__button_size_fixed Click me
-        button.elements__button.elements__button_outlined.elements__button_size_fixed Click me
-      .elements__element
-        button.elements__button.elements__button_text Click me
-        button.elements__button.elements__button_text Click me
-      .elements__element
-        button.elements__button.elements__button_submit Перейти к оплате
-      .elements__element
-        .elements__labeled-block
+        .elements__label-block.elements__label-block_bottom-margin_bigger
           +text({
             tag: 'h3',
             text: 'Pagination'
           })
         +pagination()
-    .elements__block
-      .elements__element
-        .elements__labeled-block
-          +text({
-            tag: 'h3',
-            text: 'Dropdown'
+    .elements__block.elements__block_column_first.elements__block_row_second
+      .elements__block.elements__block_narrow
+        .elements__element
+          .elements__label-block
+            +text({
+              tag: 'h3',
+              text: 'Dropdown'
+            })
+            .elements__label Default
+          +count-picker({
+            inputText: 'Выбор удобств',
+            items: facilitiesPickerItems,
+            type: 'facilities',
           })
-          .elements__label Default
-        +count-picker({
-          inputText: 'Выбор удобств',
-          items: facilitiesPickerItems,
-          type: 'facilities',
-        })
-      .elements__element
-        .elements__labeled-block
-          +text({
-            tag: 'h3',
-            text: 'Dropdown'
+        .elements__element
+          .elements__label-block
+            +text({
+              tag: 'h3',
+              text: 'Dropdown'
+            })
+            .elements__label Expanded
+          +count-picker({
+            inputText: 'Выбор удобств',
+            items: facilitiesPickerItems,
+            type: 'facilities',
           })
-          .elements__label Expanded
-        +count-picker({
-          inputText: 'Выбор удобств',
-          items: facilitiesPickerItems,
-          type: 'facilities',
-        })
-      .elements__element
-        +expandable-checkbox-list({
-          title: 'Дополнительные удобства',
-          items: expandableCheckboxItems,
-        })
-      .elements__element
-        +expandable-checkbox-list({
-          title: 'Дополнительные удобства',
-          items: expandableCheckboxItems,
-        })
-      .elements__element
-        +features({ features })
-    .elements__block
+    .elements__block.elements__block_column_second
       .elements__element
         +count-picker({
           label: 'Dropdown',
           inputText: 'Сколько гостей',
           withControlButtons: true,
-          items: guestPickerItems,
+          items: initialGuestPickerItems,
           type: 'guests',
-        })
-      .elements__element
-        +checkbox-buttons({
-          name: 'accessibility',
-          title: 'Доступность',
-          rich: true,
-          items: richCheckboxItems,
-        })
-      .elements__element
-        +review({
-          userId: 1,
-          nLikes: 12,
-          likePressed: true,
-          username: 'Мурад Сарафанов',
-          date: '5 дней назад',
-          text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И ' +
-            'стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
         })
     .elements__block
       .elements__element
@@ -311,7 +296,28 @@ block content
           items: guestPickerItems,
           type: 'guests',
         })
-      .elements__labeled-block
+    .elements__block.elements__block_column_first.elements__block_row_third
+      .elements__element
+        +expandable-checkbox-list({
+          title: 'Expandable checkbox list',
+          items: expandableCheckboxItems,
+        })
+      .elements__element
+        +expandable-checkbox-list({
+          title: 'Expandable checkbox list',
+          items: expandableCheckboxItems,
+        })
+    .elements__block.elements__block_column_second
+      .elements__block.elements__block_narrow
+        .elements__element
+          +checkbox-buttons({
+            name: 'accessibility',
+            title: 'Rich checkbox buttons',
+            rich: true,
+            items: richCheckboxItems,
+          })
+    .elements__block.elements__block_narrow
+      .elements__label-block.elements__label-block_bottom-margin_bigger
         +text({
           tag: 'h3',
           text: 'Bullet list'
@@ -323,4 +329,18 @@ block content
             'Без вечеринок и мероприятий',
             'Время прибытия — после 13:00, а\xa0выезд до 12:00',
           ],
+        })
+    .elements__block.elements__block_column_first
+      .elements__element
+        +features({ features })
+    .elements__block.elements__block_wide
+      .elements__element
+        +review({
+          userId: 1,
+          nLikes: 12,
+          likePressed: true,
+          username: 'Мурад Сарафанов',
+          date: '5 дней назад',
+          text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И ' +
+            'стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
         })

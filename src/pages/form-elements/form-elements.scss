@@ -16,18 +16,63 @@
 @import '../../components/bullet-list/bullet-list.scss';
 
 .elements {
-  display: grid;
-  grid-template-columns: repeat(3, 320px);
-  grid-column-gap: 72px;
+  padding: 65px 0 132px 140px;
+  display: flex;
+  width: 1159px;
+  flex-wrap: wrap;
+
+  &__block {
+    width: 320px;
+
+    &_column {
+      &_first {
+        margin-right: 126px;
+      }
+
+      &_second {
+        margin-right: 72px;
+      }
+    }
+
+    &_row {
+      &_first {
+        margin-bottom: 100px;
+      }
+
+      &_second {
+        margin-bottom: 158.44px;
+      }
+
+      &_third {
+        margin-bottom: 40px;
+      }
+    }
+
+    &_narrow {
+      width: 266px;
+    }
+
+    &_wide {
+      width: 712px;
+    }
+  }
 
   &__element {
     margin-bottom: 20px;
+
+    &_bottom-margin_bigger {
+      margin-bottom: 40px;
+    }
   }
 
-  &__labeled-block {
+  &__label-block {
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
+
+    &_bottom-margin_bigger {
+      margin-bottom: 16px;
+    }
   }
 
   &__label {
@@ -37,9 +82,28 @@
     color: transparentize($color-dark-shade, 0.5);
   }
 
+  &__element-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__toggle-switches-container {
+    height: 50px;
+    flex-direction: column;
+  }
+
+  &__like-buttons-container {
+    width: 90px;
+  }
+
+  &__rate-buttons-container {
+    width: 260px;
+  }
+
   &__button {
     @include button;
     margin-right: 20px;
+    margin-bottom: 30px;
 
     &_outlined {
       @include button_outlined;
@@ -55,6 +119,7 @@
 
     &_submit {
       @include submit-button;
+      margin-bottom: 0;
     }
   }
 }
