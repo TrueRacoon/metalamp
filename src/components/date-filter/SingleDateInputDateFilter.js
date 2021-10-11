@@ -7,7 +7,6 @@ class SingleDateInputDateFilter {
   }
 
   _init() {
-    this.expandButton = this.dateFilterDom.querySelector('.js-dropdown-block__button');
     this.dateDropdownDom = this.dateFilterDom.querySelector('.js-dropdown-block');
     this.calendar.setFirstSelectedDate(this._getDateFromString(this.dateDropdownDom.dataset.arrivalDate));
     this.calendar.setSecondSelectedDate(this._getDateFromString(this.dateDropdownDom.dataset.departureDate));
@@ -28,11 +27,11 @@ class SingleDateInputDateFilter {
   };
 
   _bindEventListeners() {
-    this.expandButton.addEventListener('click', this._handleExpandButtonClick);
+    this.dateDropdownDom.addEventListener('click', this._handleDropdownBlockClick);
     this.calendarApplyButton.addEventListener('click', this._handleCalendarApplyButtonClick);
   }
 
-  _handleExpandButtonClick = () => {
+  _handleDropdownBlockClick = () => {
     this.calendarContainer.classList.toggle('date-filter__calendar-container_visible');
   }
 
