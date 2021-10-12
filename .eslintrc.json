@@ -24,6 +24,12 @@
         "enforceInMethodNames": false,
         "allowAfterThis": true
       }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
     ]
   }
 }
