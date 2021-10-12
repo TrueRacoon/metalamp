@@ -61,11 +61,11 @@
     @include button;
 
     &_outlined {
-      @include button_outlined;
+      @include outlined-button;
     }
 
     &_size_fixed {
-      @include button_size_fixed;
+      @include fixed-size-button;
     }
   }
 }

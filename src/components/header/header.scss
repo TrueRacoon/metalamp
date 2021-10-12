@@ -245,7 +245,7 @@ $wide-width-start: 1080px;
       @include button;
 
       &_outlined {
-        @include button_outlined;
+        @include outlined-button;
       }
     }
   }
