@@ -8,33 +8,35 @@ const PATHS = {
   src: path.resolve(__dirname, 'src'),
   dist: path.resolve(__dirname, 'dist'),
 };
-const PAGES_PATH = `${PATHS.src}/pages`;
 
-const getFiles = (dir, fileType) => {
-  return dir.map(pageFolder => {
-    const PAGE_PATH = `${PAGES_PATH}/${pageFolder}`;
-    return fs.readdirSync(PAGE_PATH).find(file => file.endsWith(`.${fileType}`));
-  }).filter(e => e !== undefined);
-};
+const PAGES_DIR = `${PATHS.src}/pages`;
 
-const PAGES_PATH_CONTENT = fs.readdirSync(PAGES_PATH);
-const JS_FILES = getFiles(PAGES_PATH_CONTENT, 'js');
-const ENTRY = {};
+const getFiles = (dir, fileType) => (
+  dir.map((pageFolder) => (
+    fs.readdirSync(
+      `${PAGES_DIR}/${pageFolder}`,
+    ).find((file) => (
+      file.endsWith(`.${fileType}`)
+    ))
+  ))
+);
 
-JS_FILES.forEach((entryFile, index) => {
-  const file = entryFile.split('.')[0];
-  ENTRY[file] = `${PAGES_PATH}/${PAGES_PATH_CONTENT[index]}/${entryFile}`;
-});
+const JS_FILES = getFiles(fs.readdirSync(PAGES_DIR), 'js');
+const PUG_FILES = getFiles(fs.readdirSync(PAGES_DIR), 'pug');
 
-const PUG_FILES = getFiles(PAGES_PATH_CONTENT, 'pug');
+const getEntry = () => (
+  JS_FILES.reduce((entry, file, index) => (
+    { ...entry, [file.split('.')[0]]: `${PAGES_DIR}/${fs.readdirSync(PAGES_DIR)[index]}/${file}` }
+  ), {})
+);
 
 module.exports = {
   externals: {
     paths: PATHS,
   },
-  entry: ENTRY,
+  entry: getEntry(),
   output: {
-    filename: `js/[name].min.js`,
+    filename: 'js/[name].min.js',
     path: PATHS.dist,
     publicPath: './',
   },
@@ -42,18 +44,14 @@ module.exports = {
     rules: [
       {
         test: /\.pug$/,
-        use: {
-          loader: 'pug-loader',
-        },
+        use: { loader: 'pug-loader' },
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          },
+          options: { presets: ['@babel/preset-env'] },
         },
       },
       {
@@ -77,17 +75,13 @@ module.exports = {
       {
         test: /\.(woff|woff2|ttf|svg)$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'fonts/[name][ext]',
-        }
+        generator: { filename: 'fonts/[name][ext]' },
       },
       {
         test: /\.(png|jpg|gif|svg)$/i,
         type: 'asset/resource',
         exclude: /fonts/,
-        generator: {
-          filename: 'img/[name][ext]'
-        }
+        generator: { filename: 'img/[name][ext]' },
       },
     ],
   },
@@ -95,12 +89,13 @@ module.exports = {
     new CleanWebpackPlugin(),
     new LiveReloadPlugin({ appendScriptTag: true }),
     ...PUG_FILES.map(
-      (file, index) =>
-        new HtmlWebpackPlugin({
-          template: `${PAGES_PATH}/${PAGES_PATH_CONTENT[index]}/${file}`,
-          filename: `./${file.replace(/\.pug/, '.html')}`,
-          chunks: [`${file.replace(/\.pug/, '')}`],
-        })
+      (file, index) => new HtmlWebpackPlugin({
+        template: `${PAGES_DIR}/${fs.readdirSync(PAGES_DIR)[index]}/${file}`,
+        filename: `./${file.replace(/\.pug/, '.html')}`,
+        chunks: [`${file.replace(/\.pug/, '')}`],
+        inject: 'body',
+        scriptLoading: 'defer',
+      }),
     ),
   ],
 };
