@@ -1,3 +1,3 @@
 import '../../index.scss';
 import './palette-and-typography.scss';
-import '../ui-kit/ui-kit.scss';
+import '../../layouts/ui-kit/ui-kit.scss';
