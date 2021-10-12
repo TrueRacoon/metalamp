@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import 'src/variables.scss';
 
 .input {
@@ -66,7 +67,7 @@
 
     &:hover {
       opacity: 0.75;
-      border-color: transparentize($color-dark-shade, 2/3);
+      border-color: transparentize($color-dark-shade, math.div(2, 3));
     }
   }
 
