@@ -67,29 +67,27 @@ block variables
         tagSize: 'medium',
         tagText: 'Body',
         descriptionTag: 'p',
-        descriptionText: 'This is the body text which is used for most of ' +
-                'the design, like paragraphs, lists, etc.'
+        descriptionText: 'This is the body text which is used for most of\xa0' +
+                'the\xa0design, like paragraphs, lists, etc.'
       },
     ];
 
 block content
   .palette-and-typography
-    ul.palette
+    ul.palette-and-typography__palette
       each val in paletteData
-        li.pallete__list-item
-          .palette-item__positioning
-            +palette-item(
-              val.colorModifier,
-              val.name,
-              val.hex,
-            )
-    ul.typography
+        li.palette-and-typography__palette-list-item
+          +palette-item(
+            val.colorModifier,
+            val.name,
+            val.hex,
+          )
+    ul.palette-and-typography__typography
       each val in typographyData
-        li.typography__list-item
-          .typography-item__positioning
-            +typography-item(
-              val.tagSize,
-              val.tagText,
-              val.descriptionTag,
-              val.descriptionText,
-            )
+        li.palette-and-typography__typography-list-item
+          +typography-item(
+            val.tagSize,
+            val.tagText,
+            val.descriptionTag,
+            val.descriptionText,
+          )
