@@ -2,10 +2,9 @@
 @import 'src/components/dropdown-block/dropdown-block.scss';
 @import 'src/components/calendar/calendar.scss';
 
-/* stylelint-disable */
 .date-filter {
-  display: flex;
   position: relative;
+  display: flex;
   justify-content: space-between;
 
   @media (max-width: 380px) {
@@ -45,9 +44,9 @@
 
   &__calendar-container {
     position: absolute;
-    display: none;
-    top: 70px;
     z-index: 2;
+    top: 70px;
+    display: none;
 
     &_visible {
       display: block;

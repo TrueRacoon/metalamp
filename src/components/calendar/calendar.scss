@@ -2,15 +2,14 @@
 @import 'src/components/text/text.scss';
 @import 'src/components/button/button.scss';
 
-/* stylelint-disable */
 .calendar {
-  background-color: #fff;
-  min-width: 320px;
-  box-sizing: border-box;
   padding: 20px;
-  border-radius: 4px;
+  box-sizing: border-box;
+  min-width: 320px;
   font-size: 12px;
+  background-color: #fff;
   border: 1px solid transparentize($color-dark-shade, 0.75);
+  border-radius: 4px;
   box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
 
   &__top {
@@ -22,13 +21,13 @@
   &__month-nav-button {
     width: 24px;
     height: 24px;
-    background-repeat: no-repeat;
     background-color: transparent;
-    border-style: none;
-    background-origin: border-box;
-    background-position: center;
-    cursor: pointer;
     background-image: url('./../../components/calendar/img/back-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: border-box;
+    border-style: none;
+    cursor: pointer;
   }
 
   &__month-nav-button_next {
@@ -46,14 +45,14 @@
 
   &__table-head-data,
   &__table-data {
+    padding: 0;
     width: 40px;
     height: 40px;
-    padding: 0;
   }
 
   &__table-data {
-    color: transparentize($color-dark-shade, 0.75);
     text-align: center;
+    color: transparentize($color-dark-shade, 0.75);
     cursor: pointer;
   }
 

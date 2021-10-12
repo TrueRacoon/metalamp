@@ -4,13 +4,12 @@
 $narrow-width-end: 1079px;
 $wide-width-start: 1080px;
 
-/* stylelint-disable */
 .header {
+  position: relative;
   margin: 0 auto;
+  display: flex;
   min-width: 320px;
   max-width: 1920px;
-  display: flex;
-  position: relative;
   align-items: center;
 
   @media (max-width: $narrow-width-end) {
@@ -32,14 +31,14 @@ $wide-width-start: 1080px;
 
   &__nav-menu-button,
   &__profile-menu-button {
+    margin-right: 15px;
     width: 34px;
     height: 34px;
-    margin-right: 15px;
-    background-repeat: no-repeat;
     background-color: transparent;
-    border-style: none;
+    background-repeat: no-repeat;
     background-origin: border-box;
     background-size: 34px;
+    border-style: none;
     cursor: pointer;
 
     @media (min-width: $wide-width-start) {
@@ -86,16 +85,16 @@ $wide-width-start: 1080px;
   &__profile-menu {
     @media (max-width: $narrow-width-end) {
       position: absolute;
-      box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
       z-index: 1;
       right: 0;
       background-color: #fff;
+      box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
     }
 
     @media (min-width: $wide-width-start) {
+      margin-left: auto;
       display: flex;
       align-items: center;
-      margin-left: auto;
     }
   }
 
@@ -109,8 +108,8 @@ $wide-width-start: 1080px;
   }
 
   &__link-container {
-    padding-left: 20px;
     position: relative;
+    padding-left: 20px;
 
     @media (max-width: $narrow-width-end) {
       padding: 1em;
@@ -150,8 +149,8 @@ $wide-width-start: 1080px;
 
   &__link {
     line-height: 17px;
-    color: transparentize($color-dark-shade, 0.5);
     text-decoration: none;
+    color: transparentize($color-dark-shade, 0.5);
 
     &:hover:not(.header__button) {
       color: transparentize($color-dark-shade, 0.25);
@@ -168,13 +167,13 @@ $wide-width-start: 1080px;
   }
 
   &__expand-button {
+    margin-left: 6px;
     display: inline-block;
     width: 12px;
     height: 8px;
-    margin-left: 6px;
-    cursor: pointer;
-    background: url('./../../img/expand-icon.svg') no-repeat;
     opacity: 0.5;
+    background: url('./../../img/expand-icon.svg') no-repeat;
+    cursor: pointer;
 
     @media (min-width: $wide-width-start) {
       margin-right: 7px;
@@ -193,13 +192,13 @@ $wide-width-start: 1080px;
     display: none;
 
     @media (min-width: $narrow-width-end) {
-      background-color: #fff;
       position: absolute;
-      width: max-content;
-      left: 0;
-      box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
       z-index: 1;
       right: 0;
+      left: 0;
+      width: max-content;
+      background-color: #fff;
+      box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
     }
 
     &_expanded {
@@ -220,13 +219,13 @@ $wide-width-start: 1080px;
     color: transparentize($color-dark-shade, 0.5);
 
     @media (min-width: $narrow-width-end) {
-      &:before {
+      &::before {
+        margin: 0 20px;
+        display: inline-block;
         width: 1px;
         height: 30px;
         content: '';
         background-color: transparentize($color-dark-shade, 0.9);
-        margin: 0 20px;
-        display: inline-block;
       }
     }
   }

@@ -21,9 +21,7 @@
       color: transparentize($color-dark-shade, 0.25);
     }
 
-    /* stylelint-disable */
     + .input__button {
-      /* stylelint-enable */
       opacity: 0.75;
       border-color: transparentize($color-dark-shade, 0.25);
     }
