@@ -1,3 +1,5 @@
+import getWordDeclension from '../../utils/getWordDeclension';
+
 class BookingCard {
   constructor(bookingCardDom, dateFilter, guestPicker) {
     this.bookingCardDom = bookingCardDom;
@@ -44,11 +46,11 @@ class BookingCard {
     this.submitButton.classList.remove('booking-card__submit-button_hidden');
     const priceValue = parseInt(this.priceValue.innerText.split('\xa0').join(''), 10);
     const discount = parseInt(this.discount.innerText.slice(22).split('\xa0').join(''), 10);
-    const hostelStay = this._getHotelStay();
-    const baseCost = priceValue * hostelStay;
+    const hotelStay = this._getHotelStay();
+    const baseCost = priceValue * hotelStay;
     const additionalServicesFees = guestCounter * 100;
     const totalCost = baseCost - discount + additionalServicesFees;
-    this.baseCostDetails.innerText = `${this.priceValue.innerText} x ${hostelStay}`;
+    this.baseCostDetails.innerText = `${this.priceValue.innerText} x ${hotelStay} ${getWordDeclension(hotelStay, ['сутки', 'суток', 'суток'])}`;
     this.totalBaseCost.innerText = this._formatNumber(baseCost);
     this.additionalServicesFees.innerText = this._formatNumber(additionalServicesFees);
     this.totalCost.innerText = this._formatNumber(totalCost);

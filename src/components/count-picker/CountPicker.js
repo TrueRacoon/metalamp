@@ -1,4 +1,4 @@
-import getWordDeclension from './getWordDeclension';
+import getWordDeclension from '../../utils/getWordDeclension';
 
 class CountPicker {
   constructor(countPickerDom, dropdownBlock) {
