@@ -38,16 +38,34 @@
 }
 
 @mixin outlined-button {
-  padding: 7px 18px 8px;
+  position: relative;
+  padding: 9px 20px 10px;
 
   color: $color-purple;
   background: #fff;
-  border: 2px solid $color-purple;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 2px;
+    content: '';
+    background: $gradient-purple;
+    border-radius: 22px;
+    //noinspection CssInvalidPropertyValue,CssInvalidFunction
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); /* stylelint-disable-line */
+    -webkit-mask-composite: destination-out; /* stylelint-disable-line */
+    mask-composite: exclude;
+  }
 
   &:hover {
     opacity: 1;
-    background: #fff;
-    border: 2px solid lighten($color-purple, 10%);
+
+    &::before {
+      opacity: 0.5;
+    }
   }
 }
 
