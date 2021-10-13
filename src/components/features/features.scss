@@ -30,15 +30,15 @@
     height: 48px;
 
     &_insert-emoticon {
-      background-image: url('./../../components/features/img/insert-emoticon.svg');
+      background: url('img/insert-emoticon.svg');
     }
 
     &_location-city {
-      background-image: url('./../../components/features/img/location-city.svg');
+      background: url('img/location-city.svg');
     }
 
     &_whatshot {
-      background-image: url('./../../components/features/img/whatshot.svg');
+      background: url('img/whatshot.svg');
     }
   }
 

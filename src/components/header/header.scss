@@ -34,10 +34,7 @@ $wide-width-start: 1080px;
     margin-right: 15px;
     width: 34px;
     height: 34px;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-origin: border-box;
-    background-size: 34px;
+    background: transparent no-repeat border-box 34px;
     border-style: none;
     cursor: pointer;
 
@@ -47,7 +44,7 @@ $wide-width-start: 1080px;
   }
 
   &__nav-menu-button {
-    background-image: url('./../../components/header/img/menu-icon.svg');
+    background-image: url('../../components/header/img/menu-icon.svg');
 
     &_hidden {
       display: none;
@@ -55,7 +52,7 @@ $wide-width-start: 1080px;
   }
 
   &__profile-menu-button {
-    background-image: url('./../../components/header/img/account-icon.svg');
+    background-image: url('../../components/header/img/account-icon.svg');
 
     &_hidden {
       display: none;
@@ -87,7 +84,7 @@ $wide-width-start: 1080px;
       position: absolute;
       z-index: 1;
       right: 0;
-      background-color: #fff;
+      background: #fff;
       box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
     }
 
@@ -172,7 +169,7 @@ $wide-width-start: 1080px;
     width: 12px;
     height: 8px;
     opacity: 0.5;
-    background: url('./../../img/expand-icon.svg') no-repeat;
+    background: url('../../img/expand-icon.svg') no-repeat;
     cursor: pointer;
 
     @media (min-width: $wide-width-start) {
@@ -197,7 +194,7 @@ $wide-width-start: 1080px;
       right: 0;
       left: 0;
       width: max-content;
-      background-color: #fff;
+      background: #fff;
       box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
     }
 
@@ -225,7 +222,7 @@ $wide-width-start: 1080px;
         width: 1px;
         height: 30px;
         content: '';
-        background-color: transparentize($color-dark-shade, 0.9);
+        background: transparentize($color-dark-shade, 0.9);
       }
     }
   }

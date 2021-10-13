@@ -28,7 +28,7 @@
     margin-right: 10px;
     min-width: 10px;
     height: 10px;
-    background-color: transparentize($color-dark-shade, 0.75);
+    background: transparentize($color-dark-shade, 0.75);
     border-radius: 50%;
   }
 }

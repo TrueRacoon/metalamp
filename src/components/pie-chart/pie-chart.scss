@@ -31,7 +31,7 @@ $gradient-colors: (#3d4975, $color-purple-gradient, $color-green-gradient, #ffba
     right: 4px;
     bottom: 4px;
     left: 4px;
-    background-color: #fff;
+    background: #fff;
     border-radius: 50%;
   }
 
@@ -68,7 +68,7 @@ $gradient-colors: (#3d4975, $color-purple-gradient, $color-green-gradient, #ffba
     left: calc(50% - 1px);
     width: 2px;
     height: calc(50% + 1px);
-    background-color: #fff;
+    background: #fff;
     transform-origin: bottom;
   }
 

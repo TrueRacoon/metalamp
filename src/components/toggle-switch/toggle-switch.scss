@@ -26,7 +26,7 @@
       width: 12px;
       height: 12px;
       content: '';
-      background-color: transparentize($color-dark-shade, 0.75);
+      background: transparentize($color-dark-shade, 0.75);
       border-radius: 50%;
     }
   }

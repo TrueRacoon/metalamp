@@ -47,9 +47,7 @@
     width: 44px;
     height: 44px;
     line-height: 0;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: transparent no-repeat center;
     border: 1px solid transparentize($color-dark-shade, 0.75);
     border-left-style: none;
     border-radius: 0 4px 4px 0;
@@ -57,12 +55,12 @@
   }
 
   &__button_type_submit {
-    background-image: url('./../../img/forward-arrow.svg');
+    background-image: url('../../img/forward-arrow.svg');
   }
 
   &__button_type_dropdown {
     opacity: 0.5;
-    background-image: url('./../../img/expand-icon.svg');
+    background-image: url('../../img/expand-icon.svg');
     border-color: transparentize($color-dark-shade, 0.5);
 
     &:hover {

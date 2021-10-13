@@ -7,7 +7,7 @@
   box-sizing: border-box;
   min-width: 320px;
   font-size: 12px;
-  background-color: #fff;
+  background: #fff;
   border: 1px solid transparentize($color-dark-shade, 0.75);
   border-radius: 4px;
   box-shadow: 0 10px 20px transparentize($color-dark-shade, 0.95);
@@ -21,11 +21,7 @@
   &__month-nav-button {
     width: 24px;
     height: 24px;
-    background-color: transparent;
-    background-image: url('./../../components/calendar/img/back-arrow.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-origin: border-box;
+    background: transparent url('img/back-arrow.svg') no-repeat center border-box;
     border-style: none;
     cursor: pointer;
   }
@@ -88,15 +84,15 @@
   }
 
   &__table-data_first-selected {
-    background: url('./../../components/calendar/img/first-selected.svg');
+    background: url('img/first-selected.svg');
   }
 
   &__table-data_between-selected {
-    background: url('./../../components/calendar/img/between-selected.svg');
+    background: url('img/between-selected.svg');
   }
 
   &__table-data_second-selected {
-    background: url('./../../components/calendar/img/second-selected.svg');
+    background: url('img/second-selected.svg');
   }
 
   &__bottom {

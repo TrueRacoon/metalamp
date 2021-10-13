@@ -11,35 +11,35 @@
     border-radius: 6px;
 
     &_color_dark-shade {
-      background-color: $color-dark-shade;
+      background: $color-dark-shade;
     }
 
     &_color_dark-shade-75 {
       opacity: 0.75;
-      background-color: $color-dark-shade;
+      background: $color-dark-shade;
     }
 
     &_color_dark-shade-50 {
       opacity: 0.5;
-      background-color: $color-dark-shade;
+      background: $color-dark-shade;
     }
 
     &_color_dark-shade-25 {
       opacity: 0.25;
-      background-color: $color-dark-shade;
+      background: $color-dark-shade;
     }
 
     &_color_dark-shade-5 {
       opacity: 0.05;
-      background-color: $color-dark-shade;
+      background: $color-dark-shade;
     }
 
     &_color_purple {
-      background-color: $color-purple;
+      background: $color-purple;
     }
 
     &_color_green {
-      background-color: $color-green;
+      background: $color-green;
     }
   }
 

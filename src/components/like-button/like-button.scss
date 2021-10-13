@@ -30,10 +30,10 @@
     left: 0;
     width: 20px;
     height: 20px;
-    background-image: url('./../../components/like-button/img/favorite-border.svg');
+    background: url('img/favorite-border.svg');
 
     &_pressed {
-      background-image: url('./../../components/like-button/img/favorite.svg');
+      background: url('img/favorite.svg');
     }
   }
 }

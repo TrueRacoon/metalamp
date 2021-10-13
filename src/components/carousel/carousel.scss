@@ -97,7 +97,7 @@
     box-sizing: border-box;
     width: 8px;
     height: 8px;
-    background-color: transparent;
+    background: transparent;
     border: 1px solid #fff;
     border-radius: 50%;
     cursor: pointer;
@@ -117,7 +117,7 @@
     }
 
     &__activator:nth-of-type(#{$i}):checked ~ &__indicators &__indicator:nth-of-type(#{$i}) {
-      background-color: #fff;
+      background: #fff;
     }
   }
 }
