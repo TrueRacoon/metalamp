@@ -10,7 +10,7 @@ class Header {
     this.profileMenu = this.headerDom.querySelector('.js-header__profile-menu');
     this.expandButtons = [...this.headerDom.getElementsByClassName('header__expand-button')];
     this._bindEventListeners();
-    this._setFirstLinkCurrent();
+    this._setFirstLinkCurrentInUiKit();
   }
 
   _bindEventListeners() {
@@ -43,7 +43,10 @@ class Header {
     });
   }
 
-  _setFirstLinkCurrent = () => {
+  _setFirstLinkCurrentInUiKit = () => {
+    if (window.location.pathname !== '/headers-and-footers.html') {
+      return;
+    }
     const firstLink = this.headerDom.querySelector('.js-header__link');
     firstLink.classList.add('header__link_current');
     firstLink.removeAttribute('href');
