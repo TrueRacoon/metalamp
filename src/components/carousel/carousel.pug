@@ -5,6 +5,7 @@ mixin carousel(props)
     } = props || {};
 
   .carousel
+    // Must contain N(= number of slides) different values
     - var slides = [1, 2, 3, 4]
     each val in slides
       input.carousel__activator(
