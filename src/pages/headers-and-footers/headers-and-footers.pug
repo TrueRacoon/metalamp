@@ -14,8 +14,8 @@ block content
     .headers-and-footers__item.headers-and-footers__header
       +header()
     .headers-and-footers__item.headers-and-footers__header
-      +header('Юлий Цезарь')
+      +header({ username: 'Юлий Цезарь' })
     .headers-and-footers__item.headers-and-footers__footer
       +footer()
     .headers-and-footers__item.headers-and-footers__footer.headers-and-footers__footer_narrow
-      +footer(true)
+      +footer({ isNarrow: true })

@@ -1,20 +1,29 @@
 include ../text/text.pug
 include ../dropdown-block/dropdown-block.pug
 
-mixin count-picker(opts)
+mixin count-picker(props)
+  -
+    var {
+      inputText = '',
+      items = [],
+      label = '',
+      type = undefined,
+      withControlButtons = false,
+    } = props || {};
+
   div(
     class='count-picker'
     class='js-count-picker'
-    data-type=opts.type
+    data-type=type
   )
     +dropdown-block({
-      label: opts.label,
-      inputText: opts.inputText,
+      label,
+      inputText,
       isContentAreExtension: true,
     })
     .count-picker__content
       ul.count-picker__list
-        each item in opts.items
+        each item in items
           li(
             class='count-picker__item'
             class='js-count-picker__item'
@@ -40,7 +49,7 @@ mixin count-picker(opts)
               class='js-count-picker__button_type_plus'
               type='button'
             )='+'
-      if opts.withControlButtons
+      if withControlButtons
         .count-picker__control-buttons
           button(
             class='count-picker__control-button'

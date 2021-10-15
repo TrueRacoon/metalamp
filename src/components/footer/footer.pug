@@ -3,8 +3,12 @@ include ../input/input.pug
 include ../social-buttons/social-buttons.pug
 include ../text/text.pug
 
-mixin footer(isNarrow)
+mixin footer(props)
   -
+    var {
+      isNarrow = false,
+    } = props || {};
+
     var siteDescription = 'Бронирование номеров в лучшем отеле 2019 года ' +
             'по версии ассоциации «Отельные взгляды»';
     var subscriptionDescription = 'Получайте специальные предложения и новости сервиса';

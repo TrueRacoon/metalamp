@@ -1,16 +1,22 @@
 include ../../components/text/text.pug
 include ../../components/checkbox-buttons/checkbox-buttons.pug
 
-mixin expandable-checkbox-list(opts)
+mixin expandable-checkbox-list(props)
+  -
+    var {
+      items = [],
+      title = '',
+    } = props || {};
+
   .expandable-checkbox-list.js-expandable-checkbox-list
     .expandable-checkbox-list__dropdown
       +text({
         tag: 'h3',
-        text: opts.title,
+        text: title,
       })
       .expandable-checkbox-list__dropdown-button.js-expandable-checkbox-list__dropdown-button
     .expandable-checkbox-list__dropdown-content.js-expandable-checkbox-list__dropdown-content
       +checkbox-buttons({
-        name: opts.title,
-        items: opts.items,
+        items,
+        name: title,
       })

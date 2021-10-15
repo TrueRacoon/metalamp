@@ -1,16 +1,18 @@
 include ../date-filter/date-filter.pug
 include ../count-picker/count-picker.pug
 
-mixin arrival-filters(opts)
+mixin arrival-filters(props)
   -
-    var initialArrivalDate = opts?.initialArrivalDate || '';
-    var initialDepartureDate = opts?.initialDepartureDate || '';
-    var singleDateInput = opts?.singleDateInput || false;
-    var guestPickerItems = opts?.guestPickerItems || [
-      { label: 'Взрослые', count: 0 },
-      { label: 'Дети', count: 0 },
-      { label: 'Младенцы', count: 0 }
-    ];
+    var {
+      guestPickerItems = [
+        { label: 'Взрослые', count: 0 },
+        { label: 'Дети', count: 0 },
+        { label: 'Младенцы', count: 0 },
+      ],
+      initialArrivalDate = '',
+      initialDepartureDate = '',
+      singleDateInput = false,
+    } = props || {};
 
   .arrival-filters.js-arrival-filters
     .arrival-filters__date-filter-container

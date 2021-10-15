@@ -1,7 +1,11 @@
 include ../logo-link/logo-link.pug
 
-mixin header(username)
+mixin header(props)
   -
+    var {
+      username = false,
+    } = props || {};
+
     var menuData = [
       {
         linkName: 'О нас',

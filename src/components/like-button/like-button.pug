@@ -1,8 +1,14 @@
-mixin like-button(opts)
+mixin like-button(props)
+  -
+    var {
+      nLikes = 0,
+      pressed = false,
+    } = props || {};
+
   .like-button__container
     div(
-      class=`like-button${opts.pressed ? ' like-button_pressed' : ''}`
-    ) #{opts.nLikes}
+      class=`like-button${pressed ? ' like-button_pressed' : ''}`
+    ) #{nLikes}
     div(
-      class=`like-button__icon${opts.pressed ? ' like-button__icon_pressed' : ''}`
+      class=`like-button__icon${pressed ? ' like-button__icon_pressed' : ''}`
     )

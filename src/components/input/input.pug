@@ -1,24 +1,32 @@
-mixin input(opts)
+mixin input(props)
   -
-    var hasButton = opts.withSubmitButton || opts.withDropdownButton;
-    var initialValue = opts.initialValue || '';
+    var {
+      initialValue = '',
+      name = '',
+      placeholder = '',
+      type = '',
+      withDropdownButton = false,
+      withSubmitButton = false,
+    } = props || {};
+
+    var hasButton = withSubmitButton || withDropdownButton;
     var classes = 'input js-input' + (hasButton ? ' input_hasButton' : '');
 
   .input__container
     input(
       class=classes
-      name=opts.name
-      placeholder=opts.placeholder
-      type=opts.type
+      name=name
+      placeholder=placeholder
+      type=type
       value=initialValue
     )
-    if opts.withSubmitButton
+    if withSubmitButton
       button(
         class='input__button'
         class='input__button_type_submit'
         type='submit'
       )
-    if opts.withDropdownButton
+    if withDropdownButton
       button(
         class='input__button'
         class='input__button_type_dropdown'

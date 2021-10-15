@@ -1,15 +1,21 @@
 include ../../components/text/text.pug
 
-mixin features(opts)
+mixin features(props)
+  -
+    var {
+      features = [],
+      title = undefined,
+    } = props || {};
+
   .features
-    if (opts.title)
+    if title
       .features__title
         +text({
           tag: 'h2',
-          text: opts.title,
+          text: title,
         })
     ul.features__list
-      each feature in opts.features
+      each feature in features
         li.features__item
           div(
             class=`features__icon features__icon_${feature.icon}`

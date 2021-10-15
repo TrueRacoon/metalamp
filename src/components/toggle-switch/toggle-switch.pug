@@ -1,11 +1,18 @@
-mixin toggle-switch(opts)
+mixin toggle-switch(props)
+  -
+    var {
+      name = '',
+      value = '',
+      checked = false,
+    } = props || {};
+
   .toggle-switch
     label.toggle-switch__label
       input.toggle-switch__input(
         type='checkbox'
-        name=opts.name
-        checked=opts.checked
+        name=name
+        checked=checked
       )
       span.toggle-switch__slider
       span.toggle-switch__value
-        | #{opts.value}
+        | #{value}

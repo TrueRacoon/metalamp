@@ -77,17 +77,8 @@ block content
     ul.palette-and-typography__palette
       each val in paletteData
         li.palette-and-typography__palette-list-item
-          +palette-item(
-            val.colorModifier,
-            val.name,
-            val.hex,
-          )
+          +palette-item(val)
     ul.palette-and-typography__typography
       each val in typographyData
         li.palette-and-typography__typography-list-item
-          +typography-item(
-            val.tagSize,
-            val.tagText,
-            val.descriptionTag,
-            val.descriptionText,
-          )
+          +typography-item(val)

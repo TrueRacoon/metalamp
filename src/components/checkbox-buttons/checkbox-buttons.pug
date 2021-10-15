@@ -1,23 +1,31 @@
 include ../../components/text/text.pug
 
-mixin checkbox-buttons(opts)
+mixin checkbox-buttons(props)
+  -
+    var {
+      items = [],
+      name = '',
+      rich = false,
+      title = undefined,
+    } = props || {};
+
   .checkbox-buttons
-    if (opts.title)
+    if (title)
       .checkbox-buttons__title
         +text({
           tag: 'h3',
-          text: opts.title,
+          text: title,
         })
-    each item in opts.items
+    each item in items
       label.checkbox-buttons__label
         input.checkbox-buttons__input(
           type='checkbox'
-          name=opts.name
+          name=name
           value=item.value || item.title
           checked=item.checked === true
         )
         .checkbox-buttons__checkmark
-        if (opts.rich)
+        if (rich)
           .checkbox-buttons__item-text
             .checkbox-buttons__item-title #{item.title}
             .checkbox-buttons__item-description #{item.description}

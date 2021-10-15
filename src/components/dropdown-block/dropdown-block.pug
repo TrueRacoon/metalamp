@@ -1,14 +1,23 @@
-mixin dropdown-block(opts)
+mixin dropdown-block(props)
+  -
+    var {
+      initialArrivalDate = undefined,
+      initialDepartureDate = undefined,
+      inputText = '',
+      isContentAreExtension = false,
+      label = ''
+    } = props || {};
+
   .dropdown-block__container
     .dropdown-block__label
       +text({
         tag: 'h3',
-        text: opts.label,
+        text: label,
       })
     div(
-      class=`dropdown-block js-dropdown-block${opts.isContentAreExtension ? ' dropdown-block_content-are-extension' : ''}`
-      data-arrival-date=opts.initialArrivalDate
-      data-departure-date=opts.initialDepartureDate
+      class=`dropdown-block js-dropdown-block${isContentAreExtension ? ' dropdown-block_content-are-extension' : ''}`
+      data-arrival-date=initialArrivalDate
+      data-departure-date=initialDepartureDate
     )
-      .dropdown-block__text.js-dropdown-block__text=opts.inputText
+      .dropdown-block__text.js-dropdown-block__text=inputText
       button.dropdown-block__button.js-dropdown-block__button(type='button')

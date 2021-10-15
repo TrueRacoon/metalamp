@@ -2,20 +2,26 @@ include ../input/input.pug
 include ../dropdown-block/dropdown-block.pug
 include ../calendar/calendar.pug
 
-mixin date-filter(opts)
+mixin date-filter(props)
   -
-    var initialArrivalDate = opts.initialArrivalDate || '';
-    var initialDepartureDate = opts.initialDepartureDate || '';
+    var {
+      arrivalLabel = '',
+      dateFilterLabel = '',
+      departureLabel = '',
+      initialArrivalDate = '',
+      initialDepartureDate = '',
+      singleDateInput = false,
+    } = props || {};
 
   div(
-    class=`date-filter${opts.singleDateInput ? ' date-filter_single-date-input' : ''}`
+    class=`date-filter${singleDateInput ? ' date-filter_single-date-input' : ''}`
     class='js-date-filter'
   )
-    if opts.singleDateInput
+    if singleDateInput
       +dropdown-block({
         initialArrivalDate,
         initialDepartureDate,
-        label: opts.dateFilterLabel,
+        label: dateFilterLabel,
         isContentAreExtension: false,
       })
     else
@@ -26,7 +32,7 @@ mixin date-filter(opts)
         .date-filter__label
           +text({
             tag: 'h3',
-            text: opts.arrivalLabel
+            text: arrivalLabel
           })
         +input({
           name: 'arrival-date',
@@ -42,7 +48,7 @@ mixin date-filter(opts)
         .date-filter__label
           +text({
             tag: 'h3',
-            text: opts.departureLabel
+            text: departureLabel
           })
         +input({
           name: 'departure-date',
@@ -52,7 +58,7 @@ mixin date-filter(opts)
           initialValue: initialDepartureDate,
         })
     div(
-      class=`date-filter__calendar-container${opts.singleDateInput ? ' ' +
+      class=`date-filter__calendar-container${singleDateInput ? ' ' +
         'date-filter__calendar-container_offset_small' : ''}`
       class='js-date-filter__calendar-container'
     )

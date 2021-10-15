@@ -1,10 +1,16 @@
-mixin radio-buttons(opts)
+mixin radio-buttons(props)
+  -
+    var {
+      name = '',
+      radioButtons = [],
+    } = props || {};
+
   .radio-buttons
-    each radioButton in opts.radioButtons
+    each radioButton in radioButtons
       label.radio-buttons__label
         input.radio-buttons__input(
           type='radio'
-          name=opts.name
+          name=name
           value=radioButton.value
           checked=radioButton.checked === true
         )

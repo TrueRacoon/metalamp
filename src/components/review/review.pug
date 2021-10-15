@@ -1,23 +1,33 @@
 include ../../components/like-button/like-button.pug
 
-mixin review(opts)
+mixin review(props)
+  -
+    var {
+      date = '',
+      likePressed = false,
+      nLikes = 0,
+      text = '',
+      userId = 0,
+      username = '',
+    } = props || {};
+
   .review
     .review__avatar-and-likes
       img.review__avatar(
         height='44px'
         width='44px'
-        src=require(`../../img/users-avatars/user-${opts.userId}-avatar.jpg`)
-        alt=`Аватар пользователя ${opts.username}`
+        src=require(`../../img/users-avatars/user-${userId}-avatar.jpg`)
+        alt=`Аватар пользователя ${username}`
       )
       .review__like-button
         +like-button({
-          nLikes: opts.nLikes,
-          pressed: opts.likePressed
+          nLikes,
+          pressed: likePressed,
         })
     .review__content
       .review__username
-        +text({ tag: 'p', text: opts.username })
+        +text({ tag: 'p', text: username })
       .review__date
-        +text({ tag: 'p', text: opts.date })
+        +text({ tag: 'p', text: date })
       .review__review-text
-        +text({ tag: 'p', text: opts.text })
+        +text({ tag: 'p', text })

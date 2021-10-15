@@ -1,9 +1,15 @@
 include ../../components/text/text.pug
 include ../../components/review/review.pug
 
-mixin reviews(opts)
+mixin reviews(props)
   -
-    var totalValue = opts.reviews.length;
+    var {
+      labelForms = ['', '', ''],
+      reviews = [],
+      title = '',
+    } = props || {};
+
+    var totalValue = reviews.length;
     function getWordDeclension(number, wordForms) {
       var hundredthPart = number % 100;
       var tenthPart = number % 10;
@@ -21,23 +27,16 @@ mixin reviews(opts)
       }
       return wordForms[2];
     }
-    var totalLabelDeclension = getWordDeclension(totalValue, opts.labelForms);
+    var totalLabelDeclension = getWordDeclension(totalValue, labelForms);
 
   .reviews
     .reviews__top
       +text({
         tag: 'h2',
-        text: opts.title,
+        text: title,
       })
       .reviews__total #{totalValue + '\xA0' + totalLabelDeclension}
     .reviews__content
-      each review in opts.reviews
+      each review in reviews
         .reviews__review-container
-          +review({
-            userId: review.userId,
-            username: review.username,
-            nLikes: review.nLikes,
-            likePressed: review.likePressed,
-            date: review.date,
-            text: review.text
-          })
+          +review(review)

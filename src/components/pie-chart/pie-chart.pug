@@ -1,8 +1,14 @@
 include ../../components/text/text.pug
 
-mixin pie-chart(opts)
+mixin pie-chart(props)
   -
-    var totalValue = opts.data.reduce((a, b) => a + b.value, 0);
+    var {
+      data = [],
+      labelForms = ['', '', ''],
+      title = undefined,
+    } = props || {};
+
+    var totalValue = data.reduce((a, b) => a + b.value, 0);
     function getWordDeclension(number, wordForms) {
       var hundredthPart = number % 100;
       var tenthPart = number % 10;
@@ -20,9 +26,9 @@ mixin pie-chart(opts)
       }
       return wordForms[2];
     }
-    var totalLabelDeclension = getWordDeclension(totalValue, opts.labelForms);
+    var totalLabelDeclension = getWordDeclension(totalValue, labelForms);
     var valueCounter = 0;
-    var data = opts.data.map((dataElement) => {
+    var data = data.map((dataElement) => {
       valueCounter += dataElement.value;
       return {
         legend: dataElement.legend,
@@ -32,11 +38,11 @@ mixin pie-chart(opts)
     });
 
   .pie-chart
-    if (opts.title)
+    if (title)
       .pie-chart__title
         +text({
           tag: 'h2',
-          text: opts.title,
+          text: title,
         })
     .pie-chart__content
       .pie-chart__diagram

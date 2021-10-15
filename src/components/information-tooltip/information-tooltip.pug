@@ -1,2 +1,7 @@
 mixin information-tooltip(text)
+  -
+    var {
+      text = false,
+    } = props || {};
+
   .information-tooltip(title=text)='i'

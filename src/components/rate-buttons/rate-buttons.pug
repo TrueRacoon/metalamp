@@ -1,7 +1,13 @@
-mixin rate-buttons(opts)
-  - var i = 1;
+mixin rate-buttons(props)
+  -
+    var {
+      nFilled = 0,
+    } = props;
+
+    var i = 1;
+
   .rate-buttons
-    while i <= opts.nFilled
+    while i <= nFilled
       .rate-buttons__rate-button
       - i++
     while i <= 5

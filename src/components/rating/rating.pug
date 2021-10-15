@@ -1,7 +1,12 @@
 include ../rate-buttons/rate-buttons.pug
 
-mixin rating(opts)
+mixin rating(props)
   -
+    var {
+      rating = 0,
+      nReviews = 0,
+    } = props || {};
+
     function getWordDeclension(number, wordForms) {
       var hundredthPart = number % 100;
       var tenthPart = number % 10;
@@ -19,12 +24,12 @@ mixin rating(opts)
       }
       return wordForms[2];
     }
-    var reviewsDeclension = getWordDeclension(opts.nReviews, ['Отзыв', 'Отзыва', 'Отзывов']);
+    var reviewsDeclension = getWordDeclension(nReviews, ['Отзыв', 'Отзыва', 'Отзывов']);
 
   .rating
-    +rate-buttons({ nFilled: opts.rating })
+    +rate-buttons({ nFilled: rating })
     .rating__reviews
-      span.rating__reviews-number=opts.nReviews
+      span.rating__reviews-number=nReviews
       |
       |
       span.rating__reviews-label=reviewsDeclension

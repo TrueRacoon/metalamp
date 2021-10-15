@@ -1,6 +1,14 @@
 include ../text/text.pug
 
-mixin typography-item(tagSize, tagText, descriptionTag, descriptionText)
+mixin typography-item(props)
+  -
+    var {
+      descriptionTag = '',
+      descriptionText = '',
+      tagSize = '',
+      tagText = '',
+    } = props || {};
+
   section.typography-item
     div(class=`typography-item__tag typography-item__tag_size_${tagSize}`)= tagText
     +text({

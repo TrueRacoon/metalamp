@@ -1,24 +1,31 @@
-mixin room-number-and-price(opts)
+mixin room-number-and-price(props)
   -
+    var {
+      isRoomDetailsBlock = false,
+      roomNumber = 0,
+      roomSpecialType = '',
+    } = props || {};
+
     function formatSum(sum) {
       return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
     }
-    var price = opts.price ? formatSum(opts.price) : '';
+
+    var price = props.price ? formatSum(props.price) : '';
 
   .room-number-and-price
     a(
-      class=`room-number-and-price__room${!opts.isRoomDetailsBlock ? '_link' : ''}`
-      href=!opts.isRoomDetailsBlock ? 'room-details.html' : null
+      class=`room-number-and-price__room${!isRoomDetailsBlock ? '_link' : ''}`
+      href=!isRoomDetailsBlock ? 'room-details.html' : null
     )
       | №
       |
       span(
         class=`room-number-and-price__room-number
-        ${opts.isRoomDetailsBlock ? ' room-number-and-price__room-number_bigger-font' : ''}`
-      )=opts.roomNumber
+        ${isRoomDetailsBlock ? ' room-number-and-price__room-number_bigger-font' : ''}`
+      )=roomNumber
       |
       |
-      span.room-number-and-price__room-special-type=opts.roomSpecialType
+      span.room-number-and-price__room-special-type=roomSpecialType
     span.room-number-and-price__price
       span(
         class='room-number-and-price__price-value'
