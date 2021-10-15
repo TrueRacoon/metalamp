@@ -1,10 +1,9 @@
 const path = require('path');
-const { basename } = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const PATHS = {
   src: path.resolve(__dirname, 'src'),
@@ -36,6 +35,7 @@ module.exports = {
   cache: { type: 'filesystem' },
   externals: {
     paths: PATHS,
+    pugFiles: PUG_FILES,
   },
   entry: getEntry(),
   output: {
@@ -104,13 +104,13 @@ module.exports = {
         scriptLoading: 'defer',
       }),
     ),
-    ...PUG_FILES.map(
-      (file) => new FaviconsWebpackPlugin({
-        logo: 'src/favicon/favicon.svg',
-        cache: true,
-        prefix: 'favicons/',
-        inject: (htmlPlugin) => basename(htmlPlugin.options.filename) === `${file.replace(/\.pug/, '.html')}`,
-      }),
-    ),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        plugins: [
+          ['jpegtran', { progressive: true }],
+          ['svgo', { plugins: [{ name: 'preset-default' }] }],
+        ],
+      },
+    }),
   ],
 };
