@@ -7,7 +7,7 @@ mixin room-number-and-price(props)
     } = props || {};
 
     function formatSum(sum) {
-      return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ').concat('₽');
+      return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1\xa0').concat('₽');
     }
 
     var price = props.price ? formatSum(props.price) : '';
@@ -31,4 +31,4 @@ mixin room-number-and-price(props)
         class='room-number-and-price__price-value'
         class='js-room-number-and-price__price-value'
       )=price
-      span.booking-card__price-period=' в сутки'
+      span.room-number-and-price__price-period=' в сутки'

@@ -1,5 +1,6 @@
 include ../information-tooltip/information-tooltip.pug
 include ../arrival-filters/arrival-filters.pug
+include ../room-number-and-price/room-number-and-price.pug
 
 mixin booking-card(props)
   -
@@ -11,6 +12,7 @@ mixin booking-card(props)
       ],
       initialArrivalDate = '',
       initialDepartureDate = '',
+      price = 0,
       roomNumber = 0,
       roomType = '',
     } = props || {};
@@ -19,7 +21,6 @@ mixin booking-card(props)
       return sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1\xa0').concat('₽');
     }
 
-    var roomPrice = props.roomPrice ? formatSum(props.roomPrice) : '';
     var discount = props.discount ? formatSum(props.discount) : '';
 
   div(
@@ -29,16 +30,12 @@ mixin booking-card(props)
     form
       fieldset.booking-card__fieldset
         legend.booking-card__legend
-          .booking-card__room
-            | №
-            |
-            span.booking-card__room-number=roomNumber
-            |
-            |
-            span.booking-card__room-type=roomType
-          span.booking-card__price
-            span.booking-card__price-value.js-booking-card__price-value=roomPrice
-            span.booking-card__price-period  в сутки
+          +room-number-and-price({
+            price,
+            roomNumber,
+            isRoomDetailsBlock: true,
+            roomSpecialType: roomType,
+          })
         +arrival-filters({ initialArrivalDate, initialDepartureDate, guestPickerItems })
         ul.booking-card__cost-details-list.js-booking-card__cost-details-list
           li.booking-card__cost-details-item

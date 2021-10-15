@@ -9,7 +9,7 @@ class BookingCard {
   }
 
   _init() {
-    this.priceValue = this.bookingCardDom.querySelector('.js-booking-card__price-value');
+    this.priceValue = this.bookingCardDom.querySelector('.js-room-number-and-price__price-value');
     this.costDetailsList = this.bookingCardDom.querySelector('.js-booking-card__cost-details-list');
     this.baseCostDetails = this.bookingCardDom.querySelector('.js-booking-card__base-cost-details');
     this.submitButton = this.bookingCardDom.querySelector('.js-booking-card__submit-button');
@@ -44,6 +44,7 @@ class BookingCard {
     this.costDetailsList.classList.remove('booking-card__cost-details-list_hidden');
     this.totalCostBlock.classList.remove('booking-card__total-cost-block_hidden');
     this.submitButton.classList.remove('booking-card__submit-button_hidden');
+    console.log(this.priceValue.innerText);
     const priceValue = parseInt(this.priceValue.innerText.split('\xa0').join(''), 10);
     const discount = parseInt(this.discount.innerText.slice(22).split('\xa0').join(''), 10);
     const hotelStay = this._getHotelStay();
