@@ -5,7 +5,6 @@ include ../rating/rating.pug
 mixin room-card(props)
   -
     var {
-      isRoomDetailsBlock = false,
       price = 0,
       nReviews = 0,
       rating = 0,
@@ -22,7 +21,6 @@ mixin room-card(props)
         price,
         roomNumber,
         roomSpecialType,
-        isRoomDetailsBlock,
       })
       .room-card__delimiter
       +rating({ rating: rating, nReviews: nReviews })
