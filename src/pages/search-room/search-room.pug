@@ -104,6 +104,13 @@ block variables
       }
     ];
 
+    var paginationProps = {
+      currentPage: 1,
+      nPages: 15,
+      nRoomsPerPage: 12,
+      nRoomsPlus: 100,
+    };
+
 block content
   .search-room__container
     .search-room.js-search-room
@@ -188,4 +195,4 @@ block content
               roomSpecialType: room.roomSpecialType,
             })
         .search-room__pagination
-          +pagination()
+          +pagination(paginationProps)

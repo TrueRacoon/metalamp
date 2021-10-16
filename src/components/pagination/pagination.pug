@@ -1,11 +1,14 @@
 include ../../components/text/text.pug
 
-mixin pagination()
+mixin pagination(props)
   -
-    var currentPage = 1;
-    var nPages = 15;
-    var nRoomsPerPage = 12;
-    var nRoomsPlus = 100;
+    var {
+      currentPage = 0,
+      nPages = 0,
+      nRoomsPerPage = 0,
+      nRoomsPlus = 0,
+    } = props || {};
+
     var labelText = `${nRoomsPerPage * (currentPage - 1) + 1} - ${nRoomsPerPage * currentPage} из ${nRoomsPlus}+ вариантов аренды`;
 
   .pagination

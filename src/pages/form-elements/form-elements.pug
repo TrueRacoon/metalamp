@@ -73,6 +73,13 @@ block variables
       },
     ];
 
+    var paginationProps = {
+      currentPage: 1,
+      nPages: 15,
+      nRoomsPerPage: 12,
+      nRoomsPlus: 100,
+    };
+
 block content
   .elements.js-elements
     .elements__block(
@@ -303,7 +310,7 @@ block content
             tag: 'h3',
             text: 'Pagination'
           })
-        +pagination()
+        +pagination(paginationProps)
     .elements__block(
       class = 'elements__block_column_first'
       class = 'elements__block_row_second'
