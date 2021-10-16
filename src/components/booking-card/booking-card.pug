@@ -23,10 +23,7 @@ mixin booking-card(props)
 
     var discount = props.discount ? formatSum(props.discount) : '';
 
-  div(
-    class='booking-card'
-    class='js-booking-card'
-  )
+  .booking-card.js-booking-card
     form
       fieldset.booking-card__fieldset
         legend.booking-card__legend
@@ -36,30 +33,33 @@ mixin booking-card(props)
             isRoomDetailsBlock: true,
             roomSpecialType: roomType,
           })
-        +arrival-filters({ initialArrivalDate, initialDepartureDate, guestPickerItems })
+        +arrival-filters({
+          initialArrivalDate,
+          initialDepartureDate,
+          guestPickerItems,
+        })
         ul.booking-card__cost-details-list.js-booking-card__cost-details-list
           li.booking-card__cost-details-item
             span.js-booking-card__base-cost-details
             span.js-booking-card__total-base-cost
           li.booking-card__cost-details-item
-            span.js-booking-card__discount='Сбор за услуги: скидка\xa0' + discount
+            span.js-booking-card__discount= 'Сбор за услуги: скидка\xa0' + discount
             .booking-card__cost-details-total
-              +information-tooltip({ text: 'Tooltip' })
+              +information-tooltip({
+                text: 'Tooltip',
+              })
               span 0₽
           li.booking-card__cost-details-item
             span Сбор за дополнительные услуги
             .booking-card__cost-details-total
-              +information-tooltip('Tooltip')
+              +information-tooltip({
+                text: 'Tooltip',
+              })
               span.js-booking-card__additional-services-fees
-        div(
-          class='booking-card__total-cost-block'
-          class='js-booking-card__total-cost-block'
-        )
-          span.booking-card__total-cost-text='Итого'
+        .booking-card__total-cost-block.js-booking-card__total-cost-block
+          span.booking-card__total-cost-text Итого
           span.booking-card__total-cost-separator
           span.js-booking-card__total-cost
-      button(
-        class='booking-card__submit-button'
-        class='js-booking-card__submit-button'
-        type='submit'
-      )='Забронировать'
+      button.booking-card__submit-button.js-booking-card__submit-button(
+        type = 'submit'
+      ) Забронировать

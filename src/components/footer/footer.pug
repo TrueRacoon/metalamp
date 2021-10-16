@@ -9,10 +9,10 @@ mixin footer(props)
       isNarrow = false,
     } = props || {};
 
-    var siteDescription = 'Бронирование номеров в лучшем отеле 2019 года ' +
-            'по версии ассоциации «Отельные взгляды»';
+    var siteDescription = 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»';
     var subscriptionDescription = 'Получайте специальные предложения и новости сервиса';
     var copyrightText = 'Copyright © 2018 Toxin отель. Все\xa0права\xa0защищены.';
+
     var menuData = [
       {
         columnName: 'Навигация',
@@ -75,8 +75,8 @@ mixin footer(props)
       },
     ];
 
-  div(
-    class = `footer${isNarrow ? ' footer_narrow' : ''}`
+  .footer(
+    class = `${isNarrow ? 'footer_narrow' : ''}`
   )
     .footer__logo-and-site-description
       .footer__logo-container
@@ -84,7 +84,7 @@ mixin footer(props)
       .footer__site-description
         +text({
           tag: 'p',
-          text: siteDescription
+          text: siteDescription,
         })
     nav.footer__menu
       each menuColumn in menuData
@@ -92,24 +92,28 @@ mixin footer(props)
           .footer__menu-column-title
             +text({
               tag: 'h3',
-              text: `${menuColumn.columnName}`
+              text: `${menuColumn.columnName}`,
             })
           ul.footer__menu-links-list
             each link in menuColumn.links
               li.footer__menu-link-item
-                a.footer__menu-link(href= link.link)= link.linkName
+                a.footer__menu-link(
+                  href = link.link
+                )= link.linkName
     .footer__subscription
       .footer__subscription-title
         +text({
           tag: 'h3',
-          text: 'Подписка'
+          text: 'Подписка',
         })
       .footer__subscription-description
         +text({
           tag: 'p',
-          text: subscriptionDescription
+          text: subscriptionDescription,
         })
-      form.footer__subscription-form(action='page-not-found.html')
+      form.footer__subscription-form(
+        action = 'page-not-found.html'
+      )
         .footer__subscription-input
           +input({
             name: 'email',

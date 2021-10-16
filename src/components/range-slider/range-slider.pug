@@ -16,22 +16,22 @@ mixin range-slider(props)
     .range-slider__details
       +text({ tag: 'h3', text: name })
       .range-slider__label.js-range-slider__range-label(
-        data-min-value=minValue
-        data-max-value=maxValue
-        data-initial-lower-value=initialLowerValue
-        data-initial-upper-value=initialUpperValue
+        data-initial-lower-value = initialLowerValue
+        data-initial-upper-value = initialUpperValue
+        data-max-value = maxValue
+        data-min-value = minValue
       )
     .range-slider__view
       input.range-slider__input.range-slider__input_lower.js-range-slider__input_lower(
-        type='range'
-        step=step
+        step = step
+        type = 'range'
       )
       input.range-slider__input.range-slider__input_upper.js-range-slider__input_upper(
-        type='range'
-        step=step
+        step = step
+        type = 'range'
       )
       .range-slider__border
       .range-slider__fill.js-range-slider__fill
-    if (description)
+    if description
       .range-slider__label-container
-        .range-slider__label=description
+        .range-slider__label= description

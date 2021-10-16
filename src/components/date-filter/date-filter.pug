@@ -13,54 +13,45 @@ mixin date-filter(props)
       singleDateInput = false,
     } = props || {};
 
-  div(
-    class=`date-filter${singleDateInput ? ' date-filter_single-date-input' : ''}`
-    class='js-date-filter'
+  .date-filter.js-date-filter(
+    class=`${singleDateInput ? 'date-filter_single-date-input' : ''}`
   )
     if singleDateInput
       +dropdown-block({
         initialArrivalDate,
         initialDepartureDate,
-        label: dateFilterLabel,
         isContentAreExtension: false,
+        label: dateFilterLabel,
       })
     else
-      div(
-        class='date-filter__arrival'
-        class='js-date-filter__arrival'
-      )
+      .date-filter__arrival.js-date-filter__arrival
         .date-filter__label
           +text({
             tag: 'h3',
-            text: arrivalLabel
+            text: arrivalLabel,
           })
         +input({
+          initialValue: initialArrivalDate,
           name: 'arrival-date',
           placeholder: 'ДД.ММ.ГГГГ',
           type: 'text',
           withDropdownButton: true,
-          initialValue: initialArrivalDate,
         })
-      div(
-        class='date-filter__departure'
-        class='js-date-filter__departure'
-      )
+      .date-filter__departure.js-date-filter__departure
         .date-filter__label
           +text({
             tag: 'h3',
-            text: departureLabel
+            text: departureLabel,
           })
         +input({
+          initialValue: initialDepartureDate,
           name: 'departure-date',
           placeholder: 'ДД.ММ.ГГГГ',
           type: 'text',
           withDropdownButton: true,
-          initialValue: initialDepartureDate,
         })
-    div(
-      class=`date-filter__calendar-container${singleDateInput ? ' ' +
-        'date-filter__calendar-container_offset_small' : ''}`
-      class='js-date-filter__calendar-container'
+    .date-filter__calendar-container.js-date-filter__calendar-container(
+      class = `${singleDateInput ? 'date-filter__calendar-container_offset_small' : ''}`
     )
       +calendar()
 

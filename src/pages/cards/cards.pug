@@ -23,12 +23,12 @@ block content
     .cards__column
       .cards__card
         +booking-card({
-          roomNumber: 888,
-          roomType: 'Люкс',
-          price: 9990,
           discount: 2179,
           initialArrivalDate: '19.08.2019',
           initialDepartureDate: '23.08.2019',
+          price: 9990,
+          roomNumber: 888,
+          roomType: 'Люкс',
         })
       .cards__card
         +signin-card()
@@ -37,16 +37,16 @@ block content
         +calendar()
       .cards__card.cards__room-card
         +room-card({
-          roomNumber: 888,
-          price: 9990,
-          roomSpecialType: 'Люкс',
-          rating: 5,
           nReviews: 145,
+          price: 9990,
+          rating: 5,
+          roomNumber: 888,
+          roomSpecialType: 'Люкс',
         })
       .cards__card.cards__room-card
         +room-card({
-          roomNumber: 840,
+          nReviews: 65,
           price: 9990,
           rating: 4,
-          nReviews: 65,
+          roomNumber: 840,
         })

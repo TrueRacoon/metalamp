@@ -14,23 +14,21 @@ mixin input(props)
 
   .input__container
     input(
-      class=classes
-      name=name
-      placeholder=placeholder
-      type=type
-      value=initialValue
+      class = classes
+      name = name
+      placeholder = placeholder
+      type = type
+      value = initialValue
     )
     if withSubmitButton
-      button(
-        class='input__button'
-        class='input__button_type_submit'
-        type='submit'
+      button.input__button(
+        class = 'input__button_type_submit'
+        type = 'submit'
       )
     if withDropdownButton
-      button(
-        class='input__button'
-        class='input__button_type_dropdown'
-        class='js-input__button_type_dropdown'
-        type='button'
+      button.input__button(
+        class = 'input__button_type_dropdown'
+        class = 'js-input__button_type_dropdown'
+        type = 'button'
       )
 

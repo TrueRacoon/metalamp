@@ -8,7 +8,7 @@ mixin bullet-list(props)
     } = props || {};
 
   .bullet-list
-    if (title)
+    if title
       .bullet-list__title
         +text({
           tag: 'h2',
@@ -18,4 +18,7 @@ mixin bullet-list(props)
       each listElement in list
         li.bullet-list__item
           .bullet-list__marker
-          +text({ tag: 'p', text: listElement })
+          +text({
+            tag: 'p',
+            text: listElement,
+          })

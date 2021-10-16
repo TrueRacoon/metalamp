@@ -6,8 +6,8 @@ mixin signin-card()
       fieldset.signin-card__fieldset
         legend.signin-card__legend
           +text({
-            text: 'Войти',
             tag: 'h1',
+            text: 'Войти',
           })
         .signin-card__input-container
           +input({
@@ -22,9 +22,14 @@ mixin signin-card()
             type: 'text',
           })
         button.signin-card__submit-button(
-          type='submit'
+          type = 'submit'
         ) Войти
     .signin-card__signup-block
-      span.signin-card__signup-label='Нет аккаунта на Toxin?'
-      a(href='registration.html')
-        button.signin-card__button.signin-card__button_outlined.signin-card__button_size_fixed='Создать'
+      span.signin-card__signup-label Нет аккаунта на Toxin?
+      a(
+        href='registration.html'
+      )
+        button.signin-card__button(
+          class = 'signin-card__button_outlined'
+          class = 'signin-card__button_size_fixed'
+        ) Создать

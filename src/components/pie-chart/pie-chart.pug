@@ -9,6 +9,7 @@ mixin pie-chart(props)
     } = props || {};
 
     var totalValue = data.reduce((a, b) => a + b.value, 0);
+
     function getWordDeclension(number, wordForms) {
       var hundredthPart = number % 100;
       var tenthPart = number % 10;
@@ -26,8 +27,10 @@ mixin pie-chart(props)
       }
       return wordForms[2];
     }
+
     var totalLabelDeclension = getWordDeclension(totalValue, labelForms);
     var valueCounter = 0;
+
     var data = data.map((dataElement) => {
       valueCounter += dataElement.value;
       return {
@@ -38,7 +41,7 @@ mixin pie-chart(props)
     });
 
   .pie-chart
-    if (title)
+    if title
       .pie-chart__title
         +text({
           tag: 'h2',
@@ -51,18 +54,18 @@ mixin pie-chart(props)
           .pie-chart__total-value #{totalValue}
           .pie-chart__total-label #{totalLabelDeclension}
         each dataElement, index in data
-          div(
-            class=`pie-chart__part pie-chart__${index + 1}-part`
+          .pie-chart__part(
+            class=`pie-chart__${index + 1}-part`
             style=`--degreeFrom: ${dataElement.degreeFrom}deg; --degreeTo: ${dataElement.degreeTo}deg`
           )
-          div(
-            class=`pie-chart__delimiter pie-chart__${index + 1}-delimiter`
+          .pie-chart__delimiter(
+            class=`pie-chart__${index + 1}-delimiter`
             style=`--degree: ${dataElement.degreeTo}deg;`
           )
       ul.pie-chart__legend
         each dataElement, index in data
           li.pie-chart__legend-item
-            div(
-              class=`pie-chart__legend-marker pie-chart__legend-marker_${index + 1}`
+            .pie-chart__legend-marker(
+              class=`pie-chart__legend-marker_${index + 1}`
             )
             .pie-chart__legend-label #{dataElement.legend}

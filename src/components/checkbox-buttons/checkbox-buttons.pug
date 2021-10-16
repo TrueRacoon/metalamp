@@ -10,7 +10,7 @@ mixin checkbox-buttons(props)
     } = props || {};
 
   .checkbox-buttons
-    if (title)
+    if title
       .checkbox-buttons__title
         +text({
           tag: 'h3',
@@ -19,13 +19,13 @@ mixin checkbox-buttons(props)
     each item in items
       label.checkbox-buttons__label
         input.checkbox-buttons__input(
-          type='checkbox'
-          name=name
-          value=item.value || item.title
-          checked=item.checked === true
+          checked = item.checked
+          name = name
+          type = 'checkbox'
+          value = item.value || item.title
         )
         .checkbox-buttons__checkmark
-        if (rich)
+        if rich
           .checkbox-buttons__item-text
             .checkbox-buttons__item-title #{item.title}
             .checkbox-buttons__item-description #{item.description}

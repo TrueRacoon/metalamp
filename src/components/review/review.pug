@@ -14,10 +14,10 @@ mixin review(props)
   .review
     .review__avatar-and-likes
       img.review__avatar(
-        height='44px'
-        width='44px'
-        src=require(`../../img/users-avatars/user-${userId}-avatar.jpg`)
-        alt=`Аватар пользователя ${username}`
+        alt = `Аватар пользователя ${username}`
+        height = '44px'
+        src = require(`../../img/users-avatars/user-${userId}-avatar.jpg`)
+        width = '44px'
       )
       .review__like-button
         +like-button({
@@ -26,8 +26,17 @@ mixin review(props)
         })
     .review__content
       .review__username
-        +text({ tag: 'p', text: username })
+        +text({
+          tag: 'p',
+          text: username,
+        })
       .review__date
-        +text({ tag: 'p', text: date })
+        +text({
+          tag: 'p',
+          text: date,
+        })
       .review__review-text
-        +text({ tag: 'p', text })
+        +text({
+          text,
+          tag: 'p',
+        })

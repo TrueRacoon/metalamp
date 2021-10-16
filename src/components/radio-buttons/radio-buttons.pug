@@ -9,10 +9,10 @@ mixin radio-buttons(props)
     each radioButton in radioButtons
       label.radio-buttons__label
         input.radio-buttons__input(
-          type='radio'
-          name=name
-          value=radioButton.value
-          checked=radioButton.checked === true
+          checked = radioButton.checked
+          name = name
+          type = 'radio'
+          value = radioButton.value
         )
         span.radio-buttons__checkmark
         span.radio-buttons__value

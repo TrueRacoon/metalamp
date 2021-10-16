@@ -14,21 +14,17 @@ mixin room-number-and-price(props)
 
   .room-number-and-price
     a(
-      class=`room-number-and-price__room${!isRoomDetailsBlock ? '_link' : ''}`
-      href=!isRoomDetailsBlock ? 'room-details.html' : null
+      class = `${isRoomDetailsBlock ? '' : 'room-number-and-price__link'}`
+      href = isRoomDetailsBlock ? null : 'room-details.html'
     )
       | №
       |
-      span(
-        class=`room-number-and-price__room-number
-        ${isRoomDetailsBlock ? ' room-number-and-price__room-number_bigger-font' : ''}`
-      )=roomNumber
+      span.room-number-and-price__room-number(
+        class = `${isRoomDetailsBlock ? 'room-number-and-price__room-number_bigger-font' : ''}`
+      )= roomNumber
       |
       |
-      span.room-number-and-price__room-special-type=roomSpecialType
+      span.room-number-and-price__room-special-type= roomSpecialType
     span.room-number-and-price__price
-      span(
-        class='room-number-and-price__price-value'
-        class='js-room-number-and-price__price-value'
-      )=price
-      span.room-number-and-price__price-period=' в сутки'
+      span.room-number-and-price__price-value.js-room-number-and-price__price-value= price
+      span.room-number-and-price__price-period в сутки

@@ -24,12 +24,15 @@ mixin rating(props)
       }
       return wordForms[2];
     }
+
     var reviewsDeclension = getWordDeclension(nReviews, ['Отзыв', 'Отзыва', 'Отзывов']);
 
   .rating
-    +rate-buttons({ nFilled: rating })
+    +rate-buttons({
+      nFilled: rating,
+    })
     .rating__reviews
-      span.rating__reviews-number=nReviews
+      span.rating__reviews-number= nReviews
       |
       |
-      span.rating__reviews-label=reviewsDeclension
+      span.rating__reviews-label= reviewsDeclension

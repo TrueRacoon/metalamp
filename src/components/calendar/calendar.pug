@@ -4,45 +4,35 @@ mixin calendar()
   -
     var daysWeekNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
-  section(
-    class='calendar'
-    class='js-calendar'
-  )
+  section.calendar.js-calendar
     .calendar__top
-      button(
-        class='calendar__month-nav-button'
-        class='calendar__month-nav-button_prev'
-        class='js-calendar__month-nav-button_prev'
-        type='button'
+      button.calendar__month-nav-button(
+        class = 'calendar__month-nav-button_prev'
+        class = 'js-calendar__month-nav-button_prev'
+        type = 'button'
       )
       +text({
+        classes: ['js-calendar__top-text'],
         tag: 'h2',
-        classes: ['js-calendar__top-text']
       })
-      button(
-        class='calendar__month-nav-button'
-        class='calendar__month-nav-button_next'
-        class='js-calendar__month-nav-button_next'
-        type='button'
+      button.calendar__month-nav-button(
+        class = 'calendar__month-nav-button_next'
+        class = 'js-calendar__month-nav-button_next'
+        type = 'button'
       )
     table.calendar__table
       thead.calendar__table-head
         tr.calendar__table-row
           each dayName in daysWeekNames
             th.calendar__table-head-data= dayName
-      tbody(
-        class='calendar__table-body'
-        class='js-calendar__table-body'
-      )
+      tbody.calendar__table-body.js-calendar__table-body
     .calendar__bottom
-      button(
-        class='calendar__control-button'
-        class='js-calendar__clear-button'
-        type='button'
-      )= 'Очистить'
-      button(
-        class='calendar__control-button'
-        class='js-calendar__apply-button'
-        type='button'
-      )= 'Применить'
+      button.calendar__control-button(
+        class = 'js-calendar__clear-button'
+        type = 'button'
+      ) Очистить
+      button.calendar__control-button(
+        class = 'js-calendar__apply-button'
+        type = 'button'
+      ) Применить
 

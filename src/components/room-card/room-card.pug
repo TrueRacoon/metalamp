@@ -23,5 +23,8 @@ mixin room-card(props)
         roomSpecialType,
       })
       .room-card__delimiter
-      +rating({ rating: rating, nReviews: nReviews })
+      +rating({
+        nReviews,
+        rating,
+      })
 

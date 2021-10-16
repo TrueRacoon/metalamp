@@ -16,4 +16,6 @@ mixin text(opts)
       classes += ` text_${modifier}`
     })
 
-  #{tag}(class=classes)=text
+  #{tag}(
+    class = classes
+  )= text

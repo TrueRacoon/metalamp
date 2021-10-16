@@ -6,9 +6,9 @@ mixin like-button(props)
     } = props || {};
 
   .like-button__container
-    div(
-      class=`like-button${pressed ? ' like-button_pressed' : ''}`
+    .like-button(
+      class = `${pressed ? 'like-button_pressed' : ''}`
     ) #{nLikes}
-    div(
-      class=`like-button__icon${pressed ? ' like-button__icon_pressed' : ''}`
+    .like-button__icon(
+      class = `${pressed ? 'like-button__icon_pressed' : ''}`
     )

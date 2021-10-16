@@ -11,5 +11,7 @@ mixin rate-buttons(props)
       .rate-buttons__rate-button
       - i++
     while i <= 5
-      .rate-buttons__rate-button.rate-buttons__rate-button_unfilled
+      .rate-buttons__rate-button(
+        class = 'rate-buttons__rate-button_unfilled'
+      )
       - i++

@@ -17,8 +17,8 @@ mixin features(props)
     ul.features__list
       each feature in features
         li.features__item
-          div(
-            class=`features__icon features__icon_${feature.icon}`
+          .features__icon(
+            class = `features__icon_${feature.icon}`
           )
           .features__text
             .features__feature-title #{feature.title}

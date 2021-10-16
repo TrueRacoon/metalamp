@@ -7,11 +7,9 @@
   align-items: baseline;
   font-weight: bold;
 
-  &__room {
-    &_link {
-      text-decoration: none;
-      color: $color-dark-shade;
-    }
+  &__link {
+    text-decoration: none;
+    color: $color-dark-shade;
   }
 
   &__room-number {

@@ -14,10 +14,12 @@ mixin dropdown-block(props)
         tag: 'h3',
         text: label,
       })
-    div(
-      class=`dropdown-block js-dropdown-block${isContentAreExtension ? ' dropdown-block_content-are-extension' : ''}`
-      data-arrival-date=initialArrivalDate
-      data-departure-date=initialDepartureDate
+    .dropdown-block.js-dropdown-block(
+      class = `${isContentAreExtension ? 'dropdown-block_content-are-extension' : ''}`
+      data-arrival-date = initialArrivalDate
+      data-departure-date = initialDepartureDate
     )
       .dropdown-block__text.js-dropdown-block__text=inputText
-      button.dropdown-block__button.js-dropdown-block__button(type='button')
+      button.dropdown-block__button.js-dropdown-block__button(
+        type = 'button'
+      )

@@ -11,11 +11,20 @@ block variables
 
 block content
   .headers-and-footers
-    .headers-and-footers__item.headers-and-footers__header
+    .headers-and-footers__item(
+      class = 'headers-and-footers__header'
+    )
       +header()
-    .headers-and-footers__item.headers-and-footers__header
+    .headers-and-footers__item(
+      class = 'headers-and-footers__header'
+    )
       +header({ username: 'Юлий Цезарь' })
-    .headers-and-footers__item.headers-and-footers__footer
+    .headers-and-footers__item(
+      class = 'headers-and-footers__footer'
+    )
       +footer()
-    .headers-and-footers__item.headers-and-footers__footer.headers-and-footers__footer_narrow
+    .headers-and-footers__item(
+      class = 'headers-and-footers__footer'
+      class = 'headers-and-footers__footer_narrow'
+    )
       +footer({ isNarrow: true })

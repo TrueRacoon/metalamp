@@ -21,13 +21,13 @@ mixin arrival-filters(props)
         initialDepartureDate,
         singleDateInput,
         arrivalLabel: 'Прибытие',
-        departureLabel: 'Выезд',
         dateFilterLabel: 'Даты пребывания в отеле',
+        departureLabel: 'Выезд',
       })
     +count-picker({
-      label: 'Гости',
       inputText: 'Сколько гостей',
-      withControlButtons: true,
       items: guestPickerItems,
+      label: 'Гости',
       type: 'guests',
+      withControlButtons: true,
     })

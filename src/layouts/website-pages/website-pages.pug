@@ -3,20 +3,24 @@ include ../../components/footer/footer
 
 block variables
 doctype html
-html(lang='ru')
+html(
+  lang = 'ru'
+)
   head
-    meta(charset='UTF-8')
     meta(
-      name='viewport'
-      content='width=device-width, initial-scale=1.0'
+      charset = 'UTF-8'
     )
     meta(
-      name='description'
-      content=description,
+      content = 'width=device-width, initial-scale=1.0'
+      name = 'viewport'
     )
     meta(
-      name='keywords'
-      content=keywords
+      content = description
+      name = 'description'
+    )
+    meta(
+      content = keywords
+      name = 'keywords'
     )
     title #{title}
   body
@@ -25,8 +29,7 @@ html(lang='ru')
         +header()
       main.website-pages__main
         block content
-      footer(
-        class=`website-pages__footer${needTopBorder ?
-          ' website-pages__footer_has-top-border' : ''}`
+      footer.website-pages__footer(
+        class=`${needTopBorder ? 'website-pages__footer_has-top-border' : ''}`
       )
         +footer()

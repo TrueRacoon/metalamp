@@ -27,69 +27,82 @@ block variables
       { label: 'Ванные комнаты', count: 0 },
     ];
 
-    var rooms = [{
-      roomNumber: 888,
-      price: 9990,
-      roomSpecialType: 'Люкс',
-      rating: 5,
-      nReviews: 145,
-    }, {
-      roomNumber: 840,
-      price: 9990,
-      rating: 3,
-      nReviews: 65,
-    }, {
-      roomNumber: 980,
-      price: 8500,
-      roomSpecialType: 'Люкс',
-      rating: 3,
-      nReviews: 35,
-    }, {
-      roomNumber: 856,
-      price: 7300,
-      rating: 5,
-      nReviews: 19,
-    }, {
-      roomNumber: 740,
-      price: 6000,
-      rating: 4,
-      nReviews: 44,
-    }, {
-      roomNumber: 982,
-      price: 5800,
-      rating: 3,
-      nReviews: 56,
-    }, {
-      roomNumber: 678,
-      price: 550,
-      rating: 5,
-      nReviews: 45,
-    }, {
-      roomNumber: 450,
-      price: 5300,
-      rating: 4,
-      nReviews: 39,
-    }, {
-      roomNumber: 350,
-      price: 5000,
-      rating: 3,
-      nReviews: 77,
-    }, {
-      roomNumber: 666,
-      price: 5000,
-      rating: 5,
-      nReviews: 25,
-    }, {
-      roomNumber: 444,
-      price: 5000,
-      rating: 3,
-      nReviews: 15,
-    }, {
-      roomNumber: 352,
-      price: 5000,
-      rating: 3,
-      nReviews: 55,
-    }];
+    var rooms = [
+      {
+        roomNumber: 888,
+        price: 9990,
+        roomSpecialType: 'Люкс',
+        rating: 5,
+        nReviews: 145,
+      },
+      {
+        roomNumber: 840,
+        price: 9990,
+        rating: 3,
+        nReviews: 65,
+      },
+      {
+        roomNumber: 980,
+        price: 8500,
+        roomSpecialType: 'Люкс',
+        rating: 3,
+        nReviews: 35,
+      },
+      {
+        roomNumber: 856,
+        price: 7300,
+        rating: 5,
+        nReviews: 19,
+      },
+      {
+        roomNumber: 740,
+        price: 6000,
+        rating: 4,
+        nReviews: 44,
+      },
+      {
+        roomNumber: 982,
+        price: 5800,
+        rating: 3,
+        nReviews: 56,
+      },
+      {
+        roomNumber: 678,
+        price: 550,
+        rating: 5,
+        nReviews: 45,
+      },
+      {
+        roomNumber: 450,
+        price: 5300,
+        rating: 4,
+        nReviews: 39,
+      },
+      {
+        roomNumber: 350,
+        price: 5000,
+        rating: 3,
+        nReviews: 77,
+      },
+      {
+        roomNumber: 666,
+        price: 5000,
+        rating: 5,
+        nReviews: 25,
+      },
+      {
+        roomNumber: 444,
+        price: 5000,
+        rating: 3,
+        nReviews: 15,
+      },
+      {
+        roomNumber: 352,
+        price: 5000,
+        rating: 3,
+        nReviews: 55,
+      }
+    ];
 
 block content
   .search-room__container
@@ -104,86 +117,75 @@ block content
           })
         .search-room__filter-container
           +range-slider({
-            minValue: 100,
-            maxValue: 15100,
+            description: 'Стоимость за сутки пребывания в номере',
             initialLowerValue: 5000,
             initialUpperValue: 10000,
-            step: 100,
+            maxValue: 15100,
+            minValue: 100,
             name: 'Диапазон цены',
-            description: 'Стоимость за сутки пребывания в номере',
+            step: 100,
           })
         .search-room__filter-container
           +checkbox-buttons({
+            items: [
+              { value: 'Можно курить' },
+              { value: 'Можно с питомцами', checked: true },
+              { value: 'Можно пригласить гостей (до\xA010\xA0человек)', checked: true }
+            ],
             name: 'roomRules',
             title: 'Правила дома',
-            items: [{
-              value: 'Можно курить',
-            }, {
-              value: 'Можно с питомцами',
-              checked: true,
-            }, {
-              value: 'Можно пригласить гостей (до\xA010\xA0человек)',
-              checked: true,
-            }]
           })
         .search-room__filter-container
           +checkbox-buttons({
+            items: [
+              {
+                title: 'Широкий коридор',
+                description: 'Ширина коридоров в номере не\xA0менее 91 см.'
+              },
+              {
+                title: 'Помощник для инвалидов',
+                description: 'На 1 этаже вас встретит специалист и\xA0проводит до номера.'
+              }
+            ],
             name: 'accessibility',
-            title: 'Доступность',
             rich: true,
-            items: [{
-              title: 'Широкий коридор',
-              description: 'Ширина коридоров в номере не\xA0менее 91 см.'
-            }, {
-              title: 'Помощник для инвалидов',
-              description: 'На 1 этаже вас встретит специалист и\xA0проводит до номера.'
-            }]
+            title: 'Доступность',
           })
         .search-room__filter-container_smaller-margin
           +count-picker({
-            label: 'Удобства номера',
             inputText: 'Выбор удобств',
             items: facilitiesPickerItems,
-            withControlButtons: false,
+            label: 'Удобства номера',
             type: 'facilities',
+            withControlButtons: false,
           })
         .search-room__filter-container
           +expandable-checkbox-list({
+            items: [
+              { value: 'Завтрак' },
+              { value: 'Письменный стол', checked: true },
+              { value: 'Стул для кормления', checked: true },
+              { value: 'Кроватка', checked: true },
+              { value: 'Телевизор' },
+              { value: 'Шампунь' },
+              { value: 'Телевизор' },
+              { value: 'Шампунь' },
+            ],
             title: 'Дополнительные удобства',
-            items: [{
-              value: 'Завтрак',
-            }, {
-              value: 'Письменный стол',
-              checked: true,
-            }, {
-              value: 'Стул для кормления',
-              checked: true,
-            }, {
-              value: 'Кроватка',
-              checked: true,
-            }, {
-              value: 'Телевизор',
-            }, {
-              value: 'Шампунь',
-            }, {
-              value: 'Телевизор',
-            }, {
-              value: 'Шампунь',
-            }],
           })
       .search-room__rooms-container
         +text({
           tag: 'h1',
-          text: 'Номера, которые мы для вас подобрали'
+          text: 'Номера, которые мы для вас подобрали',
         })
         .search-room__rooms
           each room in rooms
             +room-card({
-              roomNumber: room.roomNumber,
-              price: room.price,
-              roomSpecialType: room.roomSpecialType,
-              rating: room.rating,
               nReviews: room.nReviews,
+              price: room.price,
+              rating: room.rating,
+              roomNumber: room.roomNumber,
+              roomSpecialType: room.roomSpecialType,
             })
         .search-room__pagination
           +pagination()

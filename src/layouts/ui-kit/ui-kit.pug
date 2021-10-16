@@ -1,28 +1,30 @@
 block variables
 doctype html
 html(
-  class=`ui-kit_background-color_${backgroundColor}`
-  lang='ru'
+  class = `ui-kit_background-color_${backgroundColor}`
+  lang = 'ru'
 )
   head
-    meta(charset='UTF-8')
     meta(
-      name='viewport'
-      content='width=device-width, initial-scale=1.0'
+      charset = 'UTF-8'
     )
     meta(
-      name='description'
-      content=description,
+      content = 'width=device-width, initial-scale=1.0'
+      name = 'viewport'
     )
     meta(
-      name='keywords'
-      content=keywords
+      content = description
+      name = 'description'
+    )
+    meta(
+      content = keywords
+      name = 'keywords'
     )
     title #{title}
   body
     header.ui-kit__header
       img(
-        src=require('../../layouts/ui-kit/img/bw-site-logo.svg')
-        alt='Toxin Logo'
+        alt = 'Toxin Logo'
+        src = require('../../layouts/ui-kit/img/bw-site-logo.svg')
       )
     block content

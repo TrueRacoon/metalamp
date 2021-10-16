@@ -8,8 +8,8 @@ mixin registration-card()
       fieldset.registration-card__fieldset
         legend.registration-card__legend
           +text({
-            text: 'Регистрация аккаунта',
             tag: 'h1',
+            text: 'Регистрация аккаунта',
           })
         .registration-card__container
           +input({
@@ -25,29 +25,37 @@ mixin registration-card()
           })
         .registration-card__container
           +radio-buttons({
-            name: 'gender',
             radioButtons: [
-              {value: 'Мужчина', checked: true},
-              {value: 'Женщина'},
-            ]
+              { value: 'Мужчина', checked: true },
+              { value: 'Женщина' },
+            ],
+            name: 'gender'
           })
-        .registration-card__container.registration-card__container_bigger-margin
+        .registration-card__container(
+          class = 'registration-card__container_bigger-margin'
+        )
           +text({
-            text: 'Дата рождения',
             tag: 'h3',
+            text: 'Дата рождения',
           })
-        .registration-card__container.registration-card__container_smaller-margin
+        .registration-card__container(
+          class = 'registration-card__container_smaller-margin'
+        )
           +input({
             name: 'birthday',
             placeholder: 'ДД.ММ.ГГГГ',
             type: 'text',
           })
-        .registration-card__container.registration-card__container_bigger-margin
+        .registration-card__container(
+          class = 'registration-card__container_bigger-margin'
+        )
           +text({
-            text: 'Данные для входа в сервис',
             tag: 'h3',
+            text: 'Данные для входа в сервис',
           })
-        .registration-card__container.registration-card__container_smaller-margin
+        .registration-card__container(
+          class = 'registration-card__container_smaller-margin'
+        )
           +input({
             name: 'email',
             placeholder: 'Email',
@@ -65,9 +73,15 @@ mixin registration-card()
             value: 'Получать спецпредложения'
           })
         button.registration-card__submit-button(
-          type='submit'
-        )='Зарегистрироваться'
+          type = 'submit'
+        ) Зарегистрироваться
     .registration-card__signup-block
-      span.registration-card__signup-label='Уже есть аккаунт на Toxin'
-      a(href='signup.html')
-        button.registration-card__button.registration-card__button_outlined.registration-card__button_size_fixed='Войти'
+      span.registration-card__signup-label Уже есть аккаунт на Toxin
+      a(
+        href = 'signup.html'
+      )
+        button.registration-card__button(
+          class = 'registration-card__button_outlined'
+          class = 'registration-card__button_size_fixed'
+          type = 'button'
+        ) Войти
