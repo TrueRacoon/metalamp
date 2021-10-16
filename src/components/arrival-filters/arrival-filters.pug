@@ -11,7 +11,7 @@ mixin arrival-filters(props)
       ],
       initialArrivalDate = '',
       initialDepartureDate = '',
-      singleDateInput = false,
+      isSingleDateInput = false,
     } = props || {};
 
   .arrival-filters.js-arrival-filters
@@ -19,7 +19,7 @@ mixin arrival-filters(props)
       +date-filter({
         initialArrivalDate,
         initialDepartureDate,
-        singleDateInput,
+        isSingleDateInput,
         arrivalLabel: 'Прибытие',
         dateFilterLabel: 'Даты пребывания в отеле',
         departureLabel: 'Выезд',

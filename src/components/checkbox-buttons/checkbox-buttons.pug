@@ -5,7 +5,7 @@ mixin checkbox-buttons(props)
     var {
       items = [],
       name = '',
-      rich = false,
+      isRich = false,
       title = undefined,
     } = props || {};
 
@@ -25,7 +25,7 @@ mixin checkbox-buttons(props)
           value = item.value || item.title
         )
         .checkbox-buttons__checkmark
-        if rich
+        if isRich
           .checkbox-buttons__item-text
             .checkbox-buttons__item-title #{item.title}
             .checkbox-buttons__item-description #{item.description}

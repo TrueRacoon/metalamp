@@ -10,13 +10,13 @@ mixin date-filter(props)
       departureLabel = '',
       initialArrivalDate = '',
       initialDepartureDate = '',
-      singleDateInput = false,
+      isSingleDateInput = false,
     } = props || {};
 
   .date-filter.js-date-filter(
-    class=`${singleDateInput ? 'date-filter_single-date-input' : ''}`
+    class=`${isSingleDateInput ? 'date-filter_single-date-input' : ''}`
   )
-    if singleDateInput
+    if isSingleDateInput
       +dropdown-block({
         initialArrivalDate,
         initialDepartureDate,
@@ -51,7 +51,7 @@ mixin date-filter(props)
           withDropdownButton: true,
         })
     .date-filter__calendar-container.js-date-filter__calendar-container(
-      class = `${singleDateInput ? 'date-filter__calendar-container_offset_small' : ''}`
+      class = `${isSingleDateInput ? 'date-filter__calendar-container_offset_small' : ''}`
     )
       +calendar()
 
