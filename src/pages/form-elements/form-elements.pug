@@ -52,11 +52,11 @@ block variables
     var richCheckboxItems = [
       {
         title: 'Широкий коридор',
-        description: 'Ширина коридоров в номере не\xA0менее 91 см.'
+        description: 'Ширина коридоров в номере не\xA0менее 91 см.',
       },
       {
         title: 'Помощник для инвалидов',
-        description: 'На 1 этаже вас встретит специалист и\xA0проводит до номера.'
+        description: 'На 1 этаже вас встретит специалист и\xA0проводит до номера.',
       },
     ];
 
@@ -78,6 +78,36 @@ block variables
       nPages: 15,
       nRoomsPerPage: 12,
       nRoomsPlus: 100,
+    };
+
+    var checkboxButtonsData = [
+      { value: 'Можно курить' },
+      { value: 'Можно с питомцами', checked: true },
+      { value: 'Можно пригласить гостей (до\xA010\xA0человек)', checked: true }
+    ];
+
+    var rangeSliderData = {
+      initialLowerValue: 5000,
+      initialUpperValue: 10000,
+      maxValue: 15100,
+      minValue: 100,
+      name: 'Range slider',
+      step: 100,
+    };
+
+    var bulletListData = [
+      'Нельзя с питомцами',
+      'Без вечеринок и мероприятий',
+      'Время прибытия — после 13:00, а\xa0выезд до 12:00',
+    ];
+
+    var reviewData = {
+      date: '5 дней назад',
+      likePressed: true,
+      nLikes: 12,
+      text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+      userId: 1,
+      username: 'Мурад Сарафанов',
     };
 
 block content
@@ -171,10 +201,7 @@ block content
             text: 'Checkbox buttons',
           })
         +checkbox-buttons({
-          items: [
-            { value: 'Можно курить' },
-            { value: 'Можно с питомцами', checked: true },
-            { value: 'Можно пригласить гостей (до\xA010\xA0человек)', checked: true }],
+          items: checkboxButtonsData,
           name: 'roomRules'
         })
       .elements__element(
@@ -260,14 +287,7 @@ block content
         .elements__element(
           class = 'elements__element_bottom-margin_bigger'
         )
-          +range-slider({
-            initialLowerValue: 5000,
-            initialUpperValue: 10000,
-            maxValue: 15100,
-            minValue: 100,
-            name: 'Range slider',
-            step: 100,
-          })
+          +range-slider(rangeSliderData)
       .elements__element(
         class = 'elements__element_bottom-margin_bigger'
       )
@@ -401,11 +421,7 @@ block content
         })
       .elements__element
         +bullet-list({
-          list: [
-            'Нельзя с питомцами',
-            'Без вечеринок и мероприятий',
-            'Время прибытия — после 13:00, а\xa0выезд до 12:00',
-          ],
+          list: bulletListData,
         })
     .elements__block(
       class = 'elements__block_column_first'
@@ -418,11 +434,4 @@ block content
       class = 'elements__block_wide'
     )
       .elements__element
-        +review({
-          date: '5 дней назад',
-          likePressed: true,
-          nLikes: 12,
-          text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-          userId: 1,
-          username: 'Мурад Сарафанов',
-        })
+        +review(reviewData)
