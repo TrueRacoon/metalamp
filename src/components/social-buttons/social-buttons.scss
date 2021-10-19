@@ -16,10 +16,4 @@
       margin-right: 0;
     }
   }
-
-  &__img {
-    :hover {
-      fill: darken($color-purple, 10%);
-    }
-  }
 }
