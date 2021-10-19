@@ -14,7 +14,7 @@ mixin booking-card(props)
       initialDepartureDate = '',
       price = 0,
       roomNumber = 0,
-      roomType = '',
+      roomSpecialType = '',
     } = props || {};
 
     function formatSum(sum) {
@@ -30,8 +30,8 @@ mixin booking-card(props)
           +room-number-and-price({
             price,
             roomNumber,
+            roomSpecialType,
             isRoomDetailsBlock: true,
-            roomSpecialType: roomType,
           })
         +arrival-filters({
           initialArrivalDate,
