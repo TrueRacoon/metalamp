@@ -1,21 +1,12 @@
-mixin text(opts)
+mixin text(props)
   -
     var {
-      classes = [],
-      modifiers = [],
+      align = undefined,
       tag = '',
       text = '',
-    } = opts || {};
-
-    var additionalClasses = classes;
-    var classes = `text text_tag_${tag}`;
-    additionalClasses.forEach((className) => {
-      classes += ' ' + className;
-    });
-    modifiers?.forEach((modifier) => {
-      classes += ` text_${modifier}`
-    })
+    } = props || {};
 
   #{tag}(
-    class = classes
+    class = `text js-text text_tag_${tag}`
+    class = (align ? `text_align_${align}` : null)
   )= text

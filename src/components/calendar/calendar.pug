@@ -11,10 +11,10 @@ mixin calendar()
         class = 'js-calendar__month-nav-button_prev'
         type = 'button'
       )
-      +text({
-        classes: ['js-calendar__top-text'],
-        tag: 'h2',
-      })
+      .js-calendar__top-text
+        +text({
+          tag: 'h2',
+        })
       button.calendar__month-nav-button(
         class = 'calendar__month-nav-button_next'
         class = 'js-calendar__month-nav-button_next'

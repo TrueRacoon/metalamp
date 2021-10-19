@@ -8,7 +8,7 @@ class Calendar {
     this.setCalendarReferenceData();
     this.prevMonthButton = this.calendarDom.querySelector('.js-calendar__month-nav-button_prev');
     this.nextMonthButton = this.calendarDom.querySelector('.js-calendar__month-nav-button_next');
-    this.topText = this.calendarDom.querySelector('.js-calendar__top-text');
+    this.topText = this.calendarDom.querySelector('.js-calendar__top-text .js-text');
     this.tableBody = this.calendarDom.querySelector('.js-calendar__table-body');
     this.clearButton = this.calendarDom.querySelector('.js-calendar__clear-button');
     this.today = new Date();
@@ -176,7 +176,7 @@ class Calendar {
   }
 
   _setCalendarLabelText = () => {
-    this.topText.innerHTML = `${this._getCalendarMonthName()} ${this.calendarYear}`;
+    this.topText.innerText = `${this._getCalendarMonthName()} ${this.calendarYear}`;
   };
 
   _getLocalDayOfWeek = (date) => {

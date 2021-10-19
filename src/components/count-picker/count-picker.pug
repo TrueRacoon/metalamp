@@ -32,9 +32,8 @@ mixin count-picker(props)
               class = 'js-count-picker__button_type_minus'
               type = 'button'
             ) -
-            .count-picker__item-value-container
+            .count-picker__item-value-container.js-count-picker__item-value-container
               +text({
-                classes: ['js-count-picker__item-value'],
                 tag: 'h3',
                 text: item.count.toString(),
               })

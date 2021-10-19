@@ -13,10 +13,10 @@ class CountPicker {
     const items = [...this.countPickerDom.getElementsByClassName('js-count-picker__item')];
     items.forEach((item) => {
       const label = item.querySelector('.js-count-picker__item-label').innerText;
-      this.itemsModel[label] = parseInt(item.querySelector('.js-count-picker__item-value').innerText, 10);
+      this.itemsModel[label] = parseInt(item.querySelector('.js-count-picker__item-value-container').innerText, 10);
       this.itemsDoms[label] = {
         minusButton: item.querySelector('.js-count-picker__button_type_minus'),
-        itemValue: item.querySelector('.js-count-picker__item-value'),
+        itemValue: item.querySelector('.js-count-picker__item-value-container .js-text'),
         plusButton: item.querySelector('.js-count-picker__button_type_plus'),
       };
       if (this.itemsModel[label] === 0) {
