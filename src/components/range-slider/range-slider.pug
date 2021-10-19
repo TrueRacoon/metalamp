@@ -8,13 +8,16 @@ mixin range-slider(props)
       initialUpperValue = 0,
       maxValue = 0,
       minValue = 0,
-      name = '',
+      label = '',
       step = 1,
     } = props || {};
 
   .range-slider.js-range-slider
     .range-slider__details
-      +text({ tag: 'h3', text: name })
+      +text({
+        tag: 'h3',
+        text: label,
+      })
       .range-slider__label.js-range-slider__range-label(
         data-initial-lower-value = initialLowerValue
         data-initial-upper-value = initialUpperValue
