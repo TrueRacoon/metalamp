@@ -24,10 +24,10 @@ mixin checkbox-buttons(props)
           type = 'checkbox'
           value = item.value || item.title
         )
-        .checkbox-buttons__checkmark
+        span.checkbox-buttons__checkmark
         if isRich
-          .checkbox-buttons__item-text
-            .checkbox-buttons__item-title #{item.title}
-            .checkbox-buttons__item-description #{item.description}
+          span.checkbox-buttons__item-text
+            span.checkbox-buttons__item-title #{item.title}
+            span.checkbox-buttons__item-description #{item.description}
         else
-          .checkbox-buttons__item-value #{item.value}
+          span.checkbox-buttons__item-value #{item.value}

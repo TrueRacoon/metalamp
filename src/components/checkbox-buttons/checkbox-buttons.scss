@@ -50,17 +50,19 @@
     display: block;
   }
 
-  &__item-title {
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: transparentize($color-dark-shade, 0.25);
-  }
-
   &__item-text {
     margin-top: 1px;
   }
 
+  &__item-title {
+    margin-bottom: 6px;
+    display: block;
+    font-weight: bold;
+    color: transparentize($color-dark-shade, 0.25);
+  }
+
   &__item-description {
+    display: block;
     font-size: 12px;
     line-height: 14px;
   }

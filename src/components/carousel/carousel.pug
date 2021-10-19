@@ -24,7 +24,7 @@ mixin carousel(props)
           class = 'carousel__control_forward'
           for = `${roomNumber}${(index === slides.length - 1) ? slides[0] : slides[index + 1]}`
         )
-    .carousel__track
+    ul.carousel__track
       each _, i in slides
         li.carousel__slide
           img.carousel__img(
