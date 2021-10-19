@@ -24,12 +24,12 @@ mixin signin-card()
         button.signin-card__submit-button(
           type = 'submit'
         ) Войти
-    .signin-card__signup-block
+    form.signin-card__signup-block(
+      action = 'registration.html'
+    )
       span.signin-card__signup-label Нет аккаунта на Toxin?
-      a(
-        href='registration.html'
-      )
-        button.signin-card__button(
-          class = 'signin-card__button_outlined'
-          class = 'signin-card__button_size_fixed'
-        ) Создать
+      button.signin-card__button(
+        class = 'signin-card__button_outlined'
+        class = 'signin-card__button_size_fixed'
+        type = 'submit'
+      ) Создать

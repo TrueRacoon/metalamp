@@ -75,13 +75,12 @@ mixin registration-card()
         button.registration-card__submit-button(
           type = 'submit'
         ) Зарегистрироваться
-    .registration-card__signup-block
+    form.registration-card__signup-block(
+      action = 'signin.html'
+    )
       span.registration-card__signup-label Уже есть аккаунт на Toxin
-      a(
-        href = 'signup.html'
-      )
-        button.registration-card__button(
-          class = 'registration-card__button_outlined'
-          class = 'registration-card__button_size_fixed'
-          type = 'button'
-        ) Войти
+      button.registration-card__button(
+        class = 'registration-card__button_outlined'
+        class = 'registration-card__button_size_fixed'
+        type = 'submit'
+      ) Войти
