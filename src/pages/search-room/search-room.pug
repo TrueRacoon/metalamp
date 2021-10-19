@@ -168,14 +168,14 @@ block content
           +checkbox-buttons({
             items: roomRulesList,
             name: 'roomRules',
-            title: 'Правила дома',
+            label: 'Правила дома',
           })
         .search-room__filter-container
           +checkbox-buttons({
             items: accessibilityList,
             name: 'accessibility',
             isRich: true,
-            title: 'Доступность',
+            label: 'Доступность',
           })
         .search-room__filter-container_smaller-margin
           +count-picker({
@@ -188,7 +188,7 @@ block content
         .search-room__filter-container
           +expandable-checkbox-list({
             items: additionalFacilitiesList,
-            title: 'Дополнительные удобства',
+            label: 'Дополнительные удобства',
           })
       .search-room__rooms-container
         +text({

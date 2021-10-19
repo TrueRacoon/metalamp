@@ -6,15 +6,15 @@ mixin checkbox-buttons(props)
       items = [],
       name = '',
       isRich = false,
-      title = undefined,
+      label = undefined,
     } = props || {};
 
   .checkbox-buttons
-    if title
+    if label
       .checkbox-buttons__title
         +text({
           tag: 'h3',
-          text: title,
+          text: label,
         })
     each item in items
       label.checkbox-buttons__label

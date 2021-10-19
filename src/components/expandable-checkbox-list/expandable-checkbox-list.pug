@@ -5,18 +5,18 @@ mixin expandable-checkbox-list(props)
   -
     var {
       items = [],
-      title = '',
+      label = '',
     } = props || {};
 
   .expandable-checkbox-list.js-expandable-checkbox-list
     .expandable-checkbox-list__dropdown
       +text({
         tag: 'h3',
-        text: title,
+        text: label,
       })
       .expandable-checkbox-list__dropdown-button.js-expandable-checkbox-list__dropdown-button
     .expandable-checkbox-list__dropdown-content.js-expandable-checkbox-list__dropdown-content
       +checkbox-buttons({
         items,
-        name: title,
+        name: label,
       })
