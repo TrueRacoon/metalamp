@@ -12,7 +12,7 @@ mixin room-number-and-price(props)
 
     var price = props.price ? formatSum(props.price) : '';
 
-  .room-number-and-price
+  span.room-number-and-price
     a(
       class = `${isRoomDetailsBlock ? '' : 'room-number-and-price__link'}`
       href = isRoomDetailsBlock ? null : 'room-details.html'
