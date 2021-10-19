@@ -15,9 +15,9 @@ mixin review(props)
     .review__avatar-and-likes
       img.review__avatar(
         alt = `Аватар пользователя ${username}`
-        height = '44px'
+        height = 44
         src = require(`../../img/users-avatars/user-${userId}-avatar.jpg`)
-        width = '44px'
+        width = 44
       )
       .review__like-button
         +like-button({
