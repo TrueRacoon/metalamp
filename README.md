@@ -9,7 +9,7 @@
 - [Search Room](https://trueracoon.github.io/metalamp/search-room.html)
 - [Room Details](https://trueracoon.github.io/metalamp/room-details.html)
 
-## UI-Kit pages:
+## UI-Kit pages demo:
 - [Palette and Typography](https://trueracoon.github.io/metalamp/palette-and-typography.html)
 - [Cards](https://trueracoon.github.io/metalamp/cards.html)
 - [Form Elements](https://trueracoon.github.io/metalamp/form-elements.html)
